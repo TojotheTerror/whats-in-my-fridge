@@ -1,0 +1,724 @@
+[
+  {
+    "id": "spaghetti-aglio-e-olio",
+    "name": "Spaghetti aglio e olio",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Italian",
+    "minutes": 20,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "pasta", "qty": 8, "unit": "oz", "note": "spaghetti"},
+      {"item": "garlic", "qty": 5, "unit": "clove", "note": "thinly sliced"},
+      {"item": "olive oil", "qty": 0.33, "unit": "cup"},
+      {"item": "red pepper flakes", "qty": 0.5, "unit": "tsp"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "chopped parsley", "optional": true},
+      {"item": "parmesan", "qty": 0.25, "unit": "cup", "note": "grated", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Bring a large pot of well-salted water to a boil and cook the spaghetti 1 minute less than the package says; save 1 cup of the pasta water before draining.",
+      "While the pasta cooks, put the olive oil and garlic in a large cold pan and heat over medium-low for 3–4 minutes, until the garlic is pale golden (don't let it brown or it turns bitter).",
+      "Stir in the red pepper flakes, then add the drained spaghetti and 1/2 cup of the pasta water.",
+      "Toss over medium heat for 1–2 minutes until the sauce clings and looks glossy, adding a splash more water if dry.",
+      "Season with salt, then top with parsley and parmesan if using."
+    ]
+  },
+  {
+    "id": "penne-tomato-sauce",
+    "name": "Penne with tomato sauce",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Italian",
+    "minutes": 30,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "pasta", "qty": 1, "unit": "lb", "note": "penne"},
+      {"item": "canned tomatoes", "qty": 1, "unit": "can", "note": "28 oz, crushed"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "olive oil", "qty": 3, "unit": "tbsp"},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp"},
+      {"item": "sugar", "qty": 1, "unit": "pinch", "optional": true},
+      {"item": "parmesan", "qty": 0.5, "unit": "cup", "note": "grated, for serving"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "basil", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the olive oil in a saucepan over medium heat, add the garlic, and cook 1 minute until fragrant.",
+      "Pour in the crushed tomatoes, add the italian seasoning, a pinch of sugar if the tomatoes taste sour, and 1/2 tsp salt; simmer on low for 15–20 minutes, stirring now and then.",
+      "Meanwhile, cook the penne in a large pot of salted boiling water according to the package; drain.",
+      "Toss the penne with the sauce and serve topped with parmesan and torn basil if you have it."
+    ]
+  },
+  {
+    "id": "spaghetti-bolognese",
+    "name": "Spaghetti bolognese",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 50,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "ground beef", "qty": 1, "unit": "lb"},
+      {"item": "pasta", "qty": 1, "unit": "lb", "note": "spaghetti"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "finely diced"},
+      {"item": "carrots", "qty": 1, "unit": "", "note": "finely diced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "canned tomatoes", "qty": 1, "unit": "can", "note": "28 oz, crushed"},
+      {"item": "tomato paste", "qty": 2, "unit": "tbsp"},
+      {"item": "olive oil", "qty": 1, "unit": "tbsp"},
+      {"item": "parmesan", "qty": 0.5, "unit": "cup", "note": "grated, for serving"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the olive oil in a large pot over medium heat; add the onion and carrot and cook 6–8 minutes until soft. Add the garlic for 1 minute.",
+      "Turn the heat to medium-high, add the ground beef, and cook 6–8 minutes, breaking it up, until browned with no pink left and it reaches 160°F.",
+      "Stir in the tomato paste for 1 minute, then add the crushed tomatoes and 1 tsp salt. Simmer uncovered on low for 25–30 minutes, stirring occasionally, until thick.",
+      "Near the end, cook the spaghetti in salted boiling water according to the package; drain.",
+      "Toss the spaghetti with the sauce and serve with parmesan."
+    ]
+  },
+  {
+    "id": "baked-ziti",
+    "name": "Baked ziti",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 50,
+    "serves": 6,
+    "veg": true,
+    "ingredients": [
+      {"item": "pasta", "qty": 1, "unit": "lb", "note": "ziti or penne"},
+      {"item": "pasta sauce", "qty": 24, "unit": "oz", "note": "1 jar marinara"},
+      {"item": "mozzarella", "qty": 2, "unit": "cup", "note": "shredded"},
+      {"item": "parmesan", "qty": 0.5, "unit": "cup", "note": "grated"},
+      {"item": "cream cheese", "qty": 4, "unit": "oz", "note": "softened (stands in for ricotta)", "optional": true},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oven to 375°F. Cook the pasta in salted boiling water for 2 minutes less than the package says, then drain.",
+      "In the empty pot, stir the marinara, italian seasoning, and cream cheese (if using) over low heat until smooth, then mix in the pasta and half the mozzarella.",
+      "Spread in a 9x13-inch baking dish and top with the remaining mozzarella and the parmesan.",
+      "Bake uncovered 20–25 minutes until bubbling and the cheese is melted and golden in spots. Rest 5 minutes before serving."
+    ]
+  },
+  {
+    "id": "creamy-garlic-chicken-pasta",
+    "name": "Creamy garlic chicken pasta",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 30,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken breast", "qty": 1, "unit": "lb", "note": "cut into bite-size pieces"},
+      {"item": "pasta", "qty": 12, "unit": "oz", "note": "penne or fettuccine"},
+      {"item": "garlic", "qty": 4, "unit": "clove", "note": "minced"},
+      {"item": "heavy cream", "qty": 1, "unit": "cup"},
+      {"item": "parmesan", "qty": 0.75, "unit": "cup", "note": "grated"},
+      {"item": "butter", "qty": 1, "unit": "tbsp"},
+      {"item": "olive oil", "qty": 1, "unit": "tbsp"},
+      {"item": "spinach", "qty": 2, "unit": "handful", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Cook the pasta in salted boiling water according to the package; save 1/2 cup pasta water, then drain.",
+      "Season the chicken with salt and pepper. Heat the olive oil in a large pan over medium-high heat and cook the chicken 6–8 minutes, stirring, until golden and cooked through to 165°F; move to a plate.",
+      "Lower the heat to medium, melt the butter, and cook the garlic 1 minute. Pour in the cream and simmer gently 3 minutes.",
+      "Stir in the parmesan until melted, then add the spinach (if using) until wilted.",
+      "Return the chicken, add the pasta, and toss, loosening with pasta water as needed. Season to taste and serve."
+    ]
+  },
+  {
+    "id": "pasta-primavera",
+    "name": "Pasta primavera",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Italian",
+    "minutes": 30,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "pasta", "qty": 12, "unit": "oz", "note": "penne or farfalle"},
+      {"item": "zucchini", "qty": 1, "unit": "", "note": "halved and sliced"},
+      {"item": "bell pepper", "qty": 1, "unit": "", "note": "sliced"},
+      {"item": "broccoli", "qty": 2, "unit": "cup", "note": "small florets"},
+      {"item": "cherry tomatoes", "qty": 1, "unit": "cup", "note": "halved"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "olive oil", "qty": 3, "unit": "tbsp"},
+      {"item": "parmesan", "qty": 0.5, "unit": "cup", "note": "grated"},
+      {"item": "lemon", "qty": 0.5, "unit": "", "note": "juiced"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Cook the pasta in salted boiling water; add the broccoli for the last 3 minutes. Save 1/2 cup pasta water, then drain together.",
+      "Meanwhile, heat the olive oil in a large pan over medium-high heat and cook the zucchini and bell pepper 5–6 minutes until tender-crisp.",
+      "Add the garlic and cherry tomatoes and cook 2 minutes until the tomatoes just soften.",
+      "Add the pasta and broccoli, the lemon juice, the parmesan, and a splash of pasta water; toss over low heat 1 minute, season with salt, and serve."
+    ]
+  },
+  {
+    "id": "pasta-e-ceci",
+    "name": "Pasta e ceci (chickpea pasta soup)",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Italian",
+    "minutes": 35,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "canned chickpeas", "qty": 2, "unit": "can", "note": "15 oz each, drained and rinsed"},
+      {"item": "pasta", "qty": 1, "unit": "cup", "note": "small shapes like ditalini or broken spaghetti"},
+      {"item": "chicken broth", "qty": 4, "unit": "cup", "note": "use vegetable broth to keep it vegetarian"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "tomato paste", "qty": 2, "unit": "tbsp"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "parmesan", "qty": 0.25, "unit": "cup", "note": "grated, for serving"},
+      {"item": "red pepper flakes", "qty": null, "unit": "", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the olive oil in a pot over medium heat and cook the onion 5 minutes until soft; add the garlic and a pinch of red pepper flakes for 1 minute.",
+      "Stir in the tomato paste for 1 minute, then add the chickpeas and vegetable broth and bring to a boil.",
+      "Scoop out about 1 cup of the chickpeas, mash them with a fork, and stir them back in to thicken the soup.",
+      "Add the pasta and simmer over medium-low 10–12 minutes, stirring often, until tender; add a splash of water if it gets too thick.",
+      "Season with salt and serve with parmesan and a drizzle of olive oil."
+    ]
+  },
+  {
+    "id": "lemon-garlic-shrimp-pasta",
+    "name": "Lemon garlic shrimp pasta",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 25,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "shrimp", "qty": 1, "unit": "lb", "note": "peeled and deveined, thawed if frozen"},
+      {"item": "pasta", "qty": 12, "unit": "oz", "note": "spaghetti or linguine"},
+      {"item": "garlic", "qty": 4, "unit": "clove", "note": "minced"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "zested and juiced"},
+      {"item": "butter", "qty": 3, "unit": "tbsp"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "red pepper flakes", "qty": null, "unit": "", "optional": true},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "chopped parsley", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Cook the pasta in salted boiling water according to the package; save 1/2 cup pasta water, then drain.",
+      "Pat the shrimp dry and season with salt. Heat the olive oil in a large pan over medium-high heat and cook the shrimp 1–2 minutes per side until pink and opaque; move to a plate.",
+      "Lower the heat to medium, add the butter, garlic, and red pepper flakes, and cook 1 minute.",
+      "Add the lemon zest, lemon juice, pasta, and a splash of pasta water; toss until glossy.",
+      "Return the shrimp, toss to warm through, and serve topped with parsley."
+    ]
+  },
+  {
+    "id": "sausage-and-peppers",
+    "name": "Sausage and peppers",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 35,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "sausage", "qty": 1, "unit": "lb", "note": "Italian sausage links"},
+      {"item": "bell pepper", "qty": 3, "unit": "", "note": "mixed colors, sliced into strips"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "sliced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp"},
+      {"item": "olive oil", "qty": 1, "unit": "tbsp"},
+      {"item": "bread", "qty": 4, "unit": "piece", "note": "hoagie rolls, for serving", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the olive oil in a large skillet over medium heat and brown the sausage links 8–10 minutes, turning, then move to a plate and slice into thick coins.",
+      "In the same pan, cook the bell pepper strips and onion with a pinch of salt for 8–10 minutes, stirring, until soft and lightly browned.",
+      "Add the garlic and italian seasoning and cook 1 minute.",
+      "Return the sausage, cover, and cook on medium-low 5–6 minutes until the sausage reaches 160°F inside. Serve as is or piled into the rolls (bread)."
+    ]
+  },
+  {
+    "id": "chicken-parmesan",
+    "name": "Chicken parmesan",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 45,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken breast", "qty": 2, "unit": "", "note": "large, sliced in half horizontally into 4 cutlets"},
+      {"item": "eggs", "qty": 1, "unit": ""},
+      {"item": "breadcrumbs", "qty": 1, "unit": "cup"},
+      {"item": "parmesan", "qty": 0.5, "unit": "cup", "note": "grated, divided"},
+      {"item": "pasta sauce", "qty": 1.5, "unit": "cup", "note": "marinara"},
+      {"item": "mozzarella", "qty": 1, "unit": "cup", "note": "shredded"},
+      {"item": "vegetable oil", "qty": 3, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oven to 425°F. Season the chicken cutlets with salt. Beat the egg in a shallow bowl; mix the breadcrumbs with half the parmesan in another.",
+      "Dip each cutlet in egg, then press into the breadcrumb mix to coat.",
+      "Heat the oil in a large oven-safe skillet over medium-high heat and fry the cutlets 2–3 minutes per side until golden and crisp.",
+      "Spoon the marinara over the chicken and top with the mozzarella and remaining parmesan.",
+      "Bake 10–12 minutes until the cheese is bubbly and the chicken reaches 165°F inside. Serve with pasta or salad."
+    ]
+  },
+  {
+    "id": "caprese-salad",
+    "name": "Caprese salad",
+    "meal": ["lunch", "snack"],
+    "cuisine": "Italian",
+    "minutes": 10,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "tomatoes", "qty": 2, "unit": "", "note": "large ripe, sliced"},
+      {"item": "mozzarella", "qty": 8, "unit": "oz", "note": "fresh ball, sliced"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "basil leaves"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "vinegar", "qty": 1, "unit": "tsp", "note": "balsamic if you have it", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Arrange the tomato and mozzarella slices on a plate, overlapping and alternating.",
+      "Tuck basil leaves between the slices.",
+      "Drizzle with the olive oil and a little vinegar if using, then sprinkle with salt and pepper and serve right away."
+    ]
+  },
+  {
+    "id": "bruschetta",
+    "name": "Bruschetta",
+    "meal": ["snack", "lunch"],
+    "cuisine": "Italian",
+    "minutes": 15,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "bread", "qty": 8, "unit": "slice", "note": "baguette or crusty bread, 1/2 inch thick"},
+      {"item": "tomatoes", "qty": 3, "unit": "", "note": "ripe, diced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "1 minced, 1 halved"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "basil, chopped"},
+      {"item": "olive oil", "qty": 3, "unit": "tbsp"},
+      {"item": "vinegar", "qty": 1, "unit": "tsp", "note": "balsamic if you have it", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Mix the tomatoes, minced garlic, basil, 2 tbsp olive oil, vinegar if using, and 1/2 tsp salt in a bowl; let sit 5 minutes.",
+      "Brush the bread slices with the remaining oil and toast under the broiler on high (or in a toaster) 1–2 minutes per side until golden and crisp.",
+      "Rub the warm toast with the cut side of the halved garlic clove.",
+      "Spoon the tomato mixture onto the toast just before serving so it stays crisp."
+    ]
+  },
+  {
+    "id": "minestrone",
+    "name": "Minestrone",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Italian",
+    "minutes": 45,
+    "serves": 6,
+    "veg": true,
+    "ingredients": [
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "carrots", "qty": 2, "unit": "", "note": "diced"},
+      {"item": "celery", "qty": 2, "unit": "piece", "note": "stalks, diced"},
+      {"item": "zucchini", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "canned tomatoes", "qty": 1, "unit": "can", "note": "14.5 oz, diced"},
+      {"item": "chicken broth", "qty": 6, "unit": "cup", "note": "use vegetable broth to keep it vegetarian"},
+      {"item": "canned chickpeas", "qty": 1, "unit": "can", "note": "drained (or any white beans)"},
+      {"item": "pasta", "qty": 0.75, "unit": "cup", "note": "small shapes"},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the olive oil in a large pot over medium heat and cook the onion, carrots, and celery 8 minutes until softened.",
+      "Add the zucchini and italian seasoning and cook 2 minutes.",
+      "Add the diced tomatoes, vegetable broth, and chickpeas; bring to a boil, then simmer on low 15 minutes.",
+      "Stir in the pasta and simmer 10 minutes more until tender. Season with salt and serve, with parmesan on top if you like."
+    ]
+  },
+  {
+    "id": "tuscan-chickpea-spinach-stew",
+    "name": "Tuscan chickpea and spinach stew",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Italian",
+    "minutes": 30,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "canned chickpeas", "qty": 2, "unit": "can", "note": "drained and rinsed"},
+      {"item": "spinach", "qty": 5, "unit": "oz", "note": "about 5 big handfuls"},
+      {"item": "canned tomatoes", "qty": 1, "unit": "can", "note": "14.5 oz, diced"},
+      {"item": "chicken broth", "qty": 1.5, "unit": "cup", "note": "use vegetable broth to keep it vegetarian"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "parmesan", "qty": 0.25, "unit": "cup", "note": "grated", "optional": true},
+      {"item": "bread", "qty": 4, "unit": "slice", "note": "crusty, for serving", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the olive oil in a pot over medium heat and cook the onion 5 minutes until soft; add the garlic and italian seasoning for 1 minute.",
+      "Add the chickpeas, diced tomatoes, and vegetable broth; simmer on medium-low 15 minutes, lightly mashing a few chickpeas to thicken.",
+      "Stir in the spinach a handful at a time until wilted, about 2 minutes. Season with salt.",
+      "Serve topped with parmesan, with crusty bread for dipping."
+    ]
+  },
+  {
+    "id": "mushroom-risotto",
+    "name": "Mushroom risotto",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 40,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "rice", "qty": 1.5, "unit": "cup", "note": "arborio is best; regular long-grain white rice works too, just a little less creamy"},
+      {"item": "mushrooms", "qty": 8, "unit": "oz", "note": "sliced"},
+      {"item": "chicken broth", "qty": 5, "unit": "cup", "note": "kept warm; use vegetable broth to keep it vegetarian"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "finely diced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "butter", "qty": 2, "unit": "tbsp"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "parmesan", "qty": 0.5, "unit": "cup", "note": "grated"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Warm the vegetable broth in a small pot on low. Heat the olive oil in a wide pan over medium-high heat and cook the mushrooms 6–7 minutes until browned; move to a bowl.",
+      "Lower to medium, add 1 tbsp butter and the onion, and cook 4 minutes until soft; add the garlic for 30 seconds.",
+      "Add the rice (arborio, or regular white rice is fine) and stir 1 minute to coat. Add the warm broth one ladle at a time, stirring often and waiting until each is mostly absorbed, for 18–22 minutes, until the rice is tender with a slight bite.",
+      "Stir in the mushrooms, the remaining butter, and the parmesan; season with salt. It should be loose and creamy — add a splash more broth if it's stiff."
+    ]
+  },
+  {
+    "id": "chicken-piccata",
+    "name": "Chicken piccata",
+    "meal": ["dinner"],
+    "cuisine": "Italian",
+    "minutes": 30,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken breast", "qty": 2, "unit": "", "note": "large, sliced in half horizontally into 4 thin cutlets"},
+      {"item": "flour", "qty": 0.33, "unit": "cup"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "juiced"},
+      {"item": "chicken broth", "qty": 0.75, "unit": "cup"},
+      {"item": "butter", "qty": 3, "unit": "tbsp"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "chopped parsley", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Season the chicken cutlets with salt and pepper, then dredge in the flour and shake off the extra.",
+      "Heat the olive oil and 1 tbsp butter in a large skillet over medium-high heat. Cook the chicken 3–4 minutes per side until golden and it reaches 165°F; move to a plate.",
+      "Lower to medium, add the garlic for 30 seconds, then pour in the broth and lemon juice, scraping up the browned bits. Simmer 3–4 minutes until reduced by about half.",
+      "Turn off the heat, swirl in the remaining butter, return the chicken to coat it in the sauce, and top with parsley."
+    ]
+  },
+  {
+    "id": "greek-salad",
+    "name": "Greek salad",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Greek",
+    "minutes": 15,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "tomatoes", "qty": 3, "unit": "", "note": "cut into wedges"},
+      {"item": "cucumber", "qty": 1, "unit": "", "note": "halved and sliced"},
+      {"item": "red onion", "qty": 0.5, "unit": "", "note": "thinly sliced"},
+      {"item": "bell pepper", "qty": 1, "unit": "", "note": "green, sliced"},
+      {"item": "feta", "qty": 6, "unit": "oz", "note": "block or crumbled"},
+      {"item": "olive oil", "qty": 0.25, "unit": "cup"},
+      {"item": "vinegar", "qty": 1, "unit": "tbsp", "note": "red wine vinegar ideally"},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp", "note": "dried oregano"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Put the tomatoes, cucumber, red onion, and bell pepper in a large bowl.",
+      "Whisk the olive oil, vinegar, half the oregano, and a pinch of salt, then pour over the vegetables and toss.",
+      "Top with the feta, sprinkle with the remaining oregano, and serve."
+    ]
+  },
+  {
+    "id": "chicken-souvlaki-pitas",
+    "name": "Chicken souvlaki pitas",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Greek",
+    "minutes": 40,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken breast", "qty": 1.5, "unit": "lb", "note": "cut into 1-inch cubes"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "juiced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced, divided"},
+      {"item": "italian seasoning", "qty": 2, "unit": "tsp", "note": "dried oregano"},
+      {"item": "olive oil", "qty": 3, "unit": "tbsp"},
+      {"item": "pita", "qty": 4, "unit": "", "note": "warmed"},
+      {"item": "yogurt", "qty": 1, "unit": "cup", "note": "plain Greek"},
+      {"item": "cucumber", "qty": 0.5, "unit": "", "note": "grated and squeezed dry"},
+      {"item": "tomatoes", "qty": 1, "unit": "", "note": "sliced"},
+      {"item": "red onion", "qty": 0.25, "unit": "", "note": "thinly sliced"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Toss the chicken with the lemon juice, 2 tbsp olive oil, two-thirds of the garlic, the oregano, and 1 tsp salt; marinate 15 minutes (or up to 8 hours in the fridge).",
+      "Make tzatziki: mix the yogurt, grated cucumber, remaining garlic, and a pinch of salt.",
+      "Heat the remaining oil in a large skillet over medium-high heat and cook the chicken 8–10 minutes, turning, until golden and it reaches 165°F.",
+      "Fill each warm pita with chicken, tzatziki, tomato, and red onion."
+    ]
+  },
+  {
+    "id": "baked-chickpea-patties",
+    "name": "Baked chickpea patties",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Mediterranean",
+    "minutes": 35,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "canned chickpeas", "qty": 1, "unit": "can", "note": "15 oz, drained and patted dry"},
+      {"item": "breadcrumbs", "qty": 0.5, "unit": "cup"},
+      {"item": "eggs", "qty": 1, "unit": ""},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "cumin", "qty": 1, "unit": "tsp"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "parsley or cilantro, chopped", "optional": true},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "yogurt", "qty": 0.5, "unit": "cup", "note": "for dipping", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oven to 400°F and line a baking sheet with parchment.",
+      "Mash the chickpeas well with a fork or potato masher, then mix in the breadcrumbs, egg, garlic, cumin, herbs, and 1/2 tsp salt.",
+      "Shape into 8 small patties about 1/2 inch thick, place on the sheet, and brush the tops with olive oil.",
+      "Bake 20–25 minutes, flipping halfway, until golden and firm. Serve in pita or with yogurt for dipping."
+    ]
+  },
+  {
+    "id": "hummus",
+    "name": "Hummus",
+    "meal": ["snack", "lunch"],
+    "cuisine": "Mediterranean",
+    "minutes": 10,
+    "serves": 6,
+    "veg": true,
+    "ingredients": [
+      {"item": "canned chickpeas", "qty": 1, "unit": "can", "note": "15 oz, drained, liquid saved"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "juiced"},
+      {"item": "garlic", "qty": 1, "unit": "clove"},
+      {"item": "olive oil", "qty": 0.25, "unit": "cup", "note": "plus extra for drizzling"},
+      {"item": "cumin", "qty": 0.5, "unit": "tsp"},
+      {"item": "paprika", "qty": 1, "unit": "pinch", "note": "for topping", "optional": true},
+      {"item": "pita", "qty": 4, "unit": "", "note": "or carrot and cucumber sticks, for dipping", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Put the chickpeas, lemon juice, garlic, cumin, olive oil, and 1/2 tsp salt in a blender or food processor. (This is a simple tahini-free version; add 3 tbsp tahini if you have it.)",
+      "Blend 2–3 minutes, adding 2–4 tbsp of the saved chickpea liquid or cold water, until very smooth.",
+      "Taste and adjust salt and lemon, then spread in a bowl, drizzle with olive oil, and dust with paprika. Serve with pita."
+    ]
+  },
+  {
+    "id": "lemon-herb-chicken-thighs",
+    "name": "Lemon herb chicken thighs",
+    "meal": ["dinner"],
+    "cuisine": "Mediterranean",
+    "minutes": 45,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 2, "unit": "lb", "note": "bone-in, skin-on (about 6)"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "zested and juiced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "italian seasoning", "qty": 2, "unit": "tsp"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oven to 425°F. Pat the chicken thighs dry.",
+      "Mix the olive oil, lemon zest, lemon juice, garlic, italian seasoning, 1 tsp salt, and some pepper; rub all over the chicken.",
+      "Place skin-side up in a baking dish or on a sheet pan and roast 35–40 minutes until the skin is golden and crisp and the thickest part reaches 165°F.",
+      "Rest 5 minutes, then spoon the pan juices over the top to serve."
+    ]
+  },
+  {
+    "id": "greek-lemon-potatoes",
+    "name": "Greek lemon potatoes",
+    "meal": ["dinner"],
+    "cuisine": "Greek",
+    "minutes": 60,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "potatoes", "qty": 2, "unit": "lb", "note": "Yukon gold, cut into wedges"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "juiced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "chicken broth", "qty": 0.75, "unit": "cup", "note": "use vegetable broth to keep it vegetarian"},
+      {"item": "italian seasoning", "qty": 2, "unit": "tsp", "note": "dried oregano"},
+      {"item": "olive oil", "qty": 0.25, "unit": "cup"},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oven to 425°F.",
+      "In a 9x13-inch baking dish, toss the potatoes with the olive oil, lemon juice, garlic, oregano, 1 tsp salt, and pepper, then pour the vegetable broth around them.",
+      "Roast 25 minutes, flip the potatoes, and roast 20–25 minutes more until the liquid is mostly absorbed and the edges are golden and crisp.",
+      "Taste, add a squeeze more lemon or salt if needed, and serve."
+    ]
+  },
+  {
+    "id": "tuna-pasta-salad",
+    "name": "Tuna pasta salad",
+    "meal": ["lunch"],
+    "cuisine": "Mediterranean",
+    "minutes": 25,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "pasta", "qty": 8, "unit": "oz", "note": "short shapes like fusilli or penne"},
+      {"item": "canned tuna", "qty": 2, "unit": "can", "note": "5 oz each, drained"},
+      {"item": "cherry tomatoes", "qty": 1, "unit": "cup", "note": "halved"},
+      {"item": "cucumber", "qty": 0.5, "unit": "", "note": "diced"},
+      {"item": "red onion", "qty": 0.25, "unit": "", "note": "finely diced"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "juiced"},
+      {"item": "olive oil", "qty": 3, "unit": "tbsp"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "parsley or basil", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Cook the pasta in salted boiling water according to the package, drain, and rinse under cold water until cool.",
+      "Whisk the lemon juice and olive oil with 1/2 tsp salt and some pepper in a large bowl.",
+      "Add the pasta, tuna (broken into flakes), cherry tomatoes, cucumber, red onion, and herbs; toss well.",
+      "Serve right away or chill up to 3 days in the fridge."
+    ]
+  },
+  {
+    "id": "pita-pizzas",
+    "name": "Pita pizzas",
+    "meal": ["lunch", "dinner", "snack"],
+    "cuisine": "Italian",
+    "minutes": 15,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "pita", "qty": 2, "unit": ""},
+      {"item": "pasta sauce", "qty": 0.5, "unit": "cup", "note": "marinara"},
+      {"item": "mozzarella", "qty": 1, "unit": "cup", "note": "shredded"},
+      {"item": "bell pepper", "qty": 0.5, "unit": "", "note": "thinly sliced", "optional": true},
+      {"item": "mushrooms", "qty": 3, "unit": "", "note": "thinly sliced", "optional": true},
+      {"item": "italian seasoning", "qty": 0.5, "unit": "tsp"},
+      {"item": "olive oil", "qty": 1, "unit": "tsp"}
+    ],
+    "steps": [
+      "Heat the oven to 425°F. Place the pitas on a baking sheet and brush lightly with olive oil.",
+      "Spread each pita with marinara, leaving a small border, then top with mozzarella, bell pepper, and mushrooms.",
+      "Sprinkle with italian seasoning and bake 8–10 minutes until the cheese is melted and the edges are crisp."
+    ]
+  },
+  {
+    "id": "zucchini-parmesan-bake",
+    "name": "Zucchini parmesan bake",
+    "meal": ["dinner", "lunch"],
+    "cuisine": "Italian",
+    "minutes": 45,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "zucchini", "qty": 3, "unit": "", "note": "sliced into 1/4-inch rounds"},
+      {"item": "pasta sauce", "qty": 1.5, "unit": "cup", "note": "marinara"},
+      {"item": "mozzarella", "qty": 1.5, "unit": "cup", "note": "shredded"},
+      {"item": "parmesan", "qty": 0.5, "unit": "cup", "note": "grated"},
+      {"item": "breadcrumbs", "qty": 0.25, "unit": "cup"},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oven to 400°F. Toss the zucchini rounds with 1 tbsp olive oil, the italian seasoning, and a pinch of salt.",
+      "Spread a thin layer of marinara in an 8x8-inch baking dish, then layer half the zucchini, half the remaining sauce, and half the mozzarella; repeat.",
+      "Mix the parmesan, breadcrumbs, and remaining oil and scatter over the top.",
+      "Bake 25–30 minutes until bubbling, the zucchini is tender, and the top is golden. Rest 5 minutes before serving."
+    ]
+  },
+  {
+    "id": "lentil-soup",
+    "name": "Lentil soup",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Mediterranean",
+    "minutes": 45,
+    "serves": 6,
+    "veg": true,
+    "ingredients": [
+      {"item": "lentils", "qty": 1.5, "unit": "cup", "note": "dry brown or green, rinsed"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "carrots", "qty": 2, "unit": "", "note": "diced"},
+      {"item": "celery", "qty": 2, "unit": "piece", "note": "stalks, diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "canned tomatoes", "qty": 1, "unit": "can", "note": "14.5 oz, diced"},
+      {"item": "chicken broth", "qty": 6, "unit": "cup", "note": "use vegetable broth to keep it vegetarian"},
+      {"item": "cumin", "qty": 1, "unit": "tsp"},
+      {"item": "lemon", "qty": 0.5, "unit": "", "note": "juiced"},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the olive oil in a large pot over medium heat and cook the onion, carrots, and celery 8 minutes until soft; add the garlic and cumin for 1 minute.",
+      "Add the lentils, diced tomatoes, and vegetable broth; bring to a boil.",
+      "Reduce to low, cover partly, and simmer 25–30 minutes until the lentils are tender.",
+      "Stir in the lemon juice and season with salt. For a thicker soup, mash some of the lentils against the side of the pot."
+    ]
+  },
+  {
+    "id": "baked-salmon-lemon-herbs",
+    "name": "Baked salmon with lemon and herbs",
+    "meal": ["dinner"],
+    "cuisine": "Mediterranean",
+    "minutes": 20,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "salmon", "qty": 4, "unit": "piece", "note": "fillets, about 6 oz each"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "half juiced, half sliced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "parsley or dill, chopped"},
+      {"item": "italian seasoning", "qty": 1, "unit": "tsp", "note": "if you have no fresh herbs", "optional": true},
+      {"item": "olive oil", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oven to 400°F and line a baking sheet with foil or parchment.",
+      "Place the salmon skin-side down and season with salt and pepper. Mix the olive oil, lemon juice, garlic, and herbs (or italian seasoning) and spoon over the fillets; top with lemon slices.",
+      "Bake 12–15 minutes until the salmon is opaque and flakes easily with a fork (145°F in the thickest part).",
+      "Serve with the pan juices spooned over."
+    ]
+  },
+  {
+    "id": "cacio-e-pepe",
+    "name": "Cacio e pepe",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Italian",
+    "minutes": 20,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "pasta", "qty": 8, "unit": "oz", "note": "spaghetti"},
+      {"item": "parmesan", "qty": 1, "unit": "cup", "note": "very finely grated (or pecorino)"},
+      {"item": "black pepper", "qty": 2, "unit": "tsp", "note": "freshly cracked"},
+      {"item": "butter", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Cook the spaghetti in a pot of lightly salted boiling water (use less water than usual so it gets starchy) until just al dente; save 1 1/2 cups pasta water, then drain.",
+      "In a large pan over medium heat, toast the black pepper 1 minute until fragrant, then add the butter and 1/2 cup pasta water and let it bubble.",
+      "Turn the heat to low, add the spaghetti, and toss. Take the pan off the heat and add the parmesan a handful at a time, tossing constantly and adding splashes of pasta water, until a smooth, creamy sauce forms.",
+      "Serve right away with extra pepper and cheese on top."
+    ]
+  }
+]

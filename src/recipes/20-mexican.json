@@ -1,0 +1,1663 @@
+[
+  {
+    "id": "beef-tacos",
+    "name": "Beef tacos",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 25,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "finely diced"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "tortillas",
+        "qty": 8,
+        "unit": "",
+        "note": "small corn or flour"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "lettuce",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Put the ground beef and onion in a large skillet over medium-high heat and cook 8–10 minutes, breaking up the meat, until no pink remains and it reaches 160°F.",
+      "Spoon off most of the fat, then stir in the chili powder, cumin, garlic powder, a big pinch of salt and 1/3 cup water; simmer 3 minutes until saucy.",
+      "Warm the tortillas in a dry pan over medium heat for about 30 seconds per side.",
+      "Fill each tortilla with beef, then top with cheese, lettuce and salsa."
+    ]
+  },
+  {
+    "id": "chicken-quesadilla",
+    "name": "Chicken quesadilla",
+    "meal": [
+      "lunch",
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 8,
+        "unit": "oz",
+        "note": "cut into thin strips"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "tortillas",
+        "qty": 2,
+        "unit": "",
+        "note": "large flour"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.25,
+        "unit": "cup",
+        "optional": true,
+        "note": "for dipping"
+      },
+      {
+        "item": "sour cream",
+        "qty": 0.25,
+        "unit": "cup",
+        "optional": true,
+        "note": "for dipping"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Toss the chicken with the chili powder and a pinch of salt.",
+      "Heat the oil in a large skillet over medium-high heat and cook the chicken 6–8 minutes, stirring, until no longer pink inside and it reaches 165°F; move to a plate and wipe out the pan.",
+      "Lay a tortilla in the pan over medium heat, sprinkle cheese over half, add half the chicken, then a little more cheese and fold it over.",
+      "Cook 2–3 minutes per side until golden and the cheese melts; repeat with the second tortilla.",
+      "Cut into wedges and serve with salsa and sour cream if you like."
+    ]
+  },
+  {
+    "id": "bean-and-cheese-burrito",
+    "name": "Bean and cheese burrito",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 15,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "canned black beans",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz, drained and rinsed"
+      },
+      {
+        "item": "cumin",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "tortillas",
+        "qty": 2,
+        "unit": "",
+        "note": "large flour"
+      },
+      {
+        "item": "cheese",
+        "qty": 0.75,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.25,
+        "unit": "cup"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Put the black beans in a small pot with the cumin, garlic powder, a pinch of salt and 3 tbsp water.",
+      "Cook over medium heat 5 minutes, mashing about half the beans with a fork, until thick and hot.",
+      "Warm the tortillas in a dry pan or the microwave for 20 seconds so they bend without cracking.",
+      "Spread the beans down the middle of each tortilla, top with cheese and salsa, fold in the sides and roll up tightly.",
+      "Optional: toast the burritos seam-side down in a pan over medium heat for 2 minutes per side until golden."
+    ]
+  },
+  {
+    "id": "chicken-burrito-bowl",
+    "name": "Chicken burrito bowl",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 30,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 12,
+        "unit": "oz"
+      },
+      {
+        "item": "chili powder",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "rice",
+        "qty": 2,
+        "unit": "cup",
+        "note": "cooked"
+      },
+      {
+        "item": "canned black beans",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz, drained and rinsed"
+      },
+      {
+        "item": "corn",
+        "qty": 0.5,
+        "unit": "cup",
+        "note": "frozen or canned"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Rub the chicken all over with the chili powder, cumin and 1/2 tsp salt.",
+      "Heat the oil in a skillet over medium-high heat and cook the chicken 5–7 minutes per side until it reaches 165°F in the thickest part; rest 5 minutes, then slice.",
+      "Meanwhile warm the black beans and corn together in a small pot over medium heat for 4–5 minutes.",
+      "Heat the rice in the microwave for 2 minutes and squeeze in half the lime.",
+      "Divide the rice between bowls and top with beans, corn, sliced chicken and salsa; serve with the remaining lime cut into wedges."
+    ]
+  },
+  {
+    "id": "black-bean-soup",
+    "name": "Black bean soup",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 35,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "canned black beans",
+        "qty": 2,
+        "unit": "can",
+        "note": "15 oz each, drained and rinsed"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 3,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "cumin",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 3,
+        "unit": "cup",
+        "note": "use vegetable broth to keep it vegetarian"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "sour cream",
+        "qty": 0.25,
+        "unit": "cup",
+        "optional": true,
+        "note": "for topping"
+      },
+      {
+        "item": "olive oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oil in a large pot over medium heat and cook the onion 5 minutes until soft, then add the garlic and cumin and stir 1 minute.",
+      "Add the black beans, broth and salsa, bring to a boil, then lower the heat and simmer 15 minutes.",
+      "Mash about half the beans with a potato masher (or blend half the soup) to thicken it.",
+      "Squeeze in the lime juice, season with salt, and serve topped with a spoonful of sour cream if you like."
+    ]
+  },
+  {
+    "id": "turkey-chili",
+    "name": "Turkey chili",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 45,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground turkey",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "bell pepper",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 3,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "chili powder",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "canned tomatoes",
+        "qty": 1,
+        "unit": "can",
+        "note": "28 oz crushed or diced"
+      },
+      {
+        "item": "canned black beans",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz, drained and rinsed"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oil in a large pot over medium-high heat and cook the onion and bell pepper 5 minutes until softened.",
+      "Add the ground turkey and cook 6–8 minutes, breaking it up, until no pink remains and it reaches 165°F.",
+      "Stir in the garlic, chili powder, cumin and 1 tsp salt and cook 1 minute until fragrant.",
+      "Add the tomatoes, black beans and 1/2 cup water, bring to a boil, then cover partly and simmer on low for 20 minutes, stirring now and then.",
+      "Taste, add more salt if needed, and serve with cheese or sour cream if you have them."
+    ]
+  },
+  {
+    "id": "chicken-fajitas",
+    "name": "Chicken fajitas",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 30,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 1,
+        "unit": "lb",
+        "note": "cut into thin strips"
+      },
+      {
+        "item": "bell pepper",
+        "qty": 2,
+        "unit": "",
+        "note": "sliced into strips"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "sliced"
+      },
+      {
+        "item": "chili powder",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "tortillas",
+        "qty": 8,
+        "unit": "",
+        "note": "flour"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Toss the chicken with the chili powder, cumin, garlic powder, 1 tsp salt and 1 tbsp oil.",
+      "Heat a large skillet over medium-high heat and cook the chicken 6–8 minutes, stirring, until it reaches 165°F; move to a plate.",
+      "Add the remaining oil, then the bell pepper and onion; cook 5–6 minutes until soft and a little charred at the edges.",
+      "Return the chicken to the pan, squeeze over the lime juice and toss.",
+      "Warm the tortillas in a dry pan or microwave and fill with the chicken and vegetables."
+    ]
+  },
+  {
+    "id": "shrimp-tacos",
+    "name": "Shrimp tacos",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 25,
+    "serves": 3,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "shrimp",
+        "qty": 1,
+        "unit": "lb",
+        "note": "peeled and deveined, thawed if frozen"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "cabbage",
+        "qty": 2,
+        "unit": "cup",
+        "note": "thinly shredded"
+      },
+      {
+        "item": "lime",
+        "qty": 2,
+        "unit": ""
+      },
+      {
+        "item": "sour cream",
+        "qty": 0.33,
+        "unit": "cup"
+      },
+      {
+        "item": "tortillas",
+        "qty": 6,
+        "unit": "",
+        "note": "small corn or flour"
+      },
+      {
+        "item": "fresh herbs",
+        "qty": null,
+        "unit": "",
+        "note": "cilantro, chopped"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Toss the cabbage with the juice of 1 lime and a pinch of salt; set aside.",
+      "Pat the shrimp dry and toss with the chili powder, garlic powder and 1/2 tsp salt.",
+      "Heat the oil in a large skillet over medium-high heat and cook the shrimp 1–2 minutes per side until pink and opaque all the way through.",
+      "Warm the tortillas in a dry pan, then fill with cabbage and shrimp, add a spoonful of sour cream, sprinkle with cilantro and serve with the second lime in wedges."
+    ]
+  },
+  {
+    "id": "fish-tacos",
+    "name": "Fish tacos",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 25,
+    "serves": 3,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "white fish",
+        "qty": 1,
+        "unit": "lb",
+        "note": "cod or tilapia fillets"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "cabbage",
+        "qty": 2,
+        "unit": "cup",
+        "note": "thinly shredded"
+      },
+      {
+        "item": "mayo",
+        "qty": 0.25,
+        "unit": "cup"
+      },
+      {
+        "item": "lime",
+        "qty": 2,
+        "unit": ""
+      },
+      {
+        "item": "tortillas",
+        "qty": 6,
+        "unit": "",
+        "note": "small corn or flour"
+      },
+      {
+        "item": "hot sauce",
+        "qty": null,
+        "unit": "",
+        "optional": true
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Stir the mayo with the juice of 1 lime and a few dashes of hot sauce to make a quick sauce.",
+      "Pat the fish dry and season both sides with the chili powder, cumin and 1/2 tsp salt.",
+      "Heat the oil in a nonstick skillet over medium-high heat and cook the fish 3–4 minutes per side until opaque and it flakes easily with a fork; break into chunks.",
+      "Warm the tortillas, then fill with cabbage and fish, drizzle with the sauce and serve with the second lime in wedges."
+    ]
+  },
+  {
+    "id": "cheese-enchiladas",
+    "name": "Cheese enchiladas",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 40,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "canned tomatoes",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz crushed"
+      },
+      {
+        "item": "salsa",
+        "qty": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "tortillas",
+        "qty": 8,
+        "unit": "",
+        "note": "corn or small flour"
+      },
+      {
+        "item": "cheese",
+        "qty": 3,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "finely diced"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 375°F. Stir the crushed tomatoes, salsa, chili powder, cumin and 1/2 tsp salt together in a bowl to make the sauce.",
+      "Spread 1/2 cup of the sauce over the bottom of a 9x13-inch baking dish.",
+      "Warm the tortillas in the microwave for 30 seconds so they bend, then fill each with a small handful of cheese and some onion, roll up and lay seam-side down in the dish.",
+      "Pour the remaining sauce over the top and sprinkle with the rest of the cheese.",
+      "Bake 20 minutes until bubbling and the cheese is melted; rest 5 minutes before serving."
+    ]
+  },
+  {
+    "id": "chicken-tortilla-soup",
+    "name": "Chicken tortilla soup",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 40,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 3,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "chili powder",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 4,
+        "unit": "cup"
+      },
+      {
+        "item": "canned tomatoes",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz diced"
+      },
+      {
+        "item": "corn",
+        "qty": 1,
+        "unit": "cup",
+        "note": "frozen"
+      },
+      {
+        "item": "tortillas",
+        "qty": 4,
+        "unit": "",
+        "note": "corn, cut into thin strips"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat 1 tbsp oil in a large pot over medium heat and cook the onion 5 minutes until soft; add the garlic, chili powder and cumin and stir 1 minute.",
+      "Add the broth, tomatoes and whole chicken breasts, bring to a boil, then cover and simmer on low 15–20 minutes until the chicken reaches 165°F.",
+      "While it simmers, toss the tortilla strips with the remaining oil and a pinch of salt and bake at 400°F for 8–10 minutes until crisp.",
+      "Lift out the chicken, shred it with two forks and return it to the pot with the corn; simmer 5 minutes more.",
+      "Squeeze in the lime juice, season with salt, and serve topped with the crispy tortilla strips."
+    ]
+  },
+  {
+    "id": "mexican-rice",
+    "name": "Mexican rice",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 35,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "rice",
+        "qty": 1,
+        "unit": "cup",
+        "note": "uncooked long-grain"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "finely diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "tomato paste",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 2,
+        "unit": "cup",
+        "note": "use vegetable broth to keep it vegetarian"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oil in a medium saucepan over medium heat, add the rice and stir 4–5 minutes until lightly golden.",
+      "Add the onion and garlic and cook 2 minutes, then stir in the tomato paste and cumin until the rice is coated.",
+      "Pour in the broth and 1/2 tsp salt, bring to a boil, then cover tightly and cook on low for 18 minutes without lifting the lid.",
+      "Take off the heat, leave covered 5 minutes, then fluff with a fork."
+    ]
+  },
+  {
+    "id": "loaded-nachos",
+    "name": "Loaded nachos",
+    "meal": [
+      "snack",
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 25,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "tortillas",
+        "qty": 8,
+        "unit": "",
+        "note": "corn, each cut into 6 wedges"
+      },
+      {
+        "item": "canned black beans",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz, drained and rinsed"
+      },
+      {
+        "item": "cheese",
+        "qty": 2,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "jalapeno",
+        "qty": 1,
+        "unit": "",
+        "note": "thinly sliced"
+      },
+      {
+        "item": "tomatoes",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "sour cream",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F. Toss the tortilla wedges with the oil and a pinch of salt, spread on a baking sheet and bake 8–10 minutes until crisp (or use a bag of tortilla chips and skip this).",
+      "Pile the chips close together on the sheet and scatter over the black beans, cheese and jalapeno.",
+      "Bake 5–7 minutes until the cheese is melted and bubbling.",
+      "Top with the tomatoes, dollops of sour cream and salsa and eat right away."
+    ]
+  },
+  {
+    "id": "taco-salad",
+    "name": "Taco salad",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 25,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "lettuce",
+        "qty": 1,
+        "unit": "",
+        "note": "1 head romaine, chopped"
+      },
+      {
+        "item": "tomatoes",
+        "qty": 2,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "sour cream",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "tortillas",
+        "qty": 4,
+        "unit": "",
+        "note": "corn, or a few handfuls of tortilla chips"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Cook the ground beef in a skillet over medium-high heat 8–10 minutes, breaking it up, until no pink remains and it reaches 160°F; drain off the fat.",
+      "Stir in the chili powder, cumin, 1/2 tsp salt and 1/4 cup water and simmer 2 minutes.",
+      "Cut the tortillas into strips and toast them in a dry pan over medium heat for 4–5 minutes, turning, until crisp.",
+      "Stir the salsa and sour cream together to make a dressing.",
+      "Pile the lettuce into bowls, top with the beef, tomatoes, cheese and tortilla strips, and drizzle with the dressing."
+    ]
+  },
+  {
+    "id": "black-bean-corn-quesadilla",
+    "name": "Black bean and corn quesadilla",
+    "meal": [
+      "lunch",
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 20,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "canned black beans",
+        "qty": 0.75,
+        "unit": "cup",
+        "note": "drained and rinsed"
+      },
+      {
+        "item": "corn",
+        "qty": 0.5,
+        "unit": "cup",
+        "note": "frozen (thawed) or canned"
+      },
+      {
+        "item": "cumin",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "tortillas",
+        "qty": 2,
+        "unit": "",
+        "note": "large flour"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.25,
+        "unit": "cup",
+        "optional": true,
+        "note": "for dipping"
+      },
+      {
+        "item": "butter",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Mix the black beans, corn, cumin and a pinch of salt in a bowl, lightly mashing a few beans so the filling holds together.",
+      "Melt half the butter in a large skillet over medium heat and lay in a tortilla.",
+      "Sprinkle cheese over half the tortilla, spoon on half the bean mixture, add a little more cheese and fold over.",
+      "Cook 2–3 minutes per side until golden and the cheese melts; repeat with the remaining butter and tortilla.",
+      "Cut into wedges and serve with salsa if you like."
+    ]
+  },
+  {
+    "id": "sweet-potato-black-bean-tacos",
+    "name": "Sweet potato black bean tacos",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 40,
+    "serves": 3,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "sweet potatoes",
+        "qty": 2,
+        "unit": "",
+        "note": "medium, peeled and cut into 1/2-inch cubes"
+      },
+      {
+        "item": "chili powder",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "canned black beans",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz, drained and rinsed"
+      },
+      {
+        "item": "tortillas",
+        "qty": 6,
+        "unit": "",
+        "note": "small corn or flour"
+      },
+      {
+        "item": "avocado",
+        "qty": 1,
+        "unit": "",
+        "note": "sliced"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "olive oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 425°F. Toss the sweet potatoes with the oil, chili powder, cumin and 1/2 tsp salt and spread on a baking sheet.",
+      "Roast 25 minutes, turning once halfway, until tender and browned at the edges.",
+      "Warm the black beans in a small pot over medium heat for 4–5 minutes with a pinch of salt.",
+      "Warm the tortillas, then fill with sweet potato, beans and avocado, and squeeze lime juice over the top."
+    ]
+  },
+  {
+    "id": "salsa-chicken",
+    "name": "Salsa chicken",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 35,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 1.5,
+        "unit": "lb",
+        "note": "about 3 breasts"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "salsa",
+        "qty": 1.5,
+        "unit": "cup"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "rice",
+        "qty": 3,
+        "unit": "cup",
+        "note": "cooked, for serving",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F. Season the chicken on both sides with the chili powder, cumin and 1/2 tsp salt and lay it in a baking dish.",
+      "Pour the salsa over the chicken so it is covered.",
+      "Bake 20–25 minutes until the chicken reaches 165°F in the thickest part.",
+      "Sprinkle with the cheese and bake 3–5 minutes more until melted; serve over rice if you like."
+    ]
+  },
+  {
+    "id": "street-corn-salad",
+    "name": "Street corn salad",
+    "meal": [
+      "lunch",
+      "dinner",
+      "snack"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 20,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "corn",
+        "qty": 4,
+        "unit": "cup",
+        "note": "frozen, thawed and patted dry"
+      },
+      {
+        "item": "mayo",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "feta",
+        "qty": 0.5,
+        "unit": "cup",
+        "note": "crumbled (stands in for cotija)"
+      },
+      {
+        "item": "red onion",
+        "qty": 0.25,
+        "unit": "",
+        "note": "finely diced"
+      },
+      {
+        "item": "fresh herbs",
+        "qty": null,
+        "unit": "",
+        "note": "cilantro, chopped"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oil in a large skillet over medium-high heat, add the corn in an even layer and cook 6–8 minutes, stirring only every couple of minutes, until charred in spots.",
+      "Let the corn cool for 5 minutes.",
+      "In a bowl stir together the mayo, juice of the lime, chili powder and a pinch of salt.",
+      "Add the corn, feta, red onion and cilantro and toss well; serve warm or cold."
+    ]
+  },
+  {
+    "id": "guacamole",
+    "name": "Guacamole",
+    "meal": [
+      "snack"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 10,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "avocado",
+        "qty": 3,
+        "unit": "",
+        "note": "ripe"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "red onion",
+        "qty": 0.25,
+        "unit": "",
+        "note": "finely diced"
+      },
+      {
+        "item": "tomatoes",
+        "qty": 1,
+        "unit": "",
+        "note": "seeded and diced",
+        "optional": true
+      },
+      {
+        "item": "jalapeno",
+        "qty": 1,
+        "unit": "",
+        "note": "seeded and minced",
+        "optional": true
+      },
+      {
+        "item": "fresh herbs",
+        "qty": null,
+        "unit": "",
+        "note": "cilantro, chopped"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Halve the avocados, remove the pits and scoop the flesh into a bowl.",
+      "Squeeze in the lime juice, add 1/2 tsp salt and mash with a fork until mostly smooth but still a little chunky.",
+      "Stir in the red onion, plus the tomatoes, jalapeno and cilantro if using.",
+      "Taste and add more salt or lime; serve right away with chips (press plastic wrap on the surface if storing)."
+    ]
+  },
+  {
+    "id": "pico-de-gallo",
+    "name": "Pico de gallo",
+    "meal": [
+      "snack"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 15,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "tomatoes",
+        "qty": 4,
+        "unit": "",
+        "note": "Roma, diced"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "white, finely diced"
+      },
+      {
+        "item": "jalapeno",
+        "qty": 1,
+        "unit": "",
+        "note": "seeded and minced"
+      },
+      {
+        "item": "fresh herbs",
+        "qty": null,
+        "unit": "",
+        "note": "a small handful of cilantro, chopped"
+      },
+      {
+        "item": "lime",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Put the diced tomatoes, onion and jalapeno in a bowl.",
+      "Add the cilantro, the juice of the lime and 1/2 tsp salt and stir well.",
+      "Let it sit 10 minutes so the flavors blend, then taste and add more salt or lime; serve with chips, tacos or eggs."
+    ]
+  },
+  {
+    "id": "black-bean-tostadas",
+    "name": "Black bean tostadas",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 25,
+    "serves": 3,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "tortillas",
+        "qty": 6,
+        "unit": "",
+        "note": "corn"
+      },
+      {
+        "item": "canned black beans",
+        "qty": 1,
+        "unit": "can",
+        "note": "15 oz, drained and rinsed"
+      },
+      {
+        "item": "cumin",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "lettuce",
+        "qty": 1.5,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "cheese",
+        "qty": 0.75,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "sour cream",
+        "qty": 0.25,
+        "unit": "cup",
+        "optional": true
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F. Brush the tortillas lightly with oil on both sides, lay them on a baking sheet and bake 8–10 minutes, flipping once, until crisp and golden.",
+      "Meanwhile warm the black beans with the cumin, a pinch of salt and 2 tbsp water in a small pot over medium heat, mashing them with a fork into a rough paste, about 5 minutes.",
+      "Spread the beans over each crisp tortilla and top with lettuce, cheese, salsa and a little sour cream if you like."
+    ]
+  },
+  {
+    "id": "steak-tacos",
+    "name": "Steak tacos",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 30,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "steak",
+        "qty": 1,
+        "unit": "lb",
+        "note": "flank or sirloin"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "lime",
+        "qty": 2,
+        "unit": ""
+      },
+      {
+        "item": "tortillas",
+        "qty": 8,
+        "unit": "",
+        "note": "small corn"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "white, finely diced"
+      },
+      {
+        "item": "fresh herbs",
+        "qty": null,
+        "unit": "",
+        "note": "cilantro, chopped"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Pat the steak dry and rub with the chili powder, garlic powder, 1 tsp salt and the juice of 1 lime.",
+      "Heat the oil in a heavy skillet over high heat until shimmering and sear the steak 4–5 minutes per side until well browned and it reaches 135°F for medium (145°F for well done).",
+      "Rest the steak 5 minutes, then slice thinly across the grain and chop into small pieces.",
+      "Warm the tortillas in a dry pan, fill with steak, and top with onion, cilantro and a squeeze of the second lime."
+    ]
+  },
+  {
+    "id": "chilaquiles",
+    "name": "Chilaquiles",
+    "meal": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "Mexican",
+    "minutes": 25,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "tortillas",
+        "qty": 6,
+        "unit": "",
+        "note": "corn, each cut into 6 wedges"
+      },
+      {
+        "item": "salsa",
+        "qty": 1,
+        "unit": "cup",
+        "note": "red or green"
+      },
+      {
+        "item": "eggs",
+        "qty": 2,
+        "unit": ""
+      },
+      {
+        "item": "cheese",
+        "qty": 0.5,
+        "unit": "cup",
+        "note": "shredded or crumbled"
+      },
+      {
+        "item": "sour cream",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "onion",
+        "qty": 0.25,
+        "unit": "",
+        "note": "thinly sliced",
+        "optional": true
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oil in a large skillet over medium-high heat and fry the tortilla wedges in batches 2–3 minutes, turning, until golden and crisp; drain on paper towels and sprinkle with salt.",
+      "Pour off all but a thin film of oil, add the eggs and fry over medium heat 3–4 minutes until the whites are set; move to a plate.",
+      "Pour the salsa and 1/4 cup water into the pan, simmer 1 minute, then add the chips and toss for 30 seconds so they are coated but still a little crunchy.",
+      "Top with the cheese, fried eggs, sour cream and onion and serve immediately."
+    ]
+  },
+  {
+    "id": "migas",
+    "name": "Migas",
+    "meal": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "Tex-Mex",
+    "minutes": 20,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "eggs",
+        "qty": 4,
+        "unit": ""
+      },
+      {
+        "item": "tortillas",
+        "qty": 3,
+        "unit": "",
+        "note": "corn, cut into 1-inch strips"
+      },
+      {
+        "item": "onion",
+        "qty": 0.25,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "jalapeno",
+        "qty": 1,
+        "unit": "",
+        "note": "seeded and minced"
+      },
+      {
+        "item": "tomatoes",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "cheese",
+        "qty": 0.5,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "salsa",
+        "qty": 0.25,
+        "unit": "cup",
+        "optional": true,
+        "note": "for serving"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Whisk the eggs with a pinch of salt.",
+      "Heat the oil in a nonstick skillet over medium heat and fry the tortilla strips 3–4 minutes, stirring, until golden and crisp.",
+      "Add the onion and jalapeno and cook 2 minutes, then add the tomatoes and cook 1 minute more.",
+      "Pour in the eggs and stir gently 2–3 minutes until just set; sprinkle with the cheese, cover for 30 seconds to melt, and serve with salsa if you like."
+    ]
+  }
+]

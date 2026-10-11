@@ -1,0 +1,777 @@
+[
+  {
+    "id": "egg-fried-rice",
+    "name": "Egg fried rice",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Chinese",
+    "minutes": 15,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "rice", "qty": 3, "unit": "cup", "note": "cooked, ideally a day old"},
+      {"item": "eggs", "qty": 3, "unit": ""},
+      {"item": "green onions", "qty": 3, "unit": "", "note": "sliced"},
+      {"item": "frozen peas", "qty": 0.5, "unit": "cup"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "sesame oil", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Beat the eggs in a bowl with a pinch of salt.",
+      "Heat 1 tbsp oil in a large pan over medium-high heat, pour in the eggs, and scramble about 1 minute until just set; move them to a plate.",
+      "Add the remaining oil, the white parts of the green onions, and the peas; cook 1–2 minutes.",
+      "Add the rice, breaking up clumps, and fry 3–4 minutes until hot and starting to crisp in spots.",
+      "Stir in the soy sauce, sesame oil, the eggs, and the green onion tops, toss for 30 seconds, and serve."
+    ]
+  },
+  {
+    "id": "vegetable-stir-fry",
+    "name": "Vegetable stir-fry",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Chinese",
+    "minutes": 25,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "broccoli", "qty": 2, "unit": "cup", "note": "small florets"},
+      {"item": "bell pepper", "qty": 1, "unit": "", "note": "sliced"},
+      {"item": "carrots", "qty": 1, "unit": "", "note": "thinly sliced"},
+      {"item": "mushrooms", "qty": 4, "unit": "oz", "note": "sliced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "soy sauce", "qty": 3, "unit": "tbsp"},
+      {"item": "cornstarch", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Stir the soy sauce, cornstarch, and 3 tbsp water together in a small bowl.",
+      "Heat the oil in a large pan over high heat. Add the carrots and broccoli and stir-fry 3 minutes.",
+      "Add the bell pepper and mushrooms and stir-fry 3 more minutes until the vegetables are crisp-tender.",
+      "Add the garlic and cook 30 seconds, then pour in the sauce and stir about 1 minute until glossy and thickened.",
+      "Serve over hot rice."
+    ]
+  },
+  {
+    "id": "beef-and-broccoli",
+    "name": "Beef and broccoli",
+    "meal": ["dinner"],
+    "cuisine": "Chinese",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "steak", "qty": 12, "unit": "oz", "note": "flank or sirloin, sliced thin against the grain"},
+      {"item": "broccoli", "qty": 3, "unit": "cup", "note": "florets"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "soy sauce", "qty": 3, "unit": "tbsp"},
+      {"item": "brown sugar", "qty": 1, "unit": "tbsp"},
+      {"item": "cornstarch", "qty": 2, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Toss the steak with 1 tsp of the cornstarch and 1 tbsp of the soy sauce. Mix the remaining soy sauce, brown sugar, remaining cornstarch, and 1/3 cup water in a bowl.",
+      "Heat 1 tbsp oil in a large pan over high heat. Add the beef in one layer and sear 1–2 minutes per side until browned and no longer pink on the outside; move to a plate.",
+      "Add the remaining oil and the broccoli with 2 tbsp water, cover, and cook 3 minutes until bright green and crisp-tender.",
+      "Add the garlic for 30 seconds, return the beef, pour in the sauce, and stir 1–2 minutes until thickened.",
+      "Serve over rice."
+    ]
+  },
+  {
+    "id": "garlic-soy-chicken",
+    "name": "Garlic soy chicken",
+    "meal": ["dinner"],
+    "cuisine": "Chinese",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 1, "unit": "lb", "note": "boneless, skinless, cut into bite-size pieces"},
+      {"item": "garlic", "qty": 4, "unit": "clove", "note": "minced"},
+      {"item": "soy sauce", "qty": 3, "unit": "tbsp"},
+      {"item": "honey", "qty": 1, "unit": "tbsp"},
+      {"item": "green onions", "qty": 2, "unit": "", "note": "sliced"},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Mix the soy sauce, honey, and 2 tbsp water in a small bowl.",
+      "Heat the oil in a large pan over medium-high heat. Add the chicken in one layer and cook 6–8 minutes, turning, until browned and it reaches 165°F inside.",
+      "Lower the heat to medium, add the garlic, and stir 30 seconds until fragrant.",
+      "Pour in the sauce and simmer 1–2 minutes, stirring, until it coats the chicken.",
+      "Top with green onions and serve over rice."
+    ]
+  },
+  {
+    "id": "teriyaki-chicken",
+    "name": "Teriyaki chicken",
+    "meal": ["dinner"],
+    "cuisine": "Japanese",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 1, "unit": "lb", "note": "boneless, skinless"},
+      {"item": "soy sauce", "qty": 3, "unit": "tbsp"},
+      {"item": "brown sugar", "qty": 2, "unit": "tbsp"},
+      {"item": "vinegar", "qty": 1, "unit": "tbsp", "note": "rice vinegar if you have it"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "cornstarch", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Whisk the soy sauce, brown sugar, vinegar, ginger, cornstarch, and 3 tbsp water in a bowl.",
+      "Heat the oil in a pan over medium-high heat. Cook the chicken 5–6 minutes per side until golden and it reaches 165°F inside.",
+      "Turn the heat to low, pour in the sauce, and simmer 1–2 minutes, turning the chicken, until the sauce is thick and glossy.",
+      "Slice the chicken, spoon the sauce over, and serve with rice."
+    ]
+  },
+  {
+    "id": "sweet-and-sour-chicken",
+    "name": "Sweet and sour chicken",
+    "meal": ["dinner"],
+    "cuisine": "Chinese",
+    "minutes": 30,
+    "serves": 3,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken breast", "qty": 1, "unit": "lb", "note": "cut into 1-inch pieces"},
+      {"item": "cornstarch", "qty": 3, "unit": "tbsp"},
+      {"item": "bell pepper", "qty": 1, "unit": "", "note": "cut into squares"},
+      {"item": "onion", "qty": 0.5, "unit": "", "note": "cut into chunks"},
+      {"item": "ketchup", "qty": 0.25, "unit": "cup"},
+      {"item": "vinegar", "qty": 3, "unit": "tbsp"},
+      {"item": "sugar", "qty": 3, "unit": "tbsp"},
+      {"item": "soy sauce", "qty": 1, "unit": "tbsp"},
+      {"item": "vegetable oil", "qty": 3, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Stir the ketchup, vinegar, sugar, soy sauce, 1 tsp of the cornstarch, and 1/4 cup water together for the sauce.",
+      "Toss the chicken in the remaining cornstarch with a pinch of salt.",
+      "Heat 2 tbsp oil in a large pan over medium-high heat. Fry the chicken 6–8 minutes, turning, until golden and it reaches 165°F inside; move to a plate.",
+      "Add the remaining oil, the onion, and the bell pepper and stir-fry 3 minutes until crisp-tender.",
+      "Pour in the sauce and stir 1–2 minutes until thick, then return the chicken, toss to coat, and serve with rice if you like."
+    ]
+  },
+  {
+    "id": "peanut-noodles",
+    "name": "Peanut noodles",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Chinese",
+    "minutes": 20,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "pasta", "qty": 8, "unit": "oz", "note": "spaghetti or any long noodles"},
+      {"item": "peanut butter", "qty": 3, "unit": "tbsp"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "vinegar", "qty": 1, "unit": "tbsp"},
+      {"item": "honey", "qty": 1, "unit": "tbsp"},
+      {"item": "garlic", "qty": 1, "unit": "clove", "note": "grated"},
+      {"item": "sesame oil", "qty": 1, "unit": "tsp"},
+      {"item": "cucumber", "qty": 0.5, "unit": "", "note": "cut into thin sticks", "optional": true},
+      {"item": "green onions", "qty": 2, "unit": "", "note": "sliced"}
+    ],
+    "steps": [
+      "Cook the noodles in salted boiling water according to the package; save 1/2 cup of the cooking water, then drain.",
+      "While the pasta cooks, whisk the peanut butter, soy sauce, vinegar, honey, garlic, and sesame oil in a large bowl until smooth.",
+      "Add the hot noodles and toss, splashing in cooking water a little at a time until the sauce is creamy and coats everything.",
+      "Top with green onions and cucumber and serve warm or cold."
+    ]
+  },
+  {
+    "id": "upgraded-ramen",
+    "name": "Upgraded ramen (egg and green onion)",
+    "meal": ["lunch", "dinner", "snack"],
+    "cuisine": "Japanese",
+    "minutes": 10,
+    "serves": 1,
+    "veg": true,
+    "ingredients": [
+      {"item": "ramen noodles", "qty": 1, "unit": "package"},
+      {"item": "eggs", "qty": 1, "unit": ""},
+      {"item": "green onions", "qty": 2, "unit": "", "note": "sliced"},
+      {"item": "soy sauce", "qty": 1, "unit": "tsp"},
+      {"item": "sesame oil", "qty": 0.5, "unit": "tsp"},
+      {"item": "hot sauce", "qty": null, "unit": "", "optional": true}
+    ],
+    "steps": [
+      "Bring 2 cups of water to a boil in a small pot over high heat. Add the ramen noodles and cook 1 minute.",
+      "Stir in the seasoning packet, then crack the egg into the pot, turn the heat to medium, cover, and simmer 3 minutes until the white is set.",
+      "Pour into a bowl and add the soy sauce and sesame oil.",
+      "Top with the green onions and a few drops of hot sauce if you like."
+    ]
+  },
+  {
+    "id": "chicken-lo-mein",
+    "name": "Chicken lo mein",
+    "meal": ["dinner"],
+    "cuisine": "Chinese",
+    "minutes": 30,
+    "serves": 3,
+    "veg": false,
+    "ingredients": [
+      {"item": "pasta", "qty": 8, "unit": "oz", "note": "spaghetti or lo mein noodles"},
+      {"item": "chicken breast", "qty": 12, "unit": "oz", "note": "thinly sliced"},
+      {"item": "cabbage", "qty": 2, "unit": "cup", "note": "shredded"},
+      {"item": "carrots", "qty": 1, "unit": "", "note": "cut into matchsticks"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "soy sauce", "qty": 3, "unit": "tbsp"},
+      {"item": "brown sugar", "qty": 1, "unit": "tsp"},
+      {"item": "sesame oil", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Cook the noodles in boiling water according to the package, drain, and rinse briefly. Mix the soy sauce, brown sugar, and sesame oil in a small bowl.",
+      "Heat 1 tbsp oil in a large pan over high heat. Stir-fry the chicken 5–6 minutes until no longer pink inside and it reaches 165°F; move to a plate.",
+      "Add the remaining oil, the carrots, and the cabbage and stir-fry 3 minutes until softened. Add the garlic for 30 seconds.",
+      "Add the noodles, chicken, and sauce and toss 1–2 minutes until everything is hot and coated."
+    ]
+  },
+  {
+    "id": "ginger-soy-salmon",
+    "name": "Ginger soy salmon",
+    "meal": ["dinner"],
+    "cuisine": "Japanese",
+    "minutes": 20,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "salmon", "qty": 2, "unit": "piece", "note": "fillets, about 6 oz each"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "honey", "qty": 1, "unit": "tbsp"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "garlic", "qty": 1, "unit": "clove", "note": "grated"},
+      {"item": "green onions", "qty": 1, "unit": "", "note": "sliced"},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Mix the soy sauce, honey, ginger, and garlic in a small bowl. Pat the salmon dry.",
+      "Heat the oil in a nonstick pan over medium-high heat. Cook the salmon skin-side up 4 minutes until golden, then flip.",
+      "Lower the heat to medium and cook 3–4 minutes more until the salmon is opaque and flakes easily with a fork (145°F).",
+      "Pour the sauce into the pan and spoon it over the fish for 30–60 seconds until slightly thick. Top with green onions."
+    ]
+  },
+  {
+    "id": "korean-style-ground-beef-bowl",
+    "name": "Korean-style ground beef bowl",
+    "meal": ["dinner"],
+    "cuisine": "Korean",
+    "minutes": 20,
+    "serves": 3,
+    "veg": false,
+    "ingredients": [
+      {"item": "ground beef", "qty": 1, "unit": "lb"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "soy sauce", "qty": 0.25, "unit": "cup"},
+      {"item": "brown sugar", "qty": 2, "unit": "tbsp"},
+      {"item": "sesame oil", "qty": 1, "unit": "tsp"},
+      {"item": "green onions", "qty": 3, "unit": "", "note": "sliced"},
+      {"item": "red pepper flakes", "qty": null, "unit": ""},
+      {"item": "rice", "qty": 3, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Mix the soy sauce, brown sugar, and sesame oil in a small bowl.",
+      "Cook the ground beef in a large pan over medium-high heat for 6–8 minutes, breaking it up, until browned with no pink left and it reaches 160°F. Spoon off extra fat.",
+      "Add the garlic and ginger and cook 1 minute.",
+      "Pour in the sauce and simmer 2 minutes, stirring, until most of the liquid is absorbed. Add red pepper flakes to taste.",
+      "Serve over rice topped with green onions."
+    ]
+  },
+  {
+    "id": "spicy-garlic-tofu",
+    "name": "Spicy garlic tofu",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Chinese",
+    "minutes": 25,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "tofu", "qty": 14, "unit": "oz", "note": "extra-firm, patted dry and cubed"},
+      {"item": "cornstarch", "qty": 2, "unit": "tbsp"},
+      {"item": "garlic", "qty": 4, "unit": "clove", "note": "minced"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "honey", "qty": 1, "unit": "tbsp"},
+      {"item": "hot sauce", "qty": 1, "unit": "tbsp", "note": "sriracha works well"},
+      {"item": "green onions", "qty": 2, "unit": "", "note": "sliced"},
+      {"item": "vegetable oil", "qty": 3, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Toss the tofu cubes in the cornstarch with a pinch of salt. Mix the soy sauce, honey, hot sauce, and 2 tbsp water in a bowl.",
+      "Heat the oil in a large nonstick pan over medium-high heat. Fry the tofu 8–10 minutes, turning occasionally, until golden and crisp on all sides.",
+      "Lower the heat to medium, add the garlic, and stir 30 seconds.",
+      "Pour in the sauce and toss 1 minute until sticky. Top with green onions and serve with rice."
+    ]
+  },
+  {
+    "id": "tofu-and-broccoli-stir-fry",
+    "name": "Tofu and broccoli stir-fry",
+    "meal": ["dinner"],
+    "cuisine": "Chinese",
+    "minutes": 30,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "tofu", "qty": 14, "unit": "oz", "note": "extra-firm, patted dry and cubed"},
+      {"item": "broccoli", "qty": 3, "unit": "cup", "note": "florets"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "soy sauce", "qty": 3, "unit": "tbsp"},
+      {"item": "brown sugar", "qty": 1, "unit": "tsp"},
+      {"item": "cornstarch", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Mix the soy sauce, brown sugar, cornstarch, and 1/4 cup water in a bowl.",
+      "Heat 1 tbsp oil in a large nonstick pan over medium-high heat. Fry the tofu 8 minutes, turning, until golden on most sides; move to a plate.",
+      "Add the remaining oil and the broccoli with 2 tbsp water, cover, and cook 3–4 minutes until crisp-tender.",
+      "Add the garlic and ginger for 30 seconds, return the tofu, pour in the sauce, and stir 1 minute until thickened. Serve over rice."
+    ]
+  },
+  {
+    "id": "oyakodon",
+    "name": "Oyakodon (chicken and egg rice bowl)",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Japanese",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 8, "unit": "oz", "note": "boneless, skinless, cut into bite-size pieces"},
+      {"item": "eggs", "qty": 3, "unit": ""},
+      {"item": "onion", "qty": 0.5, "unit": "", "note": "thinly sliced"},
+      {"item": "chicken broth", "qty": 0.5, "unit": "cup"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "sugar", "qty": 1, "unit": "tbsp"},
+      {"item": "green onions", "qty": 2, "unit": "", "note": "sliced"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, hot"}
+    ],
+    "steps": [
+      "Combine the broth, soy sauce, and sugar in a medium skillet and bring to a simmer over medium heat.",
+      "Add the onion and simmer 3 minutes until soft.",
+      "Add the chicken in one layer, cover, and simmer 6–8 minutes, turning once, until it reaches 165°F inside.",
+      "Lightly beat the eggs and pour them over the chicken. Cover and cook on low 2–3 minutes until the eggs are set (no longer runny).",
+      "Divide the rice between bowls, slide the chicken and egg on top with some sauce, and sprinkle with green onions."
+    ]
+  },
+  {
+    "id": "chicken-katsu",
+    "name": "Chicken katsu",
+    "meal": ["dinner"],
+    "cuisine": "Japanese",
+    "minutes": 30,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken breast", "qty": 2, "unit": "", "note": "halved horizontally into thin cutlets"},
+      {"item": "flour", "qty": 0.25, "unit": "cup"},
+      {"item": "eggs", "qty": 1, "unit": "", "note": "beaten"},
+      {"item": "breadcrumbs", "qty": 1, "unit": "cup", "note": "panko"},
+      {"item": "ketchup", "qty": 2, "unit": "tbsp", "note": "for the sauce"},
+      {"item": "soy sauce", "qty": 1, "unit": "tbsp", "note": "for the sauce"},
+      {"item": "honey", "qty": 1, "unit": "tsp", "note": "for the sauce"},
+      {"item": "vegetable oil", "qty": 0.5, "unit": "cup"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Season the chicken cutlets with salt. Set out three plates: flour, beaten egg, and panko breadcrumbs.",
+      "Coat each cutlet in flour, dip in egg, then press firmly into the panko on both sides.",
+      "Heat the oil in a large skillet over medium heat until a crumb sizzles. Fry the chicken 4–5 minutes per side until deep golden and it reaches 165°F inside.",
+      "Drain on a paper towel and rest 2 minutes. Meanwhile stir the ketchup, soy sauce, and honey together for a quick katsu sauce.",
+      "Slice the chicken into strips and serve with the sauce and rice or shredded cabbage."
+    ]
+  },
+  {
+    "id": "thai-style-basil-chicken",
+    "name": "Thai-style basil chicken",
+    "meal": ["dinner"],
+    "cuisine": "Thai",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 1, "unit": "lb", "note": "boneless, skinless, finely chopped"},
+      {"item": "garlic", "qty": 4, "unit": "clove", "note": "minced"},
+      {"item": "jalapeno", "qty": 1, "unit": "", "note": "sliced (seed it for less heat)"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "brown sugar", "qty": 2, "unit": "tsp"},
+      {"item": "fresh herbs", "qty": 1, "unit": "cup", "note": "basil leaves"},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Mix the soy sauce, brown sugar, and 2 tbsp water in a small bowl.",
+      "Heat the oil in a large pan over high heat. Add the garlic and jalapeno and stir 30 seconds.",
+      "Add the chicken and stir-fry 6–7 minutes, breaking it up, until no pink remains and it reaches 165°F.",
+      "Pour in the sauce and cook 1 minute, then turn off the heat and stir in the basil until just wilted.",
+      "Serve over rice (a fried egg on top is traditional)."
+    ]
+  },
+  {
+    "id": "spicy-cabbage-stir-fry",
+    "name": "Spicy cabbage stir-fry",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Chinese",
+    "minutes": 15,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {"item": "cabbage", "qty": 0.5, "unit": "", "note": "small head, cut into bite-size pieces"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "sliced"},
+      {"item": "red pepper flakes", "qty": 0.5, "unit": "tsp"},
+      {"item": "soy sauce", "qty": 1, "unit": "tbsp"},
+      {"item": "vinegar", "qty": 1, "unit": "tbsp"},
+      {"item": "sugar", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Mix the soy sauce, vinegar, and sugar in a small bowl.",
+      "Heat the oil in a large pan over medium heat. Add the garlic and red pepper flakes and stir 30 seconds until fragrant, not brown.",
+      "Turn the heat to high, add the cabbage, and stir-fry 4–5 minutes until wilted but still a little crisp.",
+      "Pour in the sauce, toss 30 seconds, and serve with rice."
+    ]
+  },
+  {
+    "id": "ginger-soy-pork-chops",
+    "name": "Ginger soy pork chops",
+    "meal": ["dinner"],
+    "cuisine": "Japanese",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "pork chops", "qty": 2, "unit": "", "note": "boneless, about 3/4 inch thick"},
+      {"item": "ginger", "qty": 1, "unit": "tbsp", "note": "grated"},
+      {"item": "garlic", "qty": 1, "unit": "clove", "note": "grated"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "honey", "qty": 1, "unit": "tbsp"},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"},
+      {"item": "rice", "qty": 2, "unit": "cup", "note": "cooked, to serve"}
+    ],
+    "steps": [
+      "Mix the ginger, garlic, soy sauce, honey, and 2 tbsp water in a small bowl. Pat the pork chops dry.",
+      "Heat the oil in a skillet over medium-high heat. Cook the pork 4–5 minutes per side until golden and it reaches 145°F inside.",
+      "Lower the heat, pour in the sauce, and simmer 1 minute, turning the chops to glaze them.",
+      "Rest the chops 3 minutes, then slice and serve over rice with the pan sauce."
+    ]
+  },
+  {
+    "id": "shrimp-and-vegetable-stir-fry",
+    "name": "Shrimp and vegetable stir-fry",
+    "meal": ["dinner"],
+    "cuisine": "Chinese",
+    "minutes": 20,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "shrimp", "qty": 12, "unit": "oz", "note": "peeled and deveined"},
+      {"item": "broccoli", "qty": 2, "unit": "cup", "note": "small florets"},
+      {"item": "bell pepper", "qty": 1, "unit": "", "note": "sliced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "cornstarch", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Mix the soy sauce, cornstarch, and 3 tbsp water in a small bowl.",
+      "Heat 1 tbsp oil in a large pan over high heat. Cook the shrimp 1–2 minutes per side until pink and opaque; move to a plate.",
+      "Add the remaining oil, the broccoli, and the bell pepper and stir-fry 3–4 minutes until crisp-tender.",
+      "Add the garlic and ginger for 30 seconds, return the shrimp, pour in the sauce, and stir 1 minute until glossy. Serve with rice."
+    ]
+  },
+  {
+    "id": "coconut-chicken-curry",
+    "name": "Coconut chicken curry",
+    "meal": ["dinner"],
+    "cuisine": "Thai",
+    "minutes": 35,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 1.5, "unit": "lb", "note": "boneless, skinless, cut into bite-size pieces"},
+      {"item": "coconut milk", "qty": 1, "unit": "can", "note": "13.5 oz"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tbsp", "note": "grated"},
+      {"item": "curry powder", "qty": 2, "unit": "tbsp"},
+      {"item": "bell pepper", "qty": 1, "unit": "", "note": "sliced"},
+      {"item": "lime", "qty": 0.5, "unit": ""},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Heat the oil in a large pot over medium heat. Cook the onion 5 minutes until soft.",
+      "Add the garlic, ginger, and curry powder and stir 1 minute until fragrant.",
+      "Add the chicken and stir 2 minutes to coat, then pour in the coconut milk and 1/4 cup water and bring to a simmer.",
+      "Add the bell pepper and simmer 12–15 minutes, stirring occasionally, until the chicken reaches 165°F inside.",
+      "Squeeze in the lime juice, season with salt, and serve with rice."
+    ]
+  },
+  {
+    "id": "chana-masala",
+    "name": "Chana masala",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 30,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "canned chickpeas", "qty": 2, "unit": "can", "note": "15 oz each, drained and rinsed"},
+      {"item": "canned tomatoes", "qty": 1, "unit": "can", "note": "14.5 oz, diced or crushed"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "finely diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tbsp", "note": "grated"},
+      {"item": "curry powder", "qty": 1, "unit": "tbsp", "note": "or garam masala"},
+      {"item": "cumin", "qty": 1, "unit": "tsp"},
+      {"item": "lemon", "qty": 0.5, "unit": ""},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "cilantro, to garnish", "optional": true},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Heat the oil in a large pot over medium heat. Cook the onion 6–8 minutes until golden.",
+      "Add the garlic, ginger, curry powder, and cumin and stir 1 minute until fragrant.",
+      "Add the tomatoes and cook 5 minutes, stirring, until slightly thickened.",
+      "Stir in the chickpeas and 1/2 cup water, then simmer 10 minutes, mashing a few chickpeas to thicken the sauce.",
+      "Squeeze in the lemon juice, season with salt, and top with cilantro. Serve with rice or naan."
+    ]
+  },
+  {
+    "id": "red-lentil-dal",
+    "name": "Red lentil dal",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 35,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "lentils", "qty": 1, "unit": "cup", "note": "red, rinsed"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tbsp", "note": "grated"},
+      {"item": "curry powder", "qty": 2, "unit": "tsp"},
+      {"item": "cumin", "qty": 1, "unit": "tsp"},
+      {"item": "canned tomatoes", "qty": 0.5, "unit": "can", "note": "diced", "optional": true},
+      {"item": "lemon", "qty": 0.5, "unit": ""},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oil in a pot over medium heat. Cook the onion 5 minutes until soft.",
+      "Add the garlic, ginger, curry powder, and cumin and stir 1 minute.",
+      "Add the lentils, 3 cups water, and the tomatoes if using. Bring to a boil, then reduce to a simmer.",
+      "Simmer uncovered 20 minutes, stirring often, until the lentils break down into a thick soup; add a splash of water if it gets too thick.",
+      "Season with salt and a squeeze of lemon. Serve with rice or naan."
+    ]
+  },
+  {
+    "id": "butter-chicken",
+    "name": "Butter chicken",
+    "meal": ["dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 40,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 1.5, "unit": "lb", "note": "boneless, skinless, cut into bite-size pieces"},
+      {"item": "butter", "qty": 3, "unit": "tbsp"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "finely diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tbsp", "note": "grated"},
+      {"item": "curry powder", "qty": 1, "unit": "tbsp", "note": "or garam masala"},
+      {"item": "tomato paste", "qty": 3, "unit": "tbsp"},
+      {"item": "heavy cream", "qty": 0.5, "unit": "cup"},
+      {"item": "sugar", "qty": 1, "unit": "tsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Melt 2 tbsp butter in a large pan over medium heat. Cook the onion 6 minutes until soft and light golden.",
+      "Add the garlic, ginger, and curry powder and stir 1 minute, then stir in the tomato paste and cook 1 minute.",
+      "Add the chicken and stir to coat, then pour in 3/4 cup water and simmer, covered, 12–15 minutes until the chicken reaches 165°F inside.",
+      "Stir in the cream, sugar, remaining butter, and salt to taste, and simmer 2–3 minutes until creamy.",
+      "Serve with rice or naan."
+    ]
+  },
+  {
+    "id": "yogurt-marinated-chicken",
+    "name": "Yogurt-marinated chicken (tandoori-style, oven)",
+    "meal": ["dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 60,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {"item": "chicken thighs", "qty": 2, "unit": "lb", "note": "boneless, skinless"},
+      {"item": "yogurt", "qty": 0.75, "unit": "cup", "note": "plain"},
+      {"item": "lemon", "qty": 1, "unit": "", "note": "juiced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "grated"},
+      {"item": "ginger", "qty": 1, "unit": "tbsp", "note": "grated"},
+      {"item": "curry powder", "qty": 1, "unit": "tbsp", "note": "or garam masala"},
+      {"item": "paprika", "qty": 2, "unit": "tsp"},
+      {"item": "cumin", "qty": 1, "unit": "tsp"},
+      {"item": "salt", "qty": 1, "unit": "tsp"},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Stir the yogurt, lemon juice, garlic, ginger, curry powder, paprika, cumin, and salt together in a bowl.",
+      "Add the chicken, coat well, cover, and refrigerate at least 30 minutes (up to overnight).",
+      "Heat the oven to 425°F. Line a baking sheet with foil and brush it with the oil.",
+      "Lay the chicken on the sheet, letting extra marinade drip off, and bake 20–25 minutes until charred at the edges and it reaches 165°F inside.",
+      "Rest 5 minutes and serve with rice, naan, or a salad."
+    ]
+  },
+  {
+    "id": "aloo-gobi",
+    "name": "Aloo gobi",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 40,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "potatoes", "qty": 2, "unit": "", "note": "medium, cut into 3/4-inch cubes"},
+      {"item": "cauliflower", "qty": 1, "unit": "", "note": "small head, cut into florets"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "cumin", "qty": 1, "unit": "tsp"},
+      {"item": "curry powder", "qty": 2, "unit": "tsp"},
+      {"item": "tomatoes", "qty": 1, "unit": "", "note": "chopped"},
+      {"item": "vegetable oil", "qty": 3, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oil in a large pan with a lid over medium heat. Add the cumin and onion and cook 5 minutes until soft.",
+      "Add the garlic, ginger, and curry powder and stir 1 minute.",
+      "Add the potatoes, cauliflower, tomato, 1 tsp salt, and 1/4 cup water; stir to coat.",
+      "Cover and cook on medium-low 20–25 minutes, stirring every 5 minutes, until the potatoes are fork-tender; add a splash of water if it sticks.",
+      "Uncover and cook 2–3 minutes more to dry slightly. Serve with rice or naan."
+    ]
+  },
+  {
+    "id": "egg-curry",
+    "name": "Egg curry",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 35,
+    "serves": 3,
+    "veg": true,
+    "ingredients": [
+      {"item": "eggs", "qty": 6, "unit": ""},
+      {"item": "onion", "qty": 1, "unit": "", "note": "finely diced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "curry powder", "qty": 1, "unit": "tbsp"},
+      {"item": "canned tomatoes", "qty": 1, "unit": "can", "note": "14.5 oz, crushed or diced"},
+      {"item": "coconut milk", "qty": 0.5, "unit": "cup", "optional": true},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Place the eggs in a pot, cover with water, and bring to a boil. Cover, turn off the heat, and let sit 10 minutes until the yolks are firm. Cool in cold water and peel.",
+      "Heat the oil in a pan over medium heat and cook the onion 6–8 minutes until golden.",
+      "Add the garlic, ginger, and curry powder and stir 1 minute, then add the tomatoes and simmer 8 minutes until thick.",
+      "Stir in the coconut milk (or 1/2 cup water) and salt to taste. Cut shallow slits in the eggs, add them to the sauce, and simmer 5 minutes, spooning sauce over.",
+      "Serve with rice or naan."
+    ]
+  },
+  {
+    "id": "coconut-shrimp-curry",
+    "name": "Coconut shrimp curry",
+    "meal": ["dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 25,
+    "serves": 3,
+    "veg": false,
+    "ingredients": [
+      {"item": "shrimp", "qty": 1, "unit": "lb", "note": "peeled and deveined"},
+      {"item": "coconut milk", "qty": 1, "unit": "can", "note": "13.5 oz"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "diced"},
+      {"item": "garlic", "qty": 3, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tbsp", "note": "grated"},
+      {"item": "curry powder", "qty": 1, "unit": "tbsp"},
+      {"item": "tomato paste", "qty": 1, "unit": "tbsp"},
+      {"item": "lime", "qty": 0.5, "unit": ""},
+      {"item": "vegetable oil", "qty": 1, "unit": "tbsp"},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Heat the oil in a large pan over medium heat. Cook the onion 5 minutes until soft.",
+      "Add the garlic, ginger, curry powder, and tomato paste and stir 1 minute.",
+      "Pour in the coconut milk, bring to a simmer, and cook 5 minutes until slightly thickened.",
+      "Add the shrimp and simmer 3–4 minutes, stirring, until pink and opaque all the way through.",
+      "Squeeze in the lime juice, season with salt, and serve with rice."
+    ]
+  },
+  {
+    "id": "vegetable-korma",
+    "name": "Vegetable korma",
+    "meal": ["dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 40,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "potatoes", "qty": 1, "unit": "", "note": "medium, cut into 1/2-inch cubes"},
+      {"item": "carrots", "qty": 2, "unit": "", "note": "sliced"},
+      {"item": "cauliflower", "qty": 2, "unit": "cup", "note": "small florets"},
+      {"item": "frozen peas", "qty": 0.5, "unit": "cup"},
+      {"item": "onion", "qty": 1, "unit": "", "note": "finely diced"},
+      {"item": "garlic", "qty": 2, "unit": "clove", "note": "minced"},
+      {"item": "ginger", "qty": 1, "unit": "tsp", "note": "grated"},
+      {"item": "curry powder", "qty": 1, "unit": "tbsp"},
+      {"item": "coconut milk", "qty": 1, "unit": "can", "note": "13.5 oz"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Heat the oil in a large pot over medium heat. Cook the onion 5 minutes until soft.",
+      "Add the garlic, ginger, and curry powder and stir 1 minute.",
+      "Add the potatoes, carrots, cauliflower, coconut milk, and 1/2 cup water. Bring to a simmer, cover, and cook 15–18 minutes until the potatoes are tender.",
+      "Stir in the peas and cook 3 minutes more. Season with salt and serve with rice or naan."
+    ]
+  },
+  {
+    "id": "jeera-rice",
+    "name": "Jeera (cumin) rice",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Indian-style",
+    "minutes": 30,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "rice", "qty": 1, "unit": "cup", "note": "uncooked basmati or long-grain, rinsed"},
+      {"item": "cumin", "qty": 1, "unit": "tsp", "note": "whole seeds if you have them"},
+      {"item": "butter", "qty": 1, "unit": "tbsp", "note": "or oil"},
+      {"item": "salt", "qty": 0.5, "unit": "tsp"}
+    ],
+    "steps": [
+      "Melt the butter in a medium pot over medium heat. Add the cumin and stir 30 seconds until fragrant.",
+      "Add the rinsed rice and stir 1 minute to coat.",
+      "Add 1 3/4 cups water and the salt, bring to a boil, then cover, turn the heat to low, and cook 15 minutes.",
+      "Turn off the heat and leave covered 5 minutes, then fluff with a fork and serve."
+    ]
+  },
+  {
+    "id": "cucumber-raita",
+    "name": "Cucumber raita",
+    "meal": ["lunch", "dinner", "snack"],
+    "cuisine": "Indian-style",
+    "minutes": 10,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {"item": "yogurt", "qty": 1, "unit": "cup", "note": "plain"},
+      {"item": "cucumber", "qty": 0.5, "unit": "", "note": "grated"},
+      {"item": "cumin", "qty": 0.5, "unit": "tsp"},
+      {"item": "fresh herbs", "qty": null, "unit": "", "note": "chopped cilantro or mint", "optional": true},
+      {"item": "salt", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Squeeze the grated cucumber in your hands or a towel to remove extra water.",
+      "Stir the cucumber into the yogurt with the cumin and a pinch of salt.",
+      "Add the chopped herbs if using, and chill until ready to serve alongside curry or rice."
+    ]
+  }
+]
