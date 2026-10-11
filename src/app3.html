@@ -69,6 +69,11 @@ details.staples summary{cursor:pointer;font-weight:600;font-size:14px;list-style
 .cta{display:block;width:100%;margin-top:16px;padding:15px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#17151f;border-radius:18px;font-weight:800;font-size:17px}
 .cta.ghost{background:var(--card);color:var(--accent)}
 .cta:disabled{opacity:.4}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pk{background:var(--card);border-radius:18px;padding:14px 12px;text-align:left;display:flex;flex-direction:column;gap:2px;min-height:92px}
+.pk .pe{font-size:30px}.pk b{font-size:16px;font-weight:800}.pk small{font-size:11px;color:var(--dim);line-height:1.25}
+.pk.on{background:var(--card2);outline:2px solid var(--accent)}.pk.off{background:transparent;outline:1px dashed var(--dim)}.pk.off .pe{filter:grayscale(1);opacity:.5}.pk.off b{color:var(--muted)}.pk.off small{color:var(--muted)}
+.built{background:color-mix(in srgb,var(--accent) 16%,var(--card));border-radius:14px;padding:10px 12px;font-size:13px;font-weight:600;margin-bottom:10px}
 .note{background:var(--card);border-radius:16px;padding:14px;color:var(--muted);font-size:14px;margin:10px 0}
 /* recipes grid */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -154,10 +159,12 @@ h4{font-size:20px;font-weight:800;margin:20px 0 6px}
 <div class="cook" id="cook" role="dialog" aria-modal="true"><div class="cb" id="cb"></div></div>
 <div class="toast" id="toast"></div>
 <script id="data" type="application/json">/*DATA*/</script>
+<script>/*BUILDER*/</script>
 <script>
 (() => {
 const DATA = JSON.parse(document.getElementById("data").textContent);
 const VOCAB = DATA.vocab, RECIPES = DATA.recipes, BYID = Object.fromEntries(RECIPES.map(r => [r.id, r]));
+const getRecipe = id => BYID[id] || (window.Builder && Builder.fromId(id)) || null;
 const ALWAYS = new Set(["salt", "black pepper"]);
 const DEFAULT_STAPLES = ["vegetable oil", "olive oil", "sugar", "flour", "butter", "garlic powder", "italian seasoning"];
 const MEALS = ["breakfast", "lunch", "dinner", "snack"];
@@ -295,32 +302,54 @@ function renderStaples() {
 function addFridge(text) { for (const p of text.split(/[,\n;]+/)) { const k = canon(p); if (k && !st.fridge.includes(k)) st.fridge.push(k); } fshown = 20; save(); renderAll(); }
 
 // ---- BUILD tab ----
-let b = { mode: "match", step: 0, cat: "poultry", item: "chicken breast", veg: [] };
+const freshB = () => ({ mode: "build", step: 0, cat: "poultry", item: "chicken breast", veg: [], style: "", flavor: "" });
+let b = freshB();
 function renderBuild() {
   const m = $("mode"); m.replaceChildren(
-    el("button", { class: "mo" + (b.mode === "build" ? " on" : ""), onclick: () => { b.mode = "build"; renderBuild(); } }, "✨ Build a recipe", el("small", { text: "coming next update" })),
-    el("button", { class: "mo" + (b.mode === "match" ? " on" : ""), onclick: () => { b.mode = "match"; renderBuild(); } }, "🔎 Matching recipes", el("small", { text: `from ${RECIPES.length} recipes` })));
+    el("button", { class: "mo" + (b.mode === "build" ? " on" : ""), onclick: () => { b.mode = "build"; if (b.step > 1) b.step = 2; renderBuild(); } }, "✨ Build a recipe", el("small", { text: "a new recipe from your picks" })),
+    el("button", { class: "mo" + (b.mode === "match" ? " on" : ""), onclick: () => { b.mode = "match"; if (b.step > 2) b.step = 2; renderBuild(); } }, "🔎 Matching recipes", el("small", { text: `from ${RECIPES.length} recipes` })));
   const out = $("bout"); out.replaceChildren();
-  if (b.mode === "build") {
-    out.append(el("div", { class: "note", text: "The recipe builder will turn your picks — protein, veggies, cooking style and flavor — into a brand-new recipe with amounts and steps. It's being built and tested now. For now, Matching recipes shows real recipes that use what you pick." }),
-      el("button", { class: "cta", onclick: () => { b.mode = "match"; renderBuild(); } }, "Show matching recipes →"));
-    return;
-  }
-  const labels = ["Protein", "Veggies", "Results"];
-  out.append(el("div", { class: "steps" }, labels.map((l, i) => el("button", { class: "st" + (i === b.step ? " on" : i < b.step ? " done" : ""), onclick: () => { if (i <= b.step || i === 1) { b.step = i; renderBuild(); scrollTo(0, 0); } } }, `${i + 1} ${l}`))));
+  const building = b.mode === "build";
+  const labels = building ? ["Protein", "Veggies", "Style", "Flavor"] : ["Protein", "Veggies", "Results"];
+  const reach = i => i <= b.step || i === 1 || (building && i === 3 && b.style);
+  out.append(el("div", { class: "steps" }, labels.map((l, i) => el("button", { class: "st" + (i === b.step ? " on" : i < b.step ? " done" : ""), onclick: () => { if (reach(i)) { b.step = i; renderBuild(); scrollTo(0, 0); } } }, `${i + 1} ${l}`))));
   if (b.step === 0) {
     out.append(el("h2", { class: "ask", text: "What protein are you in the mood for?" }));
     const cats = el("div", { class: "cats" });
-    for (const [k, c] of Object.entries(CATS)) cats.append(el("button", { class: `cat c-${k}` + (b.cat === k ? " on" : ""), "data-cat": k, onclick: () => { b.cat = k; b.item = c.items[0]; haptic(); renderBuild(); } }, el("span", { class: "ce", text: c.e }), el("div", {}, el("b", { text: c.label }), el("small", { text: c.sub }))));
+    for (const [k, c] of Object.entries(CATS)) cats.append(el("button", { class: `cat c-${k}` + (b.cat === k ? " on" : ""), "data-cat": k, onclick: () => { b.cat = k; b.item = c.items[0]; b.style = ""; b.flavor = ""; haptic(); renderBuild(); } }, el("span", { class: "ce", text: c.e }), el("div", {}, el("b", { text: c.label }), el("small", { text: c.sub }))));
     out.append(cats);
     const opts = el("div", { class: "opts", id: "sub" });
-    for (const i of CATS[b.cat].items) opts.append(el("button", { class: "opt" + (b.item === i ? " on" : ""), onclick: () => { b.item = i; renderBuild(); } }, i[0].toUpperCase() + i.slice(1)));
+    for (const i of CATS[b.cat].items) opts.append(el("button", { class: "opt" + (b.item === i ? " on" : ""), onclick: () => { b.item = i; b.style = ""; b.flavor = ""; renderBuild(); } }, i[0].toUpperCase() + i.slice(1)));
     out.append(opts, el("button", { class: "cta", onclick: () => { b.step = 1; renderBuild(); scrollTo(0, 0); } }, "Next: pick veggies →"));
   } else if (b.step === 1) {
-    out.append(el("h2", { class: "ask", text: "Any veggies? Pick up to 3." }), el("div", { class: "meta", text: "Optional. Skip to see everything with " + b.item + "." }));
+    out.append(el("h2", { class: "ask", text: "Any veggies? Pick up to 3." }), el("div", { class: "meta", text: building ? "Optional. Skip for a simple " + b.item + " dish." : "Optional. Skip to see everything with " + b.item + "." }));
     const opts = el("div", { class: "opts" });
     for (const v of VEGGIES) { const on = b.veg.includes(v); opts.append(el("button", { class: "opt" + (on ? " on" : ""), onclick: () => { if (on) b.veg = b.veg.filter(x => x !== v); else if (b.veg.length < 3) b.veg = [...b.veg, v]; else toast("Up to 3 veggies"); renderBuild(); } }, `${VEMOJI[v] || ""} ${v}`)); }
-    out.append(opts, el("button", { class: "cta", onclick: () => { b.step = 2; renderBuild(); scrollTo(0, 0); } }, b.veg.length ? "Show recipes →" : "Skip — show recipes →"));
+    out.append(opts, el("button", { class: "cta", onclick: () => { b.step = 2; renderBuild(); scrollTo(0, 0); } }, building ? (b.veg.length ? "Next: cooking style →" : "Skip — pick a cooking style →") : (b.veg.length ? "Show recipes →" : "Skip — show recipes →")));
+  } else if (building && b.step === 2) {
+    out.append(el("h2", { class: "ask", text: "How do you want to cook it?" }));
+    const grid = el("div", { class: "pick" });
+    for (const o of Builder.stylesFor(b.item)) {
+      const why = o.ok ? Builder.vegIssue(b.veg, o.key) : o.why, S = Builder.STYLES[o.key];
+      grid.append(el("button", { class: "pk" + (b.style === o.key ? " on" : "") + (why ? " off" : ""), "data-style": o.key, "aria-disabled": why ? "true" : null,
+        onclick: () => { if (why) { toast(why); return; } b.style = o.key; if (!Builder.flavorsFor(o.key).find(x => x.key === b.flavor && x.ok)) b.flavor = ""; const fl = Builder.flavorsFor(o.key).filter(x => x.ok); if (fl.length === 1) b.flavor = fl[0].key; b.step = 3; haptic(); renderBuild(); scrollTo(0, 0); } },
+        el("span", { class: "pe", text: S.e }), el("b", { text: S.label }), why ? el("small", { text: why }) : null));
+    }
+    out.append(grid);
+  } else if (building && b.step === 3) {
+    out.append(el("h2", { class: "ask", text: "Pick a flavor" }));
+    const grid = el("div", { class: "pick" });
+    for (const o of Builder.flavorsFor(b.style)) {
+      const F = Builder.FLAVORS[o.key];
+      grid.append(el("button", { class: "pk" + (b.flavor === o.key ? " on" : "") + (o.ok ? "" : " off"), "data-flavor": o.key, "aria-disabled": o.ok ? null : "true",
+        onclick: () => { if (!o.ok) { toast(o.why); return; } b.flavor = o.key; haptic(); renderBuild(); } },
+        el("span", { class: "pe", text: F.e }), el("b", { text: F.label }), o.ok ? null : el("small", { text: o.why })));
+    }
+    out.append(grid);
+    const sel = { protein: b.item, veggies: b.veg, style: b.style, flavor: b.flavor };
+    const err = Builder.valid(sel);
+    out.append(el("div", { class: "meta", style: "margin-top:12px", text: `${cap(b.item)}${b.veg.length ? " · " + b.veg.join(", ") : ""} · ${Builder.STYLES[b.style].label}${b.flavor ? " · " + Builder.FLAVORS[b.flavor].label : ""}` }));
+    out.append(el("button", { class: "cta", id: "make", disabled: err ? "" : null, onclick: () => { if (!err) openRecipe(Builder.encode(sel)); } }, "✨ Make my recipe"));
   } else {
     const res = buildMatches();
     out.append(el("h2", { class: "ask", text: `${b.item[0].toUpperCase() + b.item.slice(1)}${b.veg.length ? " + " + b.veg.join(", ") : ""}` }));
@@ -328,6 +357,14 @@ function renderBuild() {
     for (const s of res) out.append(card(s, { extra: b.veg.length ? el("div", { class: "meta", style: "color:var(--ok);font-weight:700", text: s.vhit.length ? "Has " + s.vhit.join(", ") : "No picked veggies" }) : null }));
     out.append(el("button", { class: "cta ghost", onclick: () => { b.step = 0; b.veg = []; renderBuild(); scrollTo(0, 0); } }, "Start over"));
   }
+}
+const cap = x => x ? x[0].toUpperCase() + x.slice(1) : x;
+function similarTested(r) {
+  // tested recipes that share the protein, ranked by shared veggies
+  const sel = r.sel, vs = new Set(sel.veggies);
+  return RECIPES.filter(x => x.ingredients.some(i => i.item === sel.protein))
+    .map(x => ({ x, n: x.ingredients.filter(i => vs.has(i.item)).length }))
+    .sort((a, c) => c.n - a.n || a.x.minutes - c.x.minutes).slice(0, 2).map(o => o.x);
 }
 function buildMatches() {
   const have = owned();
@@ -350,6 +387,7 @@ function renderRecipes() {
     if (CUISINE_GROUPS[k]) return CUISINE_GROUPS[k].includes(r.cuisine);
     const c = Object.entries(CATS).find(([, v]) => v.label === k); return c ? r._cat === c[0] : true;
   });
+  if (k === "♥ Saved") list = [...list, ...st.favs.filter(id => !BYID[id]).map(getRecipe).filter(Boolean).filter(r => !q || r.name.toLowerCase().includes(q))];
   const out = $("rout"); out.replaceChildren();
   if (!list.length) { out.append(el("p", { class: "empty", style: "grid-column:span 2", text: k === "♥ Saved" ? "Nothing saved yet. Tap ♡ on any recipe." : "No recipes match." })); return; }
   for (const r of list.slice(0, rshown)) out.append(el("button", { class: `tile c-${r._cat}`, "data-id": r.id, onclick: () => openRecipe(r.id) }, isFav(r.id) ? el("span", { class: "th", text: "♥" }) : null, el("span", { class: "te", text: r._e }), el("b", { text: r.name }), el("small", { text: `${r.minutes} min · ${r.cuisine}` })));
@@ -401,7 +439,7 @@ function amount(ing, f) { if (ing.qty == null) return ""; const q = ing.qty * f,
 // ---- recipe sheet ----
 let cur = null, servings = null;
 function openRecipe(id, push = true) {
-  const r = BYID[id]; if (!r) return;
+  const r = getRecipe(id); if (!r) return;
   cur = r; servings = r.serves;
   if (push) history.pushState({ r: id }, "", "#" + id);
   drawRecipe(); $("sheet").classList.add("open"); $("sheet").scrollTop = 0; document.body.style.overflow = "hidden";
@@ -411,7 +449,9 @@ function drawRecipe() {
   const r = cur, have = owned(), f = servings / r.serves, s = score(r, have), sh = $("sh"); sh.replaceChildren();
   sh.append(el("div", { class: "shbar" }, el("button", { class: "back", onclick: () => closeRecipe() }, "← Back"),
     el("button", { class: "heart", "aria-label": "Save", text: isFav(r.id) ? "♥" : "♡", onclick: () => { toggleFav(r.id); drawRecipe(); } })));
-  sh.append(el("div", { class: "hero c-" + r._cat, text: r._e }), el("h2", { text: r.name }),
+  sh.append(el("div", { class: "hero c-" + r._cat, text: r._e }));
+  if (r.built) sh.append(el("div", { class: "built" }, "✨ Built for you from a tested cooking template. Amounts and times are a guide."));
+  sh.append(el("h2", { text: r.name }),
     el("div", { class: "meta", text: `${r.minutes} min · ${r.cuisine} · ${r.meal.join(", ")}${r.veg ? " · vegetarian" : ""}` }));
   const sv = el("div", { class: "serv" }, "Servings");
   for (const n of [...new Set([1, 2, 4, 6, r.serves])].sort((a, c) => a - c)) sv.append(el("button", { class: n === servings ? "on" : "", "aria-pressed": String(n === servings), onclick: () => { servings = n; drawRecipe(); } }, String(n)));
@@ -433,6 +473,11 @@ function drawRecipe() {
   sh.append(el("h4", { text: "Steps" }));
   const ol = el("ol", { class: "sp" }); for (const step of r.steps) ol.append(el("li", { text: step })); sh.append(ol);
   sh.append(el("button", { class: "cta", onclick: () => openCook(0) }, "👩‍🍳 Start cook mode"));
+  if (r.built) {
+    sh.append(el("button", { class: "cta ghost", onclick: () => { const sl = r.sel; Object.assign(b, { mode: "build", step: 3, item: sl.protein, cat: Object.keys(CATS).find(k => CATS[k].items.includes(sl.protein)) || b.cat, veg: [...sl.veggies], style: sl.style, flavor: sl.flavor }); st.tab = "build"; save(); closeRecipe(); renderAll(); } }, "↺ Change my picks"));
+    const sim = similarTested(r);
+    if (sim.length) { sh.append(el("h4", { text: "Tested recipes like this" })); for (const x of sim) sh.append(card({ r: x }, {})); }
+  }
 }
 
 // ---- cook mode ----
@@ -454,7 +499,7 @@ function drawCook() {
 }
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && $("cook").classList.contains("open") && !wake) keepAwake(); });
 
-window.addEventListener("popstate", () => { const id = location.hash.slice(1); if (id && BYID[id]) openRecipe(id, false); else { if ($("cook").classList.contains("open")) closeCook(); if (cur) closeRecipe(false); } });
+window.addEventListener("popstate", () => { const id = location.hash.slice(1); if (id && getRecipe(id)) openRecipe(id, false); else { if ($("cook").classList.contains("open")) closeCook(); if (cur) closeRecipe(false); } });
 document.addEventListener("keydown", e => { if (e.key === "Escape") { if ($("cook").classList.contains("open")) closeCook(); else if (cur) closeRecipe(); } });
 
 // ---- tabs ----
@@ -474,10 +519,10 @@ $("add").onclick = () => { addFridge(inp.value); inp.value = ""; inp.focus(); };
 matchMedia("(prefers-color-scheme: light)").addEventListener("change", applyTheme);
 
 applyTheme(); renderStaples(); renderAll(); save();
-const startId = location.hash.slice(1); if (BYID[startId]) openRecipe(startId, false);
+const startId = location.hash.slice(1); if (getRecipe(startId)) openRecipe(startId, false);
 
 window.__fridge = { add: addFridge, results: () => fridgeResults().map(s => ({ id: s.r.id, miss: s.miss })), state: () => JSON.parse(JSON.stringify(st)),
-  reset: () => { ls.del(KEY); st = fresh(); b = { mode: "match", step: 0, cat: "poultry", item: "chicken breast", veg: [] }; applyTheme(); renderStaples(); renderAll(); },
-  build: () => buildMatches().map(s => ({ id: s.r.id, vhit: s.vhit })), count: RECIPES.length, canon };
+  reset: () => { ls.del(KEY); st = fresh(); b = freshB(); applyTheme(); renderStaples(); renderAll(); },
+  build: () => buildMatches().map(s => ({ id: s.r.id, vhit: s.vhit })), count: RECIPES.length, canon, b: () => JSON.parse(JSON.stringify(b)), veggies: VEGGIES };
 })();
 </script></body></html>
