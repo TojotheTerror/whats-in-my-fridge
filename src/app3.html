@@ -172,8 +172,9 @@ const CATS = {
   veg:     { label: "Vegetarian", e: "🥦", items: ["tofu", "canned black beans", "canned chickpeas", "lentils", "eggs"], sub: "tofu, beans, eggs" },
 };
 const ITEMCAT = {}; for (const [c, v] of Object.entries(CATS)) if (c !== "veg") for (const i of v.items) ITEMCAT[i] = c;
-const VEGGIES = ["broccoli", "spinach", "bell pepper", "mushrooms", "zucchini", "carrots", "green beans", "cauliflower", "cabbage", "corn", "frozen peas", "tomatoes", "potatoes", "sweet potatoes", "onion", "avocado"];
-const VEMOJI = { broccoli: "🥦", spinach: "🥬", "bell pepper": "🫑", mushrooms: "🍄", zucchini: "🥒", carrots: "🥕", "green beans": "🫛", cauliflower: "🥦", cabbage: "🥬", corn: "🌽", "frozen peas": "🫛", tomatoes: "🍅", potatoes: "🥔", "sweet potatoes": "🍠", onion: "🧅", avocado: "🥑" };
+const NOT_PICKABLE = new Set(["garlic", "ginger", "fresh herbs", "green onions", "red onion", "jalapeno"]);
+const VEGGIES = Object.keys(VOCAB).filter(k => VOCAB[k].group === "veg" && !NOT_PICKABLE.has(k)).sort();
+const VEMOJI = { asparagus: "🌱", avocado: "🥑", "bell pepper": "🫑", "bok choy": "🥬", broccoli: "🥦", "brussels sprouts": "🥬", "butternut squash": "🎃", cabbage: "🥬", carrots: "🥕", cauliflower: "🥦", celery: "🥬", "cherry tomatoes": "🍅", corn: "🌽", cucumber: "🥒", eggplant: "🍆", "frozen peas": "🫛", "green beans": "🫛", kale: "🥬", leeks: "🧅", lettuce: "🥬", mushrooms: "🍄", onion: "🧅", potatoes: "🥔", "snap peas": "🫛", spinach: "🥬", "sweet potatoes": "🍠", tomatoes: "🍅", zucchini: "🥒" };
 function catOf(r) { for (const i of r.ingredients) if (ITEMCAT[i.item]) return ITEMCAT[i.item]; return "veg"; }
 const EMO = [[/taco|tostada|nacho/, "🌮"], [/burrito|quesadilla|wrap|fajita/, "🌯"], [/pizza/, "🍕"], [/pasta|spaghetti|penne|ziti|mac|lo mein|noodle|cacio|bolognese|ramen/, "🍝"], [/soup|stew|chili|minestrone/, "🍲"], [/curry|dal|masala|korma|aloo|butter chicken|tandoori/, "🍛"], [/salad|raita/, "🥗"], [/pancake/, "🥞"], [/french toast|toast|sandwich|blt|melt|joe|grilled cheese/, "🥪"], [/smoothie/, "🥤"], [/oat|parfait|yogurt/, "🥣"], [/banana bread|bites/, "🍌"], [/omelette|egg|frittata|scramble|shakshuka|huevos|migas/, "🍳"], [/rice|bowl|risotto|oyakodon/, "🍚"], [/potato|hash/, "🥔"], [/salmon|fish/, "🐟"], [/shrimp/, "🍤"], [/steak|beef/, "🥩"], [/guacamole|hummus|salsa|pico|bruschetta/, "🥑"]];
 const CATE = { poultry: "🍗", seafood: "🐟", beef: "🥩", pork: "🥓", veg: "🥦" };
@@ -365,12 +366,16 @@ function addToList(items, from) {
 function renderList() {
   const out = $("lout"); out.replaceChildren();
   out.append(el("h2", { class: "sec" }, "Shopping list", el("span", { class: "n", text: st.list.filter(x => !x.done).length })));
-  if (!st.list.length) { out.append(el("p", { class: "empty", text: "Your list is empty. Open a recipe and tap “Add to list” for anything you're missing." })); return; }
+  const li = el("input", { id: "listIn", placeholder: "Add an item, e.g. milk", autocomplete: "off", enterkeyhint: "done" });
+  const addOwn = () => { const items = li.value.split(/[,\n;]+/).map(x => x.trim()).filter(Boolean).map(x => ({ item: x, amt: "" })); if (!items.length) { li.focus(); return; } addToList(items, "you"); setTimeout(() => { const n = $("listIn"); if (n) n.focus(); }, 0); };
+  li.addEventListener("keydown", e => { if (e.key === "Enter") addOwn(); });
+  out.append(el("div", { class: "search" }, li, el("button", { class: "go", id: "listAdd", onclick: addOwn }, "+ Add")));
+  if (!st.list.length) { out.append(el("p", { class: "empty", text: "Your list is empty. Type an item above, or open a recipe and tap “Add to shopping list” for anything you're missing." })); return; }
   const box = el("div", { class: "shop" });
   for (const x of [...st.list].sort((a, c) => a.done - c.done)) {
     const cb = el("input", { type: "checkbox" }); cb.checked = x.done;
     cb.addEventListener("change", () => { x.done = cb.checked; save(); renderAll(); });
-    box.append(el("label", { class: x.done ? "done" : "" }, cb, el("span", { class: "it" }, x.item + (x.amt ? ` — ${x.amt}` : ""), el("small", { text: "for " + x.from.join(", ") }))));
+    box.append(el("label", { class: x.done ? "done" : "" }, cb, el("span", { class: "it" }, x.item + (x.amt ? ` — ${x.amt}` : ""), el("small", { text: x.from.map(f => f === "you" ? "added by you" : "for " + f).join(" · ") }))));
   }
   out.append(box, el("div", { class: "btns" },
     el("button", { class: "cta ghost", onclick: () => copy("Shopping list:\n" + st.list.filter(x => !x.done).map(x => "- " + x.item + (x.amt ? ` (${x.amt})` : "")).join("\n")) }, "Copy list"),
