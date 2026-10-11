@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17151f">
+<title>What's in my fridge?</title>
+<style>
+:root{--bg:#17151f;--card:#262333;--card2:#3a3648;--fg:#f6f2ff;--muted:#a59fbf;--dim:#7d7896;--nav:#211e2c;--accent:#ffb347;--accent2:#ff7a59;--ok:#5ee08f;--warn:#ff9b7a;--heart:#ff6b8b;--line:#2e2a3c;--shadow:0 10px 30px rgba(0,0,0,.5);--onc:#17151f}
+html[data-theme=light]{--bg:#fff8f0;--card:#fff;--card2:#f1e8dd;--fg:#1d1a26;--muted:#5c5573;--dim:#8f88a6;--nav:#fff;--accent:#f08c00;--accent2:#e8590c;--ok:#2b9348;--warn:#c2410c;--heart:#e0245e;--line:#eadfd2;--shadow:0 8px 24px rgba(60,40,20,.15)}
+@media (prefers-color-scheme:light){html:not([data-theme]){--bg:#fff8f0;--card:#fff;--card2:#f1e8dd;--fg:#1d1a26;--muted:#5c5573;--dim:#8f88a6;--nav:#fff;--accent:#f08c00;--accent2:#e8590c;--ok:#2b9348;--warn:#c2410c;--heart:#e0245e;--line:#eadfd2;--shadow:0 8px 24px rgba(60,40,20,.15)}}
+*{box-sizing:border-box;margin:0;padding:0}
+button{font:inherit;cursor:pointer;color:inherit;background:none;border:0}
+input{font:inherit;color:inherit}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.4}
+.app{max-width:440px;margin:0 auto;min-height:100vh}
+.top{padding:20px 18px 6px;display:flex;align-items:center;gap:12px}
+.logo{font-size:28px;background:linear-gradient(135deg,var(--accent2),var(--accent));border-radius:14px;padding:5px 9px}
+h1{font-size:26px;font-weight:800;letter-spacing:-.03em;flex:1;line-height:1.1}
+.tag{display:block;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0}
+.theme{background:var(--card);border-radius:12px;padding:8px 10px;font-size:18px}
+main{padding:6px 18px calc(130px + env(safe-area-inset-bottom))}
+.screen{display:none}.screen.on{display:block}
+.search{display:flex;gap:8px;margin:10px 0}
+.search input{flex:1;min-width:0;padding:14px;border:0;border-radius:16px;background:var(--card);font-size:16px;outline:none}
+.search input:focus{box-shadow:0 0 0 2px var(--accent)}
+.go{background:var(--accent);color:var(--onc);border-radius:16px;padding:0 18px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{background:var(--card);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600}
+.chip.unknown{outline:1px dashed var(--dim);color:var(--muted)}
+.chip b{margin-left:6px;color:var(--dim)}
+.row{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px -18px;padding:0 18px}
+.row::-webkit-scrollbar{display:none}
+.f{flex:none;background:var(--card);border-radius:12px;padding:9px 14px;font-size:14px;font-weight:600;color:var(--muted)}
+.f.on{background:var(--fg);color:var(--bg)}
+.sec{font-size:20px;font-weight:800;margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.n{background:var(--accent);color:var(--onc);border-radius:8px;padding:1px 8px;font-size:14px}
+.rc{display:flex;gap:12px;align-items:center;border-radius:20px;padding:12px;margin-bottom:10px;background:var(--card);width:100%;text-align:left}
+.rc.ready{background:linear-gradient(135deg,color-mix(in srgb,var(--ok) 18%,var(--card)),var(--card))}
+.ic{width:56px;height:56px;flex:none;border-radius:16px;display:grid;place-items:center;font-size:30px}
+.rb{flex:1;min-width:0}
+.rb h3{font-size:17px;font-weight:700;line-height:1.2}
+.meta{font-size:13px;color:var(--muted)}
+.miss{font-size:13px;color:var(--warn);font-weight:600}
+.bar{height:5px;border-radius:3px;background:var(--card2);overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),#b5f55e)}
+.heart{font-size:22px;color:var(--heart);padding:6px;flex:none}
+.c-poultry{background:#ffb347;color:#17151f}.c-seafood{background:#4cc9f0;color:#17151f}.c-beef{background:#ff5d5d;color:#17151f}.c-pork{background:#ff8fc7;color:#17151f}.c-veg{background:#5ee08f;color:#17151f}
+.empty{color:var(--muted);padding:18px 4px;font-size:15px}
+details.staples{background:var(--card);border-radius:16px;padding:12px 14px;margin:10px 0}
+details.staples summary{cursor:pointer;font-weight:600;font-size:14px;list-style:none}details.staples summary::-webkit-details-marker{display:none}details.staples summary::after{content:' ▾';color:var(--accent)}details.staples[open] summary::after{content:' ▴'}
+.stgrid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.stgrid label{font-size:13px;background:var(--card2);border-radius:10px;padding:6px 10px;cursor:pointer;display:flex;gap:6px;align-items:center}
+.stgrid input{accent-color:var(--ok)}
+/* build */
+.mode{display:flex;gap:8px;margin:6px 0 14px}
+.mo{flex:1;background:var(--card);border-radius:14px;padding:12px 8px;font-weight:700;font-size:14px;color:var(--muted)}
+.mo.on{background:var(--card2);color:var(--fg);outline:2px solid var(--accent)}
+.mo small{display:block;font-weight:600;font-size:11px;color:var(--dim)}
+.steps{display:flex;gap:6px;margin-bottom:12px}
+.st{flex:1;text-align:center;font-size:12px;padding:7px 0;background:var(--card);border-radius:10px;color:var(--muted);font-weight:700}
+.st.on{background:var(--accent);color:var(--onc)}.st.done{color:var(--fg)}
+.ask{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:4px 0 14px;line-height:1.15}
+.cats{display:flex;flex-direction:column;gap:10px}
+.cat{border-radius:22px;padding:16px 18px;text-align:left;display:flex;align-items:center;gap:14px;opacity:.6;transition:transform .15s,opacity .15s}
+.cat.on{opacity:1;transform:scale(1.02);box-shadow:var(--shadow)}
+.ce{font-size:36px}.cat b{font-size:21px;font-weight:800;display:block}.cat small{font-size:13px;font-weight:600;opacity:.75}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.opt{background:var(--card);border-radius:12px;padding:10px 14px;font-weight:600}
+.opt.on{background:var(--fg);color:var(--bg)}
+.cta{display:block;width:100%;margin-top:16px;padding:15px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#17151f;border-radius:18px;font-weight:800;font-size:17px}
+.cta.ghost{background:var(--card);color:var(--accent)}
+.cta:disabled{opacity:.4}
+.note{background:var(--card);border-radius:16px;padding:14px;color:var(--muted);font-size:14px;margin:10px 0}
+/* recipes grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{border-radius:22px;padding:14px;display:flex;flex-direction:column;min-height:150px;text-align:left;position:relative}
+.tile .te{font-size:42px;flex:1}.tile b{font-size:15px;font-weight:800;line-height:1.2}.tile small{font-weight:600;opacity:.75;font-size:12px}
+.tile .th{position:absolute;top:8px;right:10px;font-size:18px;color:#17151f}
+/* list */
+.shop{background:var(--card);border-radius:20px;padding:0 14px}
+.shop label{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-weight:600}
+.shop label:last-child{border-bottom:0}
+.shop input{accent-color:var(--ok);width:22px;height:22px;flex:none}
+.shop .it{flex:1}.shop small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+.shop .done .it{text-decoration:line-through;color:var(--dim)}
+.btns{display:flex;gap:8px}.btns .cta{flex:1}
+/* tabs */
+.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:calc(100% - 24px);max-width:416px;display:flex;background:var(--nav);border-radius:24px;box-shadow:var(--shadow);z-index:5}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;padding:10px 0 12px;color:var(--dim);font-weight:700;position:relative}
+.tab span{font-size:22px}.tab.on{color:var(--accent)}
+.badge{position:absolute;top:6px;left:calc(50% + 8px);background:var(--heart);color:#fff;border-radius:999px;font-size:10px;min-width:16px;padding:0 4px;line-height:16px}
+/* recipe sheet */
+.sheet{position:fixed;inset:0;overflow:auto;background:var(--bg);transform:translateY(100%);transition:transform .25s ease;z-index:10}
+.sheet.open{transform:none}
+.sh{max-width:440px;margin:0 auto;padding:16px 18px 60px}
+.shbar{display:flex;justify-content:space-between;align-items:center}
+.back{color:var(--accent);font-weight:800;padding:6px 0;font-size:16px}
+.hero{height:130px;display:grid;place-items:center;font-size:64px;margin:12px 0;border-radius:26px}
+.sh h2{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.serv{display:flex;gap:8px;align-items:center;margin:14px 0;font-weight:600}
+.serv button{min-width:44px;height:38px;background:var(--card);border-radius:12px;font-weight:700}
+.serv button.on{background:var(--accent);color:var(--onc)}
+h4{font-size:20px;font-weight:800;margin:20px 0 6px}
+.ing{list-style:none}
+.ing li{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}
+.ing .mk{width:20px;flex:none;color:var(--ok);font-weight:800}
+.ing li.no .mk{color:var(--warn)}
+.ing li.h .tx{color:var(--muted)}
+.ing .opt2{font-size:12px;color:var(--dim)}
+.need{background:color-mix(in srgb,var(--warn) 15%,var(--card));border-radius:16px;padding:12px 14px;margin:12px 0;font-size:14px}
+.need .cta{margin-top:10px;padding:11px;font-size:15px}
+.sp{padding-left:24px}.sp li{margin-bottom:12px}
+.scaled{font-size:12px;color:var(--dim);margin-top:6px}
+/* cook mode */
+.cook{position:fixed;inset:0;background:var(--bg);z-index:20;display:none;flex-direction:column;padding:18px 18px calc(24px + env(safe-area-inset-bottom))}
+.cook.open{display:flex}
+.cook .cb{max-width:440px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column}
+.cook .prog{display:flex;gap:4px;margin:14px 0}.cook .prog i{flex:1;height:6px;border-radius:3px;background:var(--card2)}.cook .prog i.on{background:var(--accent)}
+.cook .stepn{color:var(--accent);font-weight:800;font-size:15px}
+.cook .stept{font-size:27px;font-weight:700;line-height:1.35;flex:1;margin-top:10px;overflow:auto}
+.cook .nav{display:flex;gap:10px}.cook .nav button{flex:1;padding:18px;border-radius:18px;font-size:18px;font-weight:800;background:var(--card)}
+.cook .nav .nx{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#17151f}
+.wake{font-size:12px;color:var(--dim);margin-top:8px;text-align:center}
+.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;font-weight:700;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}
+.foot{font-size:12px;color:var(--dim);margin:28px 0 0}
+</style></head><body>
+<div class="app">
+ <header class="top"><span class="logo">🔥</span><h1>What can I make?<span class="tag" id="tagline">Cook with what you've got</span></h1><button class="theme" id="theme" aria-label="Switch light or dark">🌗</button></header>
+ <main>
+  <section class="screen on" data-s="fridge">
+   <div class="search"><input id="in" placeholder="Add what's in your fridge…" autocomplete="off" enterkeyhint="done"><button class="go" id="add">Add</button></div>
+   <div class="chips" id="chips"></div>
+   <details class="staples"><summary>🧂 Things I usually have (<span id="stCount">0</span>)</summary><div class="stgrid" id="stgrid"></div></details>
+   <div class="row" id="ffilters"></div>
+   <div id="fout"></div>
+  </section>
+  <section class="screen" data-s="build">
+   <div class="mode" id="mode"></div>
+   <div id="bout"></div>
+  </section>
+  <section class="screen" data-s="recipes">
+   <div class="search"><input id="q" placeholder="Search recipes…" autocomplete="off" type="search"></div>
+   <div class="row" id="rfilters"></div>
+   <div class="grid" id="rout"></div>
+  </section>
+  <section class="screen" data-s="list">
+   <div id="lout"></div>
+  </section>
+  <p class="foot">Check meat with a thermometer where a temperature is given. Everything you save stays on this device.</p>
+ </main>
+ <nav class="tabs" id="tabs"></nav>
+</div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="sh" id="sh"></div></div>
+<div class="cook" id="cook" role="dialog" aria-modal="true"><div class="cb" id="cb"></div></div>
+<div class="toast" id="toast"></div>
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+(() => {
+const DATA = JSON.parse(document.getElementById("data").textContent);
+const VOCAB = DATA.vocab, RECIPES = DATA.recipes, BYID = Object.fromEntries(RECIPES.map(r => [r.id, r]));
+const ALWAYS = new Set(["salt", "black pepper"]);
+const DEFAULT_STAPLES = ["vegetable oil", "olive oil", "sugar", "flour", "butter", "garlic powder", "italian seasoning"];
+const MEALS = ["breakfast", "lunch", "dinner", "snack"];
+const KEY = "fridge.v3";
+
+// ---- protein categories ----
+const CATS = {
+  poultry: { label: "Poultry", e: "🍗", items: ["chicken breast", "chicken thighs", "ground turkey"], sub: "chicken, turkey" },
+  seafood: { label: "Seafood", e: "🐟", items: ["salmon", "shrimp", "white fish", "canned tuna"], sub: "salmon, shrimp, fish" },
+  beef:    { label: "Beef", e: "🥩", items: ["ground beef", "steak"], sub: "steak, ground beef" },
+  pork:    { label: "Pork", e: "🥓", items: ["pork chops", "sausage", "bacon", "ham"], sub: "chops, sausage, bacon" },
+  veg:     { label: "Vegetarian", e: "🥦", items: ["tofu", "canned black beans", "canned chickpeas", "lentils", "eggs"], sub: "tofu, beans, eggs" },
+};
+const ITEMCAT = {}; for (const [c, v] of Object.entries(CATS)) if (c !== "veg") for (const i of v.items) ITEMCAT[i] = c;
+const VEGGIES = ["broccoli", "spinach", "bell pepper", "mushrooms", "zucchini", "carrots", "green beans", "cauliflower", "cabbage", "corn", "frozen peas", "tomatoes", "potatoes", "sweet potatoes", "onion", "avocado"];
+const VEMOJI = { broccoli: "🥦", spinach: "🥬", "bell pepper": "🫑", mushrooms: "🍄", zucchini: "🥒", carrots: "🥕", "green beans": "🫛", cauliflower: "🥦", cabbage: "🥬", corn: "🌽", "frozen peas": "🫛", tomatoes: "🍅", potatoes: "🥔", "sweet potatoes": "🍠", onion: "🧅", avocado: "🥑" };
+function catOf(r) { for (const i of r.ingredients) if (ITEMCAT[i.item]) return ITEMCAT[i.item]; return "veg"; }
+const EMO = [[/taco|tostada|nacho/, "🌮"], [/burrito|quesadilla|wrap|fajita/, "🌯"], [/pizza/, "🍕"], [/pasta|spaghetti|penne|ziti|mac|lo mein|noodle|cacio|bolognese|ramen/, "🍝"], [/soup|stew|chili|minestrone/, "🍲"], [/curry|dal|masala|korma|aloo|butter chicken|tandoori/, "🍛"], [/salad|raita/, "🥗"], [/pancake/, "🥞"], [/french toast|toast|sandwich|blt|melt|joe|grilled cheese/, "🥪"], [/smoothie/, "🥤"], [/oat|parfait|yogurt/, "🥣"], [/banana bread|bites/, "🍌"], [/omelette|egg|frittata|scramble|shakshuka|huevos|migas/, "🍳"], [/rice|bowl|risotto|oyakodon/, "🍚"], [/potato|hash/, "🥔"], [/salmon|fish/, "🐟"], [/shrimp/, "🍤"], [/steak|beef/, "🥩"], [/guacamole|hummus|salsa|pico|bruschetta/, "🥑"]];
+const CATE = { poultry: "🍗", seafood: "🐟", beef: "🥩", pork: "🥓", veg: "🥦" };
+function emojiOf(r) { const n = r.name.toLowerCase(); for (const [re, e] of EMO) if (re.test(n)) return e; return CATE[catOf(r)]; }
+for (const r of RECIPES) { r._cat = catOf(r); r._e = emojiOf(r); }
+const CUISINE_GROUPS = { Mexican: ["Mexican", "Tex-Mex"], Italian: ["Italian"], "Mediterranean": ["Mediterranean", "Greek"], Asian: ["Chinese", "Japanese", "Korean", "Thai"], "Indian-style": ["Indian-style"], Comfort: ["American comfort", "Classic", "One-pot", "Sheet-pan"] };
+
+// ---- aliases ----
+const ALIAS = {};
+for (const [k, v] of Object.entries(VOCAB)) { ALIAS[k] = k; for (const a of v.aliases) ALIAS[a.toLowerCase()] = k; }
+function canon(word) {
+  const w = word.trim().toLowerCase().replace(/\s+/g, " ");
+  if (!w) return null;
+  if (ALIAS[w]) return ALIAS[w];
+  if (w.endsWith("es") && ALIAS[w.slice(0, -2)]) return ALIAS[w.slice(0, -2)];
+  if (w.endsWith("s") && ALIAS[w.slice(0, -1)]) return ALIAS[w.slice(0, -1)];
+  if (ALIAS[w + "s"]) return ALIAS[w + "s"];
+  return w;
+}
+
+// ---- state (device only) ----
+const fresh = () => ({ fridge: [], staples: DEFAULT_STAPLES.slice(), quick: false, veg: false, meal: "", favs: [], list: [], theme: "", tab: "fridge", rf: "All" });
+let st = fresh();
+const ls = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }, del(k) { try { localStorage.removeItem(k); } catch (e) {} } };
+try {
+  const v3 = ls.get(KEY), v2 = ls.get("fridge.v2");
+  if (v3) Object.assign(st, JSON.parse(v3));
+  else if (v2) { const o = JSON.parse(v2); st.fridge = o.fridge || []; st.staples = o.staples || st.staples; } // carry v2 list over once
+} catch (e) {}
+const save = () => ls.set(KEY, JSON.stringify(st));
+
+const $ = id => document.getElementById(id);
+function el(tag, props = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (v == null || v === false) continue;
+    if (k === "class") n.className = v; else if (k === "text") n.textContent = v;
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v);
+  }
+  for (const c of kids.flat()) if (c != null && c !== false) n.append(c);
+  return n;
+}
+function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 1600); }
+function haptic() { try { navigator.vibrate && navigator.vibrate(8); } catch (e) {} }
+
+// ---- theme ----
+function applyTheme() {
+  const h = document.documentElement;
+  if (st.theme) h.setAttribute("data-theme", st.theme); else h.removeAttribute("data-theme");
+  const dark = st.theme ? st.theme === "dark" : !matchMedia("(prefers-color-scheme: light)").matches;
+  document.querySelector('meta[name=theme-color]').setAttribute("content", dark ? "#17151f" : "#fff8f0");
+  $("theme").textContent = st.theme === "dark" ? "🌙" : st.theme === "light" ? "☀️" : "🌗";
+}
+$("theme").onclick = () => { st.theme = st.theme === "" ? "dark" : st.theme === "dark" ? "light" : ""; save(); applyTheme(); toast(st.theme ? (st.theme === "dark" ? "Dark mode" : "Light mode") : "Matches your phone"); };
+
+// ---- matching ----
+const PROTEIN = new Set(["meat", "fish", "protein"]);
+const owned = () => new Set([...st.fridge, ...st.staples, ...ALWAYS]);
+function score(r, have) {
+  const need = r.ingredients.filter(i => !i.optional).map(i => i.item);
+  const got = need.filter(i => have.has(i)), miss = need.filter(i => !have.has(i));
+  const fromFridge = need.filter(i => st.fridge.includes(i)).length;
+  const core = miss.filter(i => VOCAB[i].group !== "spice");
+  return { r, need, got, miss, core, fromFridge, frac: got.length / need.length };
+}
+function fridgeResults() {
+  const have = owned();
+  return RECIPES.filter(r => (!st.quick || r.minutes <= 20) && (!st.veg || r.veg) && (!st.meal || r.meal.includes(st.meal)))
+    .map(r => score(r, have))
+    .filter(s => s.fromFridge > 0 && s.core.length <= 2 && !s.miss.some(i => PROTEIN.has(VOCAB[i].group)))
+    .sort((a, b) => (a.core.length > 0) - (b.core.length > 0) || b.fromFridge - a.fromFridge || a.core.length - b.core.length || a.miss.length - b.miss.length || b.frac - a.frac || a.r.minutes - b.r.minutes);
+}
+const isFav = id => st.favs.includes(id);
+function toggleFav(id) { st.favs = isFav(id) ? st.favs.filter(x => x !== id) : [...st.favs, id]; save(); haptic(); toast(isFav(id) ? "Saved ♥" : "Removed"); renderAll(); }
+
+// ---- shared card ----
+function card(s, opts = {}) {
+  const r = s.r;
+  return el("div", { class: "rc" + (s.miss && !s.miss.length ? " ready" : ""), "data-id": r.id, role: "button", tabindex: "0", onclick: e => { if (!e.target.closest(".heart")) openRecipe(r.id); }, onkeydown: e => { if (e.key === "Enter") openRecipe(r.id); } },
+    el("div", { class: "ic c-" + r._cat, text: r._e }),
+    el("div", { class: "rb" },
+      el("h3", { text: r.name }),
+      el("div", { class: "meta", text: `${r.minutes} min · serves ${r.serves} · ${r.cuisine}` }),
+      opts.extra || null,
+      s.miss ? (s.miss.length ? el("div", { class: "miss", text: "Missing: " + s.miss.join(", ") }) : null) : null,
+      s.frac != null ? el("div", { class: "bar" }, el("i", { style: `width:${Math.round(s.frac * 100)}%` })) : null),
+    el("button", { class: "heart", "aria-label": "Save", text: isFav(r.id) ? "♥" : "♡", onclick: () => toggleFav(r.id) }));
+}
+
+// ---- FRIDGE tab ----
+let fshown = 20;
+function renderFridge() {
+  const chips = $("chips"); chips.replaceChildren();
+  for (const x of st.fridge) chips.append(el("button", { class: "chip" + (VOCAB[x] ? "" : " unknown"), title: "Remove", onclick: () => { st.fridge = st.fridge.filter(y => y !== x); save(); renderAll(); } }, x, el("b", { text: "×" })));
+  if (st.fridge.length) chips.append(el("button", { class: "chip", style: "color:var(--muted)", onclick: () => { st.fridge = []; save(); renderAll(); } }, "Clear all"));
+  $("stCount").textContent = st.staples.length;
+  const f = $("ffilters"); f.replaceChildren();
+  const tog = (label, on, fn) => el("button", { class: "f" + (on ? " on" : ""), "aria-pressed": String(on), onclick: () => { fn(); save(); renderFridge(); } }, label);
+  f.append(tog("⚡ Quick", st.quick, () => st.quick = !st.quick), tog("🥦 Veggie", st.veg, () => st.veg = !st.veg));
+  for (const m of MEALS) f.append(tog(m[0].toUpperCase() + m.slice(1), st.meal === m, () => st.meal = st.meal === m ? "" : m));
+  const out = $("fout"); out.replaceChildren();
+  if (!st.fridge.length) { out.append(el("p", { class: "empty", text: `Add a few things you have — eggs, chicken, rice… — and I'll match them against ${RECIPES.length} recipes. Or try the Build tab.` })); return; }
+  const res = fridgeResults(), ready = res.filter(s => !s.miss.length), close = res.filter(s => s.miss.length);
+  if (!res.length) { out.append(el("p", { class: "empty", text: "Nothing matches yet. Add a basic like eggs, rice, pasta or bread, or turn off a filter." })); return; }
+  let left = fshown;
+  if (ready.length) { out.append(el("h2", { class: "sec" }, "Ready now", el("span", { class: "n", text: ready.length }))); for (const s of ready.slice(0, left)) out.append(card(s)); left -= ready.length; }
+  if (close.length && left > 0) { out.append(el("h2", { class: "sec" }, "Need 1–2 things", el("span", { class: "n", text: close.length }))); for (const s of close.slice(0, left)) out.append(card(s)); }
+  if (res.length > fshown) out.append(el("button", { class: "cta ghost", onclick: () => { fshown += 20; renderFridge(); } }, `Show more (${res.length - fshown})`));
+}
+function renderStaples() {
+  const g = $("stgrid"); g.replaceChildren();
+  for (const k of Object.keys(VOCAB).filter(k => ["staple", "spice"].includes(VOCAB[k].group) && !ALWAYS.has(k)).sort()) {
+    const cb = el("input", { type: "checkbox" }); cb.checked = st.staples.includes(k);
+    cb.addEventListener("change", () => { st.staples = cb.checked ? [...new Set([...st.staples, k])] : st.staples.filter(x => x !== k); save(); renderAll(); });
+    g.append(el("label", {}, cb, k));
+  }
+}
+function addFridge(text) { for (const p of text.split(/[,\n;]+/)) { const k = canon(p); if (k && !st.fridge.includes(k)) st.fridge.push(k); } fshown = 20; save(); renderAll(); }
+
+// ---- BUILD tab ----
+let b = { mode: "match", step: 0, cat: "poultry", item: "chicken breast", veg: [] };
+function renderBuild() {
+  const m = $("mode"); m.replaceChildren(
+    el("button", { class: "mo" + (b.mode === "build" ? " on" : ""), onclick: () => { b.mode = "build"; renderBuild(); } }, "✨ Build a recipe", el("small", { text: "coming next update" })),
+    el("button", { class: "mo" + (b.mode === "match" ? " on" : ""), onclick: () => { b.mode = "match"; renderBuild(); } }, "🔎 Matching recipes", el("small", { text: `from ${RECIPES.length} recipes` })));
+  const out = $("bout"); out.replaceChildren();
+  if (b.mode === "build") {
+    out.append(el("div", { class: "note", text: "The recipe builder will turn your picks — protein, veggies, cooking style and flavor — into a brand-new recipe with amounts and steps. It's being built and tested now. For now, Matching recipes shows real recipes that use what you pick." }),
+      el("button", { class: "cta", onclick: () => { b.mode = "match"; renderBuild(); } }, "Show matching recipes →"));
+    return;
+  }
+  const labels = ["Protein", "Veggies", "Results"];
+  out.append(el("div", { class: "steps" }, labels.map((l, i) => el("button", { class: "st" + (i === b.step ? " on" : i < b.step ? " done" : ""), onclick: () => { if (i <= b.step || i === 1) { b.step = i; renderBuild(); scrollTo(0, 0); } } }, `${i + 1} ${l}`))));
+  if (b.step === 0) {
+    out.append(el("h2", { class: "ask", text: "What protein are you in the mood for?" }));
+    const cats = el("div", { class: "cats" });
+    for (const [k, c] of Object.entries(CATS)) cats.append(el("button", { class: `cat c-${k}` + (b.cat === k ? " on" : ""), "data-cat": k, onclick: () => { b.cat = k; b.item = c.items[0]; haptic(); renderBuild(); } }, el("span", { class: "ce", text: c.e }), el("div", {}, el("b", { text: c.label }), el("small", { text: c.sub }))));
+    out.append(cats);
+    const opts = el("div", { class: "opts", id: "sub" });
+    for (const i of CATS[b.cat].items) opts.append(el("button", { class: "opt" + (b.item === i ? " on" : ""), onclick: () => { b.item = i; renderBuild(); } }, i[0].toUpperCase() + i.slice(1)));
+    out.append(opts, el("button", { class: "cta", onclick: () => { b.step = 1; renderBuild(); scrollTo(0, 0); } }, "Next: pick veggies →"));
+  } else if (b.step === 1) {
+    out.append(el("h2", { class: "ask", text: "Any veggies? Pick up to 3." }), el("div", { class: "meta", text: "Optional. Skip to see everything with " + b.item + "." }));
+    const opts = el("div", { class: "opts" });
+    for (const v of VEGGIES) { const on = b.veg.includes(v); opts.append(el("button", { class: "opt" + (on ? " on" : ""), onclick: () => { if (on) b.veg = b.veg.filter(x => x !== v); else if (b.veg.length < 3) b.veg = [...b.veg, v]; else toast("Up to 3 veggies"); renderBuild(); } }, `${VEMOJI[v] || ""} ${v}`)); }
+    out.append(opts, el("button", { class: "cta", onclick: () => { b.step = 2; renderBuild(); scrollTo(0, 0); } }, b.veg.length ? "Show recipes →" : "Skip — show recipes →"));
+  } else {
+    const res = buildMatches();
+    out.append(el("h2", { class: "ask", text: `${b.item[0].toUpperCase() + b.item.slice(1)}${b.veg.length ? " + " + b.veg.join(", ") : ""}` }));
+    if (!res.length) out.append(el("p", { class: "empty", text: `No recipes use ${b.item} yet. Try another protein.` }));
+    for (const s of res) out.append(card(s, { extra: b.veg.length ? el("div", { class: "meta", style: "color:var(--ok);font-weight:700", text: s.vhit.length ? "Has " + s.vhit.join(", ") : "No picked veggies" }) : null }));
+    out.append(el("button", { class: "cta ghost", onclick: () => { b.step = 0; b.veg = []; renderBuild(); scrollTo(0, 0); } }, "Start over"));
+  }
+}
+function buildMatches() {
+  const have = owned();
+  return RECIPES.filter(r => r.ingredients.some(i => i.item === b.item))
+    .map(r => { const s = score(r, have); s.vhit = b.veg.filter(v => r.ingredients.some(i => i.item === v)); return s; })
+    .sort((x, y) => y.vhit.length - x.vhit.length || x.miss.length - y.miss.length || x.r.minutes - y.r.minutes);
+}
+
+// ---- RECIPES tab ----
+let rshown = 30;
+function renderRecipes() {
+  const f = $("rfilters"); f.replaceChildren();
+  for (const k of ["All", "♥ Saved", "Quick", "Veggie", ...MEALS.map(m => m[0].toUpperCase() + m.slice(1)), ...Object.keys(CUISINE_GROUPS), ...Object.values(CATS).filter(c => c.label !== "Vegetarian").map(c => c.label)])
+    f.append(el("button", { class: "f" + (st.rf === k ? " on" : ""), onclick: () => { st.rf = k; rshown = 30; save(); renderRecipes(); } }, k));
+  const q = $("q").value.trim().toLowerCase(), k = st.rf;
+  let list = RECIPES.filter(r => {
+    if (q && !(r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q) || r.ingredients.some(i => i.item.includes(q)))) return false;
+    if (k === "All") return true; if (k === "♥ Saved") return isFav(r.id); if (k === "Quick") return r.minutes <= 20; if (k === "Veggie") return r.veg;
+    if (MEALS.includes(k.toLowerCase())) return r.meal.includes(k.toLowerCase());
+    if (CUISINE_GROUPS[k]) return CUISINE_GROUPS[k].includes(r.cuisine);
+    const c = Object.entries(CATS).find(([, v]) => v.label === k); return c ? r._cat === c[0] : true;
+  });
+  const out = $("rout"); out.replaceChildren();
+  if (!list.length) { out.append(el("p", { class: "empty", style: "grid-column:span 2", text: k === "♥ Saved" ? "Nothing saved yet. Tap ♡ on any recipe." : "No recipes match." })); return; }
+  for (const r of list.slice(0, rshown)) out.append(el("button", { class: `tile c-${r._cat}`, "data-id": r.id, onclick: () => openRecipe(r.id) }, isFav(r.id) ? el("span", { class: "th", text: "♥" }) : null, el("span", { class: "te", text: r._e }), el("b", { text: r.name }), el("small", { text: `${r.minutes} min · ${r.cuisine}` })));
+  if (list.length > rshown) out.append(el("button", { class: "cta ghost", style: "grid-column:span 2", onclick: () => { rshown += 30; renderRecipes(); } }, `Show more (${list.length - rshown})`));
+}
+$("q").addEventListener("input", () => { rshown = 30; renderRecipes(); });
+
+// ---- LIST tab ----
+function addToList(items, from) {
+  let n = 0;
+  for (const it of items) { const ex = st.list.find(x => x.item === it.item); if (ex) { if (!ex.from.includes(from)) ex.from.push(from); } else { st.list.push({ item: it.item, amt: it.amt || "", from: [from], done: false }); n++; } }
+  save(); renderAll(); toast(n ? `Added ${n} to your list` : "Already on your list"); haptic();
+}
+function renderList() {
+  const out = $("lout"); out.replaceChildren();
+  out.append(el("h2", { class: "sec" }, "Shopping list", el("span", { class: "n", text: st.list.filter(x => !x.done).length })));
+  if (!st.list.length) { out.append(el("p", { class: "empty", text: "Your list is empty. Open a recipe and tap “Add to list” for anything you're missing." })); return; }
+  const box = el("div", { class: "shop" });
+  for (const x of [...st.list].sort((a, c) => a.done - c.done)) {
+    const cb = el("input", { type: "checkbox" }); cb.checked = x.done;
+    cb.addEventListener("change", () => { x.done = cb.checked; save(); renderAll(); });
+    box.append(el("label", { class: x.done ? "done" : "" }, cb, el("span", { class: "it" }, x.item + (x.amt ? ` — ${x.amt}` : ""), el("small", { text: "for " + x.from.join(", ") }))));
+  }
+  out.append(box, el("div", { class: "btns" },
+    el("button", { class: "cta ghost", onclick: () => copy("Shopping list:\n" + st.list.filter(x => !x.done).map(x => "- " + x.item + (x.amt ? ` (${x.amt})` : "")).join("\n")) }, "Copy list"),
+    el("button", { class: "cta ghost", onclick: () => { const n = st.list.filter(x => x.done).length; st.list = st.list.filter(x => !x.done); save(); renderAll(); toast(n ? `Cleared ${n}` : "Nothing checked"); } }, "Clear checked")));
+}
+async function copy(text) {
+  try { await navigator.clipboard.writeText(text); toast("Copied"); }
+  catch (e) { const t = el("textarea"); t.value = text; document.body.append(t); t.select(); try { document.execCommand("copy"); toast("Copied"); } catch (_) { toast("Couldn't copy"); } t.remove(); }
+}
+
+// ---- amounts ----
+const FR = [[0.125, "⅛"], [0.25, "¼"], [1 / 3, "⅓"], [0.5, "½"], [2 / 3, "⅔"], [0.75, "¾"]];
+function fmtQty(q) {
+  if (q >= 10) return String(Math.round(q));
+  const whole = Math.floor(q), rest = q - whole; let best = null, bd = 0.06;
+  for (const [v, s] of FR) { const d = Math.abs(rest - v); if (d < bd) { bd = d; best = s; } }
+  if (rest < 0.06) return String(whole || "a little"); if (rest > 0.94) return String(whole + 1);
+  if (best) return (whole ? whole + " " : "") + best; return String(Math.round(q * 10) / 10);
+}
+const PLURAL = { cup: "cups", clove: "cloves", can: "cans", slice: "slices", piece: "pieces", package: "packages", handful: "handfuls", bunch: "bunches", pinch: "pinches" };
+function amount(ing, f) { if (ing.qty == null) return ""; const q = ing.qty * f, u = ing.unit || ""; return (fmtQty(q) + " " + (q > 1 && PLURAL[u] ? PLURAL[u] : u)).trim(); }
+
+// ---- recipe sheet ----
+let cur = null, servings = null;
+function openRecipe(id, push = true) {
+  const r = BYID[id]; if (!r) return;
+  cur = r; servings = r.serves;
+  if (push) history.pushState({ r: id }, "", "#" + id);
+  drawRecipe(); $("sheet").classList.add("open"); $("sheet").scrollTop = 0; document.body.style.overflow = "hidden";
+}
+function closeRecipe(pop = true) { $("sheet").classList.remove("open"); document.body.style.overflow = ""; cur = null; if (pop && location.hash) history.back(); }
+function drawRecipe() {
+  const r = cur, have = owned(), f = servings / r.serves, s = score(r, have), sh = $("sh"); sh.replaceChildren();
+  sh.append(el("div", { class: "shbar" }, el("button", { class: "back", onclick: () => closeRecipe() }, "← Back"),
+    el("button", { class: "heart", "aria-label": "Save", text: isFav(r.id) ? "♥" : "♡", onclick: () => { toggleFav(r.id); drawRecipe(); } })));
+  sh.append(el("div", { class: "hero c-" + r._cat, text: r._e }), el("h2", { text: r.name }),
+    el("div", { class: "meta", text: `${r.minutes} min · ${r.cuisine} · ${r.meal.join(", ")}${r.veg ? " · vegetarian" : ""}` }));
+  const sv = el("div", { class: "serv" }, "Servings");
+  for (const n of [...new Set([1, 2, 4, 6, r.serves])].sort((a, c) => a - c)) sv.append(el("button", { class: n === servings ? "on" : "", "aria-pressed": String(n === servings), onclick: () => { servings = n; drawRecipe(); } }, String(n)));
+  sh.append(sv);
+  if (s.miss.length) {
+    const items = s.miss.map(i => ({ item: i, amt: amount(r.ingredients.find(x => x.item === i), f) }));
+    sh.append(el("div", { class: "need" }, el("div", { text: "🛒 You need: " + items.map(x => x.amt ? `${x.item} (${x.amt})` : x.item).join(", ") }),
+      el("button", { class: "cta", onclick: () => addToList(items, r.name) }, "Add to shopping list")));
+  }
+  sh.append(el("h4", { text: "Ingredients" }));
+  const ul = el("ul", { class: "ing" });
+  for (const ing of r.ingredients) {
+    const h = have.has(ing.item), a = amount(ing, f);
+    ul.append(el("li", { class: h ? "h" : "no" }, el("span", { class: "mk", text: h ? "✓" : "○" }),
+      el("span", { class: "tx" }, (a ? a + " " : "") + ing.item + (ing.note ? `, ${ing.note}` : "") + (ing.qty == null && !ing.optional ? ", to taste" : ""), ing.optional ? el("span", { class: "opt2", text: " (optional)" }) : null)));
+  }
+  sh.append(ul);
+  if (f !== 1) sh.append(el("div", { class: "scaled", text: `Amounts scaled from ${r.serves} to ${servings} servings; cooking times stay about the same.` }));
+  sh.append(el("h4", { text: "Steps" }));
+  const ol = el("ol", { class: "sp" }); for (const step of r.steps) ol.append(el("li", { text: step })); sh.append(ol);
+  sh.append(el("button", { class: "cta", onclick: () => openCook(0) }, "👩‍🍳 Start cook mode"));
+}
+
+// ---- cook mode ----
+let cookIdx = 0, wake = null;
+async function keepAwake() { try { if ("wakeLock" in navigator) { wake = await navigator.wakeLock.request("screen"); } } catch (e) { wake = null; } drawCook(); }
+function openCook(i) { cookIdx = i; $("cook").classList.add("open"); keepAwake(); drawCook(); }
+function closeCook() { $("cook").classList.remove("open"); try { wake && wake.release(); } catch (e) {} wake = null; }
+function drawCook() {
+  if (!cur || !$("cook").classList.contains("open")) return;
+  const r = cur, n = r.steps.length, cb = $("cb"); cb.replaceChildren();
+  cb.append(el("div", { class: "shbar" }, el("button", { class: "back", onclick: closeCook }, "✕ Exit"), el("b", { text: r.name })),
+    el("div", { class: "prog" }, r.steps.map((_, i) => el("i", { class: i <= cookIdx ? "on" : "" }))),
+    el("div", { class: "stepn", text: `Step ${cookIdx + 1} of ${n}` }),
+    el("div", { class: "stept", text: r.steps[cookIdx] }),
+    el("div", { class: "nav" },
+      el("button", { disabled: cookIdx === 0 ? "" : null, onclick: () => { if (cookIdx > 0) { cookIdx--; drawCook(); } } }, "← Back"),
+      el("button", { class: "nx", onclick: () => { if (cookIdx < n - 1) { cookIdx++; drawCook(); haptic(); } else { closeCook(); toast("Enjoy! 🍽️"); } } }, cookIdx < n - 1 ? "Next →" : "Done ✓")),
+    el("div", { class: "wake", text: wake ? "Screen will stay on while cooking" : "Tip: your screen may dim while cooking" }));
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && $("cook").classList.contains("open") && !wake) keepAwake(); });
+
+window.addEventListener("popstate", () => { const id = location.hash.slice(1); if (id && BYID[id]) openRecipe(id, false); else { if ($("cook").classList.contains("open")) closeCook(); if (cur) closeRecipe(false); } });
+document.addEventListener("keydown", e => { if (e.key === "Escape") { if ($("cook").classList.contains("open")) closeCook(); else if (cur) closeRecipe(); } });
+
+// ---- tabs ----
+const TABS = [["fridge", "🧊", "Fridge"], ["build", "🍳", "Build"], ["recipes", "📖", "Recipes"], ["list", "🛒", "List"]];
+function renderTabs() {
+  const t = $("tabs"); t.replaceChildren();
+  const open = st.list.filter(x => !x.done).length;
+  for (const [k, e, l] of TABS) t.append(el("button", { class: "tab" + (st.tab === k ? " on" : ""), "data-t": k, onclick: () => { st.tab = k; save(); renderAll(); scrollTo(0, 0); } }, el("span", { text: e }), l, k === "list" && open ? el("i", { class: "badge", text: open }) : null));
+  document.querySelectorAll(".screen").forEach(s => s.classList.toggle("on", s.dataset.s === st.tab));
+  $("tagline").textContent = { fridge: "Cook with what you've got", build: "Build your meal", recipes: `${RECIPES.length} recipes`, list: "Your shopping list" }[st.tab];
+}
+function renderAll() { renderTabs(); renderFridge(); renderBuild(); renderRecipes(); renderList(); }
+
+const inp = $("in");
+inp.addEventListener("keydown", e => { if (e.key === "Enter") { addFridge(inp.value); inp.value = ""; } });
+$("add").onclick = () => { addFridge(inp.value); inp.value = ""; inp.focus(); };
+matchMedia("(prefers-color-scheme: light)").addEventListener("change", applyTheme);
+
+applyTheme(); renderStaples(); renderAll(); save();
+const startId = location.hash.slice(1); if (BYID[startId]) openRecipe(startId, false);
+
+window.__fridge = { add: addFridge, results: () => fridgeResults().map(s => ({ id: s.r.id, miss: s.miss })), state: () => JSON.parse(JSON.stringify(st)),
+  reset: () => { ls.del(KEY); st = fresh(); b = { mode: "match", step: 0, cat: "poultry", item: "chicken breast", veg: [] }; applyTheme(); renderStaples(); renderAll(); },
+  build: () => buildMatches().map(s => ({ id: s.r.id, vhit: s.vhit })), count: RECIPES.length, canon };
+})();
+</script></body></html>

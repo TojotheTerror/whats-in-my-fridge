@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What's in my fridge?</title>
+<script>
+// Typo-tolerant redirect. GitHub Pages serves this file for any missing path under
+// /whats-in-my-fridge/. Paths are case-sensitive there, so "/V3" or "/Whats-in-my-fridge/v3"
+// would otherwise 404 on a phone that auto-capitalises.
+(function () {
+  var base = "/whats-in-my-fridge/";
+  var p = location.pathname.toLowerCase().replace(/%20|\s|_/g, "-").replace(/%27|'/g, "");
+  var rest = p.indexOf(base) === 0 ? p.slice(base.length) : p.replace(/^\/[^/]*\/?/, "");
+  var m = rest.match(/^(v[123])(\/|\.html|\/index\.html)?$/);
+  var target = m ? base + m[1] + "/" : (rest === "" || /^index(\.html)?$/.test(rest) ? base : null);
+  if (target && target !== location.pathname) location.replace(target + location.search + location.hash);
+  else document.addEventListener("DOMContentLoaded", function () { document.getElementById("msg").hidden = false; });
+})();
+</script>
+<style>body{font-family:system-ui,sans-serif;background:#17151f;color:#f6f2ff;padding:32px 20px;max-width:420px;margin:0 auto;line-height:1.5}
+a{display:block;margin:14px 0;padding:14px;border-radius:16px;background:linear-gradient(135deg,#ff7a59,#ffb347);color:#17151f;font-weight:800;text-decoration:none;text-align:center}
+a.alt{background:#262333;color:#ffb347}</style>
+</head><body>
+<div id="msg" hidden>
+<h1>🔥 Page not found</h1>
+<p>That address doesn't exist, but these do:</p>
+<a href="/whats-in-my-fridge/v3/">Open the new app (v3)</a>
+<a class="alt" href="/whats-in-my-fridge/">Open the current page</a>
+</div>
+</body></html>

@@ -15,8 +15,12 @@ for f in sorted(glob.glob(os.path.join(ROOT, "src", "recipes", "*.json"))):
 recipes.sort(key=lambda r: r["name"].lower())
 data = json.dumps({"vocab": vocab, "recipes": recipes}, ensure_ascii=False, separators=(",", ":"))
 data = data.replace("</", "<\\/")  # never close the <script> tag early
-html = open(os.path.join(ROOT, "src", "app.html")).read().replace("/*DATA*/", data, 1)
-os.makedirs(os.path.join(ROOT, "v2"), exist_ok=True)
-for out in ("index.html", os.path.join("v2", "index.html")):  # root is v2; /v2/ kept for old links
-    open(os.path.join(ROOT, out), "w").write(html)
-print(f"built v2/index.html: {len(recipes)} recipes, {len(html)//1024} KB")
+# (template, outputs). Root currently serves v2; v3 is a preview at /v3/ until approved.
+TARGETS = [("app.html", ["index.html", os.path.join("v2", "index.html")]),
+           ("app3.html", [os.path.join("v3", "index.html")])]
+for src, outs in TARGETS:
+    html = open(os.path.join(ROOT, "src", src)).read().replace("/*DATA*/", data, 1)
+    for out in outs:
+        os.makedirs(os.path.dirname(os.path.join(ROOT, out)), exist_ok=True)
+        open(os.path.join(ROOT, out), "w").write(html)
+    print(f"built {', '.join(outs)}: {len(recipes)} recipes, {len(html)//1024} KB")
