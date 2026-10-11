@@ -1,0 +1,2078 @@
+[
+  {
+    "id": "stovetop-mac-and-cheese",
+    "name": "Stovetop mac and cheese",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 25,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "pasta",
+        "qty": 8,
+        "unit": "oz",
+        "note": "elbow macaroni"
+      },
+      {
+        "item": "butter",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "flour",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "milk",
+        "qty": 2,
+        "unit": "cup"
+      },
+      {
+        "item": "cheese",
+        "qty": 2,
+        "unit": "cup",
+        "note": "shredded cheddar"
+      },
+      {
+        "item": "mustard",
+        "qty": 0.5,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Boil the macaroni in well-salted water for 1 minute less than the package says, then drain.",
+      "In the same pot, melt the butter over medium heat, whisk in the flour and cook 1 minute, stirring.",
+      "Slowly whisk in the milk and cook 4–5 minutes, stirring often, until it bubbles gently and thickens enough to coat a spoon.",
+      "Turn the heat to low, stir in the cheese a handful at a time until melted, then add the mustard if using.",
+      "Stir the pasta back in, season with salt and pepper, and serve right away."
+    ]
+  },
+  {
+    "id": "grilled-cheese",
+    "name": "Grilled cheese",
+    "meal": [
+      "lunch",
+      "snack"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 10,
+    "serves": 1,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "bread",
+        "qty": 2,
+        "unit": "slice"
+      },
+      {
+        "item": "cheese",
+        "qty": 2,
+        "unit": "slice",
+        "note": "or 1/2 cup shredded"
+      },
+      {
+        "item": "butter",
+        "qty": 1,
+        "unit": "tbsp",
+        "note": "softened"
+      }
+    ],
+    "steps": [
+      "Spread the butter on one side of each bread slice.",
+      "Place one slice butter-side down in a nonstick pan, top with the cheese, then the second slice butter-side up.",
+      "Cook over medium-low heat for 3–4 minutes until the bottom is golden, then flip.",
+      "Cook another 2–3 minutes until the second side is golden and the cheese is melted. Cut in half and serve."
+    ]
+  },
+  {
+    "id": "tomato-soup",
+    "name": "Tomato soup",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Classic",
+    "minutes": 35,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "butter",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "canned tomatoes",
+        "qty": 1,
+        "unit": "can",
+        "note": "28 oz, crushed or diced"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 2,
+        "unit": "cup",
+        "note": "use vegetable broth to keep it vegetarian"
+      },
+      {
+        "item": "sugar",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "heavy cream",
+        "qty": 0.25,
+        "unit": "cup",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Melt the butter in a pot over medium heat, add the onion and cook 5–6 minutes until soft.",
+      "Add the garlic and cook 30 seconds, until fragrant.",
+      "Add the canned tomatoes, broth and sugar; bring to a boil, then lower the heat and simmer 15 minutes.",
+      "Blend until smooth with a stick blender (or carefully in a blender in batches with the lid vented).",
+      "Stir in the cream if using, season with salt and pepper, and serve hot."
+    ]
+  },
+  {
+    "id": "sloppy-joes",
+    "name": "Sloppy joes",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 25,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "bell pepper",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "ketchup",
+        "qty": 0.75,
+        "unit": "cup"
+      },
+      {
+        "item": "brown sugar",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "mustard",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "bread",
+        "qty": 8,
+        "unit": "slice",
+        "note": "toasted, or use buns"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Cook the ground beef, onion and bell pepper in a large skillet over medium-high heat for 7–8 minutes, breaking up the meat, until no pink remains and the beef reaches 160°F.",
+      "Spoon off any excess fat.",
+      "Stir in the ketchup, brown sugar, mustard and 1/4 cup water; simmer on low for 5–10 minutes until thick. Season with salt and pepper.",
+      "Spoon onto toasted bread and serve."
+    ]
+  },
+  {
+    "id": "patty-melt",
+    "name": "Patty melt",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 30,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "qty": 0.5,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "thinly sliced"
+      },
+      {
+        "item": "butter",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "bread",
+        "qty": 4,
+        "unit": "slice",
+        "note": "rye if you have it"
+      },
+      {
+        "item": "cheese",
+        "qty": 4,
+        "unit": "slice",
+        "note": "Swiss or American"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Melt 1 tbsp butter in a skillet over medium heat and cook the onion 10 minutes, stirring, until soft and golden; set aside.",
+      "Shape the ground beef into 2 thin oval patties about the size of the bread and season with salt and pepper.",
+      "Cook the patties in the same skillet over medium-high heat 3–4 minutes per side until they reach 160°F.",
+      "Build each sandwich: bread, cheese slice, patty, onions, cheese slice, bread.",
+      "Wipe the pan, melt the remaining butter over medium-low heat and cook the sandwiches 2–3 minutes per side until the bread is golden and the cheese melts."
+    ]
+  },
+  {
+    "id": "meatloaf",
+    "name": "Meatloaf",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 80,
+    "serves": 6,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "qty": 1.5,
+        "unit": "lb"
+      },
+      {
+        "item": "eggs",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "breadcrumbs",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "milk",
+        "qty": 0.33,
+        "unit": "cup"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "finely diced"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "ketchup",
+        "qty": 0.5,
+        "unit": "cup",
+        "note": "divided"
+      },
+      {
+        "item": "brown sugar",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "salt",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 350°F and line a baking sheet with foil.",
+      "In a large bowl, mix the egg, breadcrumbs and milk; let sit 2 minutes. Add the ground beef, onion, garlic powder, 2 tbsp of the ketchup, the salt and some pepper, and mix gently with your hands until just combined.",
+      "Shape into a loaf about 9 by 5 inches on the baking sheet.",
+      "Stir the remaining ketchup with the brown sugar and spread it over the top.",
+      "Bake 55–65 minutes until the center reaches 160°F on a thermometer. Rest 10 minutes before slicing."
+    ]
+  },
+  {
+    "id": "cottage-pie",
+    "name": "Cottage pie",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 75,
+    "serves": 6,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "potatoes",
+        "qty": 2,
+        "unit": "lb",
+        "note": "peeled and cut in chunks"
+      },
+      {
+        "item": "butter",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "milk",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "ground beef",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "carrots",
+        "qty": 2,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "tomato paste",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "flour",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 1,
+        "unit": "cup",
+        "note": "beef broth also works"
+      },
+      {
+        "item": "frozen peas",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F. Cover the potatoes with salted water, boil 15 minutes until fork-tender, drain, and mash with the butter, milk, salt and pepper.",
+      "Meanwhile, cook the ground beef, onion and carrots in a large skillet over medium-high heat for 8–10 minutes, breaking up the meat, until no pink remains and it reaches 160°F. Spoon off excess fat.",
+      "Stir in the tomato paste and flour and cook 1 minute, then add the broth and simmer 5 minutes until thickened. Stir in the peas and season.",
+      "Spread the beef mixture in a 2-quart baking dish and spoon the mashed potatoes over the top, roughing it up with a fork.",
+      "Bake 20–25 minutes until bubbling and the top is golden. Rest 5 minutes before serving."
+    ]
+  },
+  {
+    "id": "chicken-noodle-soup",
+    "name": "Chicken noodle soup",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Classic",
+    "minutes": 45,
+    "serves": 6,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "olive oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "carrots",
+        "qty": 2,
+        "unit": "",
+        "note": "sliced"
+      },
+      {
+        "item": "celery",
+        "qty": 2,
+        "unit": "",
+        "note": "stalks, sliced"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 8,
+        "unit": "cup"
+      },
+      {
+        "item": "chicken breast",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "italian seasoning",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "pasta",
+        "qty": 2,
+        "unit": "cup",
+        "note": "egg noodles or small pasta"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "fresh herbs",
+        "qty": null,
+        "unit": "",
+        "note": "chopped parsley",
+        "optional": true
+      }
+    ],
+    "steps": [
+      "Heat the oil in a large pot over medium heat; cook the onion, carrots and celery 5–6 minutes until starting to soften.",
+      "Add the broth, italian seasoning and whole chicken breasts. Bring to a boil, then lower to a gentle simmer and cook 15–20 minutes until the chicken reaches 165°F.",
+      "Lift out the chicken, shred it with two forks and set aside.",
+      "Bring the soup back to a boil, add the noodles and cook according to the package, about 6–8 minutes, until tender.",
+      "Stir the chicken back in, season with salt and pepper, and top with herbs if you like."
+    ]
+  },
+  {
+    "id": "one-pot-chicken-and-rice",
+    "name": "One-pot chicken and rice",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "One-pot",
+    "minutes": 45,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken thighs",
+        "qty": 1.5,
+        "unit": "lb",
+        "note": "boneless, skinless"
+      },
+      {
+        "item": "paprika",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "olive oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "rice",
+        "qty": 1.5,
+        "unit": "cup",
+        "note": "uncooked long-grain white"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 3,
+        "unit": "cup"
+      },
+      {
+        "item": "frozen peas",
+        "qty": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Season the chicken thighs with the paprika, garlic powder, salt and pepper.",
+      "Heat the oil in a large lidded pot over medium-high heat and brown the chicken 3 minutes per side; move to a plate (it will finish cooking later).",
+      "Lower to medium, add the onion and cook 4 minutes, then the garlic for 30 seconds. Stir in the rice for 1 minute.",
+      "Pour in the broth, scraping up the browned bits, and bring to a boil. Nestle the chicken on top, cover, and cook on low for 18–20 minutes until the rice is tender and the chicken reaches 165°F.",
+      "Scatter the peas over, cover again off the heat for 5 minutes, then fluff and serve."
+    ]
+  },
+  {
+    "id": "sheet-pan-chicken-and-vegetables",
+    "name": "Sheet-pan chicken and vegetables",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Sheet-pan",
+    "minutes": 45,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 1.5,
+        "unit": "lb",
+        "note": "cut in 1-inch pieces"
+      },
+      {
+        "item": "potatoes",
+        "qty": 1,
+        "unit": "lb",
+        "note": "cut in 3/4-inch cubes"
+      },
+      {
+        "item": "broccoli",
+        "qty": 3,
+        "unit": "cup",
+        "note": "florets"
+      },
+      {
+        "item": "bell pepper",
+        "qty": 1,
+        "unit": "",
+        "note": "cut in chunks"
+      },
+      {
+        "item": "olive oil",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "italian seasoning",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 425°F and line a large sheet pan with foil or parchment.",
+      "Toss the potatoes with 1 tbsp oil and a pinch of salt, spread on the pan and roast 15 minutes.",
+      "Meanwhile, toss the chicken, broccoli and bell pepper with the remaining oil, italian seasoning, garlic powder, salt and pepper.",
+      "Add them to the pan in a single layer (use two pans if crowded) and roast 15–20 minutes more until the potatoes are golden and the chicken reaches 165°F."
+    ]
+  },
+  {
+    "id": "sheet-pan-sausage-and-potatoes",
+    "name": "Sheet-pan sausage and potatoes",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Sheet-pan",
+    "minutes": 50,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "sausage",
+        "qty": 1,
+        "unit": "lb",
+        "note": "links, cut in 1-inch pieces"
+      },
+      {
+        "item": "potatoes",
+        "qty": 1.5,
+        "unit": "lb",
+        "note": "cut in 3/4-inch cubes"
+      },
+      {
+        "item": "bell pepper",
+        "qty": 1,
+        "unit": "",
+        "note": "cut in chunks"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "cut in wedges"
+      },
+      {
+        "item": "olive oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "paprika",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 425°F and line a large sheet pan.",
+      "Toss the potatoes with the oil, paprika, garlic powder, salt and pepper; spread out and roast 20 minutes.",
+      "Add the sausage, bell pepper and onion to the pan, toss with the potatoes, and spread back into one layer.",
+      "Roast 20–25 minutes more, stirring once, until the potatoes are golden and crisp at the edges and the sausage reaches 160°F (fully cooked smoked sausage just needs to be hot)."
+    ]
+  },
+  {
+    "id": "sheet-pan-salmon-and-green-beans",
+    "name": "Sheet-pan salmon and green beans",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Sheet-pan",
+    "minutes": 25,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "salmon",
+        "qty": 4,
+        "unit": "piece",
+        "note": "6 oz fillets"
+      },
+      {
+        "item": "green beans",
+        "qty": 1,
+        "unit": "lb",
+        "note": "trimmed"
+      },
+      {
+        "item": "olive oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "lemon",
+        "qty": 1,
+        "unit": "",
+        "note": "half sliced, half for squeezing"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F and line a sheet pan.",
+      "Toss the green beans with 1 tbsp oil, the garlic, salt and pepper, spread on the pan and roast 5 minutes.",
+      "Push the beans to the sides, place the salmon in the middle, brush with the remaining oil, season, and top with lemon slices.",
+      "Roast 12–15 minutes until the salmon is opaque and flakes easily with a fork (145°F). Squeeze the remaining lemon over and serve."
+    ]
+  },
+  {
+    "id": "loaded-baked-potatoes",
+    "name": "Loaded baked potatoes",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 70,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "potatoes",
+        "qty": 4,
+        "unit": "",
+        "note": "large russets, scrubbed"
+      },
+      {
+        "item": "olive oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "bacon",
+        "qty": 4,
+        "unit": "slice"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded cheddar"
+      },
+      {
+        "item": "sour cream",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "green onions",
+        "qty": 2,
+        "unit": "",
+        "note": "sliced"
+      },
+      {
+        "item": "butter",
+        "qty": 2,
+        "unit": "tbsp",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F. Prick the potatoes a few times with a fork, rub with oil and salt, and bake directly on the rack 50–60 minutes until a knife slides in easily.",
+      "Meanwhile, cook the bacon in a skillet over medium heat 8–10 minutes, turning, until crisp; drain on paper towels and crumble.",
+      "Split the hot potatoes open, fluff the insides with a fork, and add the butter if using, salt and pepper.",
+      "Top with the cheese, sour cream, bacon and green onions, and serve."
+    ]
+  },
+  {
+    "id": "creamy-potato-soup",
+    "name": "Creamy potato soup",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 40,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "butter",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "flour",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 4,
+        "unit": "cup",
+        "note": "use vegetable broth to keep it vegetarian"
+      },
+      {
+        "item": "potatoes",
+        "qty": 2,
+        "unit": "lb",
+        "note": "peeled, cut in 1/2-inch cubes"
+      },
+      {
+        "item": "milk",
+        "qty": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded",
+        "optional": true
+      },
+      {
+        "item": "green onions",
+        "qty": 2,
+        "unit": "",
+        "note": "sliced",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Melt the butter in a large pot over medium heat and cook the onion 5 minutes until soft; add the garlic for 30 seconds.",
+      "Sprinkle in the flour and stir 1 minute, then slowly whisk in the broth.",
+      "Add the potatoes, bring to a boil, then simmer 15–20 minutes until very tender.",
+      "Mash some of the potatoes right in the pot (or blend half) to thicken, then stir in the milk and heat through without boiling.",
+      "Season with salt and pepper and top with cheese and green onions if you like."
+    ]
+  },
+  {
+    "id": "blt",
+    "name": "BLT",
+    "meal": [
+      "lunch"
+    ],
+    "cuisine": "Classic",
+    "minutes": 15,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "bacon",
+        "qty": 8,
+        "unit": "slice"
+      },
+      {
+        "item": "bread",
+        "qty": 4,
+        "unit": "slice",
+        "note": "toasted"
+      },
+      {
+        "item": "lettuce",
+        "qty": 4,
+        "unit": "",
+        "note": "leaves"
+      },
+      {
+        "item": "tomatoes",
+        "qty": 1,
+        "unit": "",
+        "note": "sliced"
+      },
+      {
+        "item": "mayo",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Lay the bacon in a cold skillet, set over medium heat and cook 8–10 minutes, turning, until crisp. Drain on paper towels.",
+      "Toast the bread and spread one side of each slice with mayo.",
+      "Layer lettuce, tomato slices (with a little pepper) and 4 slices of bacon on two pieces of toast, top with the rest, and cut in half."
+    ]
+  },
+  {
+    "id": "tuna-melt",
+    "name": "Tuna melt",
+    "meal": [
+      "lunch"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 15,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "canned tuna",
+        "qty": 1,
+        "unit": "can",
+        "note": "5 oz, drained"
+      },
+      {
+        "item": "mayo",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "mustard",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "celery",
+        "qty": 1,
+        "unit": "",
+        "note": "stalk, finely diced",
+        "optional": true
+      },
+      {
+        "item": "bread",
+        "qty": 4,
+        "unit": "slice"
+      },
+      {
+        "item": "cheese",
+        "qty": 4,
+        "unit": "slice"
+      },
+      {
+        "item": "butter",
+        "qty": 1,
+        "unit": "tbsp",
+        "note": "softened"
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Mix the tuna with the mayo, mustard, celery if using, and a little pepper.",
+      "Butter one side of each bread slice. Place two slices butter-side down and top each with a cheese slice, half the tuna, another cheese slice and the remaining bread, butter-side up.",
+      "Cook in a skillet over medium-low heat 3–4 minutes per side until the bread is golden and the cheese has melted."
+    ]
+  },
+  {
+    "id": "chicken-caesar-style-wrap",
+    "name": "Chicken Caesar-style wrap",
+    "meal": [
+      "lunch"
+    ],
+    "cuisine": "Classic",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 8,
+        "unit": "oz"
+      },
+      {
+        "item": "olive oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "garlic",
+        "qty": 1,
+        "unit": "clove",
+        "note": "grated"
+      },
+      {
+        "item": "mayo",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "lemon",
+        "qty": 0.5,
+        "unit": "",
+        "note": "juiced"
+      },
+      {
+        "item": "parmesan",
+        "qty": 0.25,
+        "unit": "cup",
+        "note": "grated"
+      },
+      {
+        "item": "lettuce",
+        "qty": 2,
+        "unit": "cup",
+        "note": "romaine, chopped"
+      },
+      {
+        "item": "tortillas",
+        "qty": 2,
+        "unit": "",
+        "note": "large"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Season the chicken with salt and pepper. Heat the oil in a skillet over medium-high heat and cook the chicken 5–7 minutes per side until it reaches 165°F; rest 5 minutes, then slice.",
+      "Whisk the garlic, mayo, lemon juice, half the parmesan and plenty of pepper into a dressing.",
+      "Toss the lettuce with the dressing and the remaining parmesan.",
+      "Divide the salad and chicken between the tortillas, fold in the sides, roll up tightly and cut in half."
+    ]
+  },
+  {
+    "id": "egg-salad-sandwich",
+    "name": "Egg salad sandwich",
+    "meal": [
+      "lunch"
+    ],
+    "cuisine": "Classic",
+    "minutes": 30,
+    "serves": 2,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "eggs",
+        "qty": 4,
+        "unit": ""
+      },
+      {
+        "item": "mayo",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "mustard",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "bread",
+        "qty": 4,
+        "unit": "slice"
+      },
+      {
+        "item": "lettuce",
+        "qty": 2,
+        "unit": "",
+        "note": "leaves",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Put the eggs in a pot, cover with cold water by an inch and bring to a boil over high heat.",
+      "Turn off the heat, cover, and let sit 11 minutes so the yolks are fully set and firm. Move the eggs to ice water for 5 minutes, then peel.",
+      "Chop the eggs and mix with the mayo, mustard, salt and pepper.",
+      "Spread on two slices of bread, add lettuce if using, and top with the remaining bread."
+    ]
+  },
+  {
+    "id": "chicken-salad",
+    "name": "Chicken salad",
+    "meal": [
+      "lunch"
+    ],
+    "cuisine": "Classic",
+    "minutes": 35,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "mayo",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "celery",
+        "qty": 2,
+        "unit": "",
+        "note": "stalks, diced"
+      },
+      {
+        "item": "lemon",
+        "qty": 0.5,
+        "unit": "",
+        "note": "juiced"
+      },
+      {
+        "item": "mustard",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "green onions",
+        "qty": 2,
+        "unit": "",
+        "note": "sliced",
+        "optional": true
+      },
+      {
+        "item": "bread",
+        "qty": 8,
+        "unit": "slice",
+        "note": "or serve on lettuce",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Put the chicken in a pot, cover with salted water and bring to a boil; reduce to a gentle simmer and cook 12–15 minutes until it reaches 165°F.",
+      "Let the chicken cool 10 minutes, then dice or shred it.",
+      "Mix the mayo, lemon juice, mustard, salt and pepper in a bowl; fold in the chicken, celery and green onions if using.",
+      "Serve on bread as sandwiches or over lettuce. Keeps 3 days in the fridge."
+    ]
+  },
+  {
+    "id": "pork-chops-with-apples",
+    "name": "Pork chops with apples",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 30,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "pork chops",
+        "qty": 4,
+        "unit": "",
+        "note": "boneless, about 1 inch thick"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "butter",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "apples",
+        "qty": 2,
+        "unit": "",
+        "note": "cored and sliced"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "thinly sliced"
+      },
+      {
+        "item": "brown sugar",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "cinnamon",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Pat the pork chops dry and season both sides with salt and pepper.",
+      "Heat the oil in a large skillet over medium-high heat and cook the chops 4–5 minutes per side until golden and they reach 145°F. Move to a plate and rest 3 minutes.",
+      "Lower the heat to medium, add the butter, apples and onion and cook 5–6 minutes, stirring, until softened.",
+      "Stir in the brown sugar, cinnamon and 2 tbsp water and cook 1 minute until glossy. Spoon the apples over the pork chops to serve."
+    ]
+  },
+  {
+    "id": "garlic-butter-steak",
+    "name": "Garlic butter steak",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Classic",
+    "minutes": 25,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "steak",
+        "qty": 2,
+        "unit": "",
+        "note": "8–10 oz each, about 1 inch thick (sirloin or ribeye)"
+      },
+      {
+        "item": "vegetable oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "butter",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "garlic",
+        "qty": 3,
+        "unit": "clove",
+        "note": "smashed"
+      },
+      {
+        "item": "fresh herbs",
+        "qty": null,
+        "unit": "",
+        "note": "thyme or rosemary sprigs",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Take the steaks out of the fridge 20 minutes ahead, pat dry and season well with salt and pepper.",
+      "Heat the oil in a heavy skillet over high heat until it just smokes, add the steaks and sear 3–4 minutes without moving until a deep golden crust forms.",
+      "Flip, lower the heat to medium, and add the butter, garlic and herbs if using. Tilt the pan and spoon the foaming butter over the steaks for 3–4 minutes.",
+      "Cook to 145°F for medium (USDA-recommended), or 130–135°F if you prefer medium-rare. Rest 5 minutes, slice against the grain and pour the garlic butter over."
+    ]
+  },
+  {
+    "id": "honey-mustard-chicken",
+    "name": "Honey mustard chicken",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 35,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "qty": 1.5,
+        "unit": "lb",
+        "note": "pounded to even thickness"
+      },
+      {
+        "item": "honey",
+        "qty": 0.25,
+        "unit": "cup"
+      },
+      {
+        "item": "mustard",
+        "qty": 0.25,
+        "unit": "cup",
+        "note": "Dijon or yellow"
+      },
+      {
+        "item": "olive oil",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F and lightly oil a baking dish.",
+      "Whisk the honey, mustard, oil and garlic powder together.",
+      "Season the chicken with salt and pepper, place in the dish and pour the sauce over, turning to coat.",
+      "Bake 20–25 minutes, spooning sauce over halfway, until the chicken reaches 165°F. Rest 5 minutes and serve with the pan sauce."
+    ]
+  },
+  {
+    "id": "stuffed-bell-peppers",
+    "name": "Stuffed bell peppers",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 60,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "bell pepper",
+        "qty": 4,
+        "unit": "",
+        "note": "tops cut off, seeds removed"
+      },
+      {
+        "item": "ground beef",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 0.5,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "canned tomatoes",
+        "qty": 1,
+        "unit": "can",
+        "note": "14.5 oz diced"
+      },
+      {
+        "item": "rice",
+        "qty": 1,
+        "unit": "cup",
+        "note": "cooked"
+      },
+      {
+        "item": "italian seasoning",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 375°F. Stand the bell peppers upright in a baking dish (trim the bottoms slightly if they wobble).",
+      "Cook the ground beef and onion in a skillet over medium-high heat 7–8 minutes, breaking it up, until no pink remains and it reaches 160°F; add the garlic for 30 seconds and spoon off excess fat.",
+      "Stir in the canned tomatoes, rice, italian seasoning, salt and pepper, and half the cheese.",
+      "Pack the filling into the peppers, add 1/4 cup water to the dish, cover with foil and bake 30 minutes.",
+      "Uncover, top with the remaining cheese and bake 10 minutes more until the peppers are tender and the cheese is melted."
+    ]
+  },
+  {
+    "id": "turkey-meatballs",
+    "name": "Turkey meatballs",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Classic",
+    "minutes": 35,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground turkey",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "breadcrumbs",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "eggs",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "parmesan",
+        "qty": 0.25,
+        "unit": "cup",
+        "note": "grated"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "italian seasoning",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "salt",
+        "qty": 0.75,
+        "unit": "tsp"
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "pasta sauce",
+        "qty": null,
+        "unit": "",
+        "note": "for serving",
+        "optional": true
+      }
+    ],
+    "steps": [
+      "Heat the oven to 400°F and line a sheet pan with parchment or lightly oiled foil.",
+      "In a bowl, gently mix the ground turkey, breadcrumbs, egg, parmesan, garlic, italian seasoning, salt and pepper until just combined.",
+      "Roll into 1 1/2-inch balls (about 16) and place on the pan.",
+      "Bake 16–20 minutes until lightly browned and the centers reach 165°F.",
+      "Serve as is, or simmer in warm pasta sauce for a few minutes and serve over pasta or in sandwiches."
+    ]
+  },
+  {
+    "id": "chili-mac",
+    "name": "Chili mac",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "One-pot",
+    "minutes": 35,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "qty": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "garlic",
+        "qty": 2,
+        "unit": "clove",
+        "note": "minced"
+      },
+      {
+        "item": "chili powder",
+        "qty": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "cumin",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "canned tomatoes",
+        "qty": 1,
+        "unit": "can",
+        "note": "14.5 oz diced, with juice"
+      },
+      {
+        "item": "canned black beans",
+        "qty": 1,
+        "unit": "can",
+        "note": "drained and rinsed (kidney beans also work)"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 2.5,
+        "unit": "cup"
+      },
+      {
+        "item": "pasta",
+        "qty": 8,
+        "unit": "oz",
+        "note": "elbow macaroni, uncooked"
+      },
+      {
+        "item": "cheese",
+        "qty": 1,
+        "unit": "cup",
+        "note": "shredded cheddar"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "In a large pot over medium-high heat, cook the ground beef and onion 7–8 minutes, breaking it up, until no pink remains and it reaches 160°F. Spoon off excess fat.",
+      "Stir in the garlic, chili powder and cumin and cook 30 seconds.",
+      "Add the canned tomatoes, beans and broth and bring to a boil.",
+      "Stir in the macaroni, cover, and simmer on medium-low 10–12 minutes, stirring every few minutes, until the pasta is tender and most of the liquid is absorbed.",
+      "Season with salt, stir in half the cheese, and top with the rest. Cover 2 minutes to melt, then serve."
+    ]
+  },
+  {
+    "id": "crispy-baked-fish",
+    "name": "Crispy baked fish",
+    "meal": [
+      "dinner"
+    ],
+    "cuisine": "Classic",
+    "minutes": 30,
+    "serves": 4,
+    "veg": false,
+    "ingredients": [
+      {
+        "item": "white fish",
+        "qty": 1.5,
+        "unit": "lb",
+        "note": "4 cod or tilapia fillets, patted dry"
+      },
+      {
+        "item": "flour",
+        "qty": 0.25,
+        "unit": "cup"
+      },
+      {
+        "item": "eggs",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "breadcrumbs",
+        "qty": 1,
+        "unit": "cup",
+        "note": "panko is crispiest"
+      },
+      {
+        "item": "paprika",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "olive oil",
+        "qty": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "lemon",
+        "qty": 1,
+        "unit": "",
+        "note": "cut in wedges"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 425°F and line a sheet pan with lightly oiled foil.",
+      "Set out three shallow dishes: the flour seasoned with salt and pepper; the egg beaten with 1 tbsp water; and the breadcrumbs mixed with the paprika, garlic powder and oil.",
+      "Coat each fish fillet in flour, dip in egg, then press into the crumbs on both sides. Lay on the pan.",
+      "Bake 12–15 minutes until the crust is golden and the fish is opaque and flakes easily with a fork (145°F). Serve with lemon wedges."
+    ]
+  },
+  {
+    "id": "roasted-vegetables",
+    "name": "Roasted vegetables",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Sheet-pan",
+    "minutes": 40,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "broccoli",
+        "qty": 3,
+        "unit": "cup",
+        "note": "florets"
+      },
+      {
+        "item": "carrots",
+        "qty": 3,
+        "unit": "",
+        "note": "cut in 1/2-inch coins"
+      },
+      {
+        "item": "bell pepper",
+        "qty": 1,
+        "unit": "",
+        "note": "cut in chunks"
+      },
+      {
+        "item": "red onion",
+        "qty": 1,
+        "unit": "",
+        "note": "cut in wedges"
+      },
+      {
+        "item": "olive oil",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "italian seasoning",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "garlic powder",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Heat the oven to 425°F.",
+      "Toss the broccoli, carrots, bell pepper and red onion with the oil, italian seasoning, garlic powder, salt and pepper on a large sheet pan.",
+      "Spread in a single layer (use two pans if crowded so they roast instead of steam).",
+      "Roast 25–30 minutes, stirring halfway, until tender and browned at the edges."
+    ]
+  },
+  {
+    "id": "broccoli-cheddar-soup",
+    "name": "Broccoli cheddar soup",
+    "meal": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "American comfort",
+    "minutes": 40,
+    "serves": 4,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "butter",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "onion",
+        "qty": 1,
+        "unit": "",
+        "note": "diced"
+      },
+      {
+        "item": "carrots",
+        "qty": 1,
+        "unit": "",
+        "note": "grated"
+      },
+      {
+        "item": "flour",
+        "qty": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "chicken broth",
+        "qty": 3,
+        "unit": "cup",
+        "note": "use vegetable broth to keep it vegetarian"
+      },
+      {
+        "item": "milk",
+        "qty": 2,
+        "unit": "cup"
+      },
+      {
+        "item": "broccoli",
+        "qty": 4,
+        "unit": "cup",
+        "note": "small florets"
+      },
+      {
+        "item": "cheese",
+        "qty": 2,
+        "unit": "cup",
+        "note": "shredded sharp cheddar"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Melt the butter in a large pot over medium heat and cook the onion 5 minutes until soft.",
+      "Stir in the flour and cook 1 minute, then slowly whisk in the broth and milk.",
+      "Add the broccoli and carrots, bring to a gentle simmer (not a hard boil) and cook 15–20 minutes until the broccoli is tender.",
+      "Turn the heat to low and stir in the cheese a handful at a time until melted. Season with salt and pepper; blend part of it if you like it smoother."
+    ]
+  },
+  {
+    "id": "banana-bread",
+    "name": "Banana bread",
+    "meal": [
+      "breakfast",
+      "snack"
+    ],
+    "cuisine": "Classic",
+    "minutes": 80,
+    "serves": 10,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "bananas",
+        "qty": 3,
+        "unit": "",
+        "note": "very ripe"
+      },
+      {
+        "item": "butter",
+        "qty": 0.33,
+        "unit": "cup",
+        "note": "melted"
+      },
+      {
+        "item": "sugar",
+        "qty": 0.75,
+        "unit": "cup",
+        "note": "white or brown"
+      },
+      {
+        "item": "eggs",
+        "qty": 1,
+        "unit": ""
+      },
+      {
+        "item": "vanilla",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "baking powder",
+        "qty": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "salt",
+        "qty": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "flour",
+        "qty": 1.5,
+        "unit": "cup"
+      },
+      {
+        "item": "cinnamon",
+        "qty": 0.5,
+        "unit": "tsp",
+        "optional": true
+      }
+    ],
+    "steps": [
+      "Heat the oven to 350°F and grease a 9x5-inch loaf pan.",
+      "Mash the bananas in a large bowl, then stir in the melted butter, sugar, egg and vanilla.",
+      "Sprinkle the baking powder, salt and cinnamon if using over the top and stir, then fold in the flour until just combined (a few lumps are fine).",
+      "Pour into the pan and bake 55–65 minutes until golden and a toothpick in the center comes out clean.",
+      "Cool in the pan 10 minutes, then turn out onto a rack before slicing."
+    ]
+  },
+  {
+    "id": "peanut-butter-energy-bites",
+    "name": "Peanut butter energy bites",
+    "meal": [
+      "snack",
+      "breakfast"
+    ],
+    "cuisine": "Classic",
+    "minutes": 40,
+    "serves": 6,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "oats",
+        "qty": 1,
+        "unit": "cup",
+        "note": "old-fashioned rolled"
+      },
+      {
+        "item": "peanut butter",
+        "qty": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "honey",
+        "qty": 0.33,
+        "unit": "cup"
+      },
+      {
+        "item": "vanilla",
+        "qty": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "cinnamon",
+        "qty": 0.25,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "qty": 1,
+        "unit": "pinch"
+      }
+    ],
+    "steps": [
+      "Stir the oats, peanut butter, honey, vanilla, cinnamon if using and salt together in a bowl until evenly combined.",
+      "Chill the mixture 20–30 minutes so it is easier to handle.",
+      "Roll into 1-inch balls (about 14) with damp hands. Store in a covered container in the fridge up to 1 week."
+    ]
+  },
+  {
+    "id": "deviled-eggs",
+    "name": "Deviled eggs",
+    "meal": [
+      "snack"
+    ],
+    "cuisine": "Classic",
+    "minutes": 30,
+    "serves": 6,
+    "veg": true,
+    "ingredients": [
+      {
+        "item": "eggs",
+        "qty": 6,
+        "unit": ""
+      },
+      {
+        "item": "mayo",
+        "qty": 0.25,
+        "unit": "cup"
+      },
+      {
+        "item": "mustard",
+        "qty": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "vinegar",
+        "qty": 0.5,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "paprika",
+        "qty": 1,
+        "unit": "pinch",
+        "note": "for sprinkling"
+      },
+      {
+        "item": "salt",
+        "qty": null,
+        "unit": ""
+      },
+      {
+        "item": "black pepper",
+        "qty": null,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      "Put the eggs in a pot, cover with cold water by an inch and bring to a boil over high heat. Turn off the heat, cover, and let sit 11 minutes until the yolks are fully set and firm.",
+      "Move the eggs to ice water for 5 minutes, then peel and halve lengthwise.",
+      "Pop the yolks into a bowl and mash with the mayo, mustard, vinegar if using, salt and pepper until smooth.",
+      "Spoon or pipe the filling back into the whites and sprinkle with paprika. Keep chilled until serving."
+    ]
+  }
+]

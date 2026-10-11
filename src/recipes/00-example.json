@@ -1,0 +1,48 @@
+[
+  {
+    "id": "cheese-omelette",
+    "name": "Cheese omelette",
+    "meal": ["breakfast", "lunch"],
+    "cuisine": "Classic",
+    "minutes": 10,
+    "serves": 1,
+    "veg": true,
+    "ingredients": [
+      {"item": "eggs", "qty": 3, "unit": ""},
+      {"item": "butter", "qty": 1, "unit": "tbsp"},
+      {"item": "cheese", "qty": 0.25, "unit": "cup", "note": "shredded"},
+      {"item": "salt", "qty": null, "unit": ""},
+      {"item": "black pepper", "qty": null, "unit": ""}
+    ],
+    "steps": [
+      "Whisk the eggs with a pinch of salt and pepper until no streaks remain.",
+      "Melt the butter in a nonstick pan over medium-low heat until it foams.",
+      "Pour in the eggs and gently pull the edges toward the center as they set, tilting the pan so raw egg runs underneath.",
+      "When the top is just set but still glossy, scatter the cheese over one half, fold, and slide onto a plate."
+    ]
+  },
+  {
+    "id": "chicken-fried-rice",
+    "name": "Chicken fried rice",
+    "meal": ["lunch", "dinner"],
+    "cuisine": "Chinese",
+    "minutes": 20,
+    "serves": 2,
+    "veg": false,
+    "ingredients": [
+      {"item": "rice", "qty": 3, "unit": "cup", "note": "cooked, ideally a day old"},
+      {"item": "chicken breast", "qty": 8, "unit": "oz", "note": "diced small"},
+      {"item": "eggs", "qty": 2, "unit": ""},
+      {"item": "onion", "qty": 0.5, "unit": "", "note": "diced"},
+      {"item": "frozen peas", "qty": 0.5, "unit": "cup"},
+      {"item": "soy sauce", "qty": 2, "unit": "tbsp"},
+      {"item": "vegetable oil", "qty": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      "Heat 1 tbsp oil in a large pan over high heat. Add the chicken and cook 5–6 minutes, stirring, until no longer pink inside and it reaches 165°F; move to a plate.",
+      "Add the remaining oil, then the onion and peas; cook 2 minutes.",
+      "Push everything aside, crack in the eggs, and scramble until just set.",
+      "Add the rice, breaking up clumps, and fry 3 minutes until hot. Return the chicken, add the soy sauce, toss and serve."
+    ]
+  }
+]

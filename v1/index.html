@@ -1,0 +1,95 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>What's in my fridge?</title>
+<style>
+  :root{--foreground:#1f2328;--muted-foreground:#6b7280;--accent:#bfe3c9;--border:#d6dbe0;--card:#fff}
+  body{font-family:system-ui,sans-serif;background:#f6f8f7;color:var(--foreground);margin:0;padding:16px}
+  .wrap{margin:0 auto}
+  .wrap{max-width:640px;padding:4px 0}
+  h2{margin:0 0 4px}
+  .sub{color:var(--muted-foreground);margin:0 0 12px;font-size:14px}
+  .row{display:flex;gap:8px}
+  input{flex:1;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--foreground);font:inherit}
+  button{padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--accent);color:var(--foreground);cursor:pointer;font:inherit}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+  .chip{padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:var(--card);font-size:13px;cursor:pointer}
+  .chip:hover{text-decoration:line-through}
+  .quick{font-size:12px;color:var(--muted-foreground)}
+  .quick span{cursor:pointer;text-decoration:underline;margin-right:8px}
+  .card{border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin:8px 0;background:var(--card)}
+  .card h3{margin:0 0 4px;font-size:16px}
+  .bar{height:6px;border-radius:3px;background:var(--border);overflow:hidden;margin:6px 0}
+  .bar i{display:block;height:100%;background:var(--accent)}
+  .have{font-size:13px}.miss{font-size:13px;color:var(--muted-foreground)}
+  .how{font-size:13px;margin-top:4px}
+  .empty{color:var(--muted-foreground);font-size:14px}
+</style></head><body><div class="wrap">
+<h2>🧊 What can I make?</h2>
+<p class="sub">Type what's in your fridge, press Enter. Click an item to remove it.</p>
+<div class="row"><input id="in" placeholder="e.g. eggs, cheese, spinach"><button id="add">Add</button></div>
+<div class="chips" id="chips"></div>
+<div class="quick">Try: <span data-q="eggs,cheese,bread,butter">breakfast stuff</span><span data-q="chicken,rice,onion,garlic,soy sauce">chicken night</span><span data-q="pasta,tomato,garlic,olive oil">pasta basics</span><span id="clear">clear all</span></div>
+<div id="out"></div>
+</div>
+<script>
+const PANTRY=["salt","pepper","oil","water"];
+const R=[
+ {n:"Cheese omelette",i:["eggs","cheese","butter"],h:"Whisk eggs, cook in butter, fold over cheese."},
+ {n:"Grilled cheese",i:["bread","cheese","butter"],h:"Butter bread, cheese inside, pan-fry till golden."},
+ {n:"French toast",i:["bread","eggs","milk","butter"],h:"Dip bread in egg + milk, fry in butter."},
+ {n:"Scrambled eggs on toast",i:["eggs","bread","butter"],h:"Low heat, stir slowly, pile on toast."},
+ {n:"Pancakes",i:["flour","eggs","milk","butter"],h:"Mix, rest 5 min, cook small rounds."},
+ {n:"Chicken fried rice",i:["chicken","rice","eggs","soy sauce","onion"],h:"Use day-old rice. Fry chicken, then onion, rice, egg, soy."},
+ {n:"Garlic soy chicken",i:["chicken","garlic","soy sauce","honey"],h:"Sear chicken, glaze with garlic, soy and honey."},
+ {n:"Chicken and rice bowl",i:["chicken","rice","onion","garlic"],h:"Cook rice; sauté onion, garlic, chicken; serve on top."},
+ {n:"Chicken quesadilla",i:["tortillas","chicken","cheese"],h:"Fill tortilla, fold, crisp both sides."},
+ {n:"Bean & cheese burrito",i:["tortillas","beans","cheese","rice"],h:"Warm everything, roll it up tight."},
+ {n:"Spaghetti aglio e olio",i:["pasta","garlic","olive oil"],h:"Slow-fry sliced garlic in oil, toss with pasta + pasta water."},
+ {n:"Tomato pasta",i:["pasta","tomato","garlic","olive oil"],h:"Cook down tomato with garlic, toss with pasta."},
+ {n:"Mac and cheese",i:["pasta","cheese","milk","butter"],h:"Melt butter, add milk + cheese, stir into pasta."},
+ {n:"Pasta with spinach & cheese",i:["pasta","spinach","cheese","garlic"],h:"Wilt spinach with garlic, toss with pasta and cheese."},
+ {n:"Spinach frittata",i:["eggs","spinach","cheese","onion"],h:"Soften onion + spinach, pour eggs over, finish in oven."},
+ {n:"Veggie stir-fry",i:["broccoli","carrot","soy sauce","garlic","rice"],h:"Hot pan, veg first, soy + garlic at the end, over rice."},
+ {n:"Egg fried rice",i:["rice","eggs","soy sauce","onion"],h:"Scramble egg, add rice and onion, season with soy."},
+ {n:"Potato hash",i:["potato","onion","eggs"],h:"Dice and crisp potatoes with onion, crack eggs on top."},
+ {n:"Baked potato",i:["potato","cheese","butter"],h:"Bake an hour at 200°C, load with butter and cheese."},
+ {n:"Tomato soup",i:["tomato","onion","garlic","butter"],h:"Soften onion + garlic, add tomato, simmer, blend."},
+ {n:"Caprese salad",i:["tomato","mozzarella","basil","olive oil"],h:"Slice, layer, drizzle. Done."},
+ {n:"Tuna melt",i:["tuna","bread","cheese","mayo"],h:"Tuna + mayo on bread, cheese on top, grill."},
+ {n:"Tuna pasta",i:["tuna","pasta","tomato","onion"],h:"Quick tomato sauce, stir in tuna, toss pasta."},
+ {n:"Beef tacos",i:["ground beef","tortillas","onion","cheese"],h:"Brown beef with onion, fill tortillas, top with cheese."},
+ {n:"Spaghetti bolognese",i:["ground beef","pasta","tomato","onion","garlic"],h:"Brown beef, add onion/garlic, simmer in tomato."},
+ {n:"Yogurt parfait",i:["yogurt","banana","honey"],h:"Layer yogurt, sliced banana, drizzle honey."},
+ {n:"Banana smoothie",i:["banana","milk","yogurt"],h:"Blend till smooth."},
+ {n:"Peanut butter banana toast",i:["bread","peanut butter","banana"],h:"Toast, spread, slice banana on top."},
+ {n:"Simple green salad",i:["lettuce","tomato","cucumber","olive oil"],h:"Chop, toss, dress with oil and salt."},
+ {n:"Salmon with rice",i:["salmon","rice","lemon","butter"],h:"Pan-sear salmon in butter, squeeze lemon, serve on rice."},
+];
+const ALIAS={egg:"eggs",tomatoes:"tomato",potatoes:"potato",carrots:"carrot",tortilla:"tortillas",bananas:"banana","minced beef":"ground beef","mince":"ground beef",beef:"ground beef",noodles:"pasta",spaghetti:"pasta",cheddar:"cheese",lemons:"lemon",onions:"onion",soy:"soy sauce",mayonnaise:"mayo"};
+let have=new Set();
+// escape everything interpolated into innerHTML (ingredients are user-typed)
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const norm=s=>{s=s.trim().toLowerCase();return ALIAS[s]||s};
+function add(text){text.split(",").map(norm).filter(Boolean).forEach(x=>have.add(x));render()}
+function render(){
+ const chips=document.getElementById("chips");chips.innerHTML="";
+ have.forEach(x=>{const c=document.createElement("span");c.className="chip";c.textContent=x;c.onclick=()=>{have.delete(x);render()};chips.appendChild(c)});
+ const out=document.getElementById("out");
+ if(!have.size){out.innerHTML='<p class="empty">Add a few things to see ideas.</p>';return}
+ const ok=x=>have.has(x)||PANTRY.includes(x);
+ const scored=R.map(r=>{const h=r.i.filter(ok),m=r.i.filter(x=>!ok(x));return{...r,h,m,s:h.length/r.i.length}})
+  .filter(r=>r.h.length>0&&r.m.length<=2).sort((a,b)=>b.s-a.s||a.m.length-b.m.length).slice(0,8);
+ if(!scored.length){out.innerHTML='<p class="empty">Nothing yet — try adding a few more basics like eggs, rice or pasta.</p>';return}
+ out.innerHTML=scored.map(r=>`<div class="card"><h3>${r.m.length?"":"✅ "}${r.n}</h3>
+  <div class="bar"><i style="width:${Math.round(r.s*100)}%"></i></div>
+  <div class="have">You have: ${esc(r.h.join(", "))}</div>
+  ${r.m.length?`<div class="miss">Missing: ${esc(r.m.join(", "))}</div>`:`<div class="miss">You can make this right now!</div>`}
+  <div class="how">👉 ${esc(r.h0)}</div></div>`).join("");
+}
+R.forEach(r=>{r.h0=r.h});
+const inp=document.getElementById("in");
+inp.addEventListener("keydown",e=>{if(e.key==="Enter"){add(inp.value);inp.value=""}});
+document.getElementById("add").onclick=()=>{add(inp.value);inp.value=""};
+document.querySelectorAll("[data-q]").forEach(s=>s.onclick=()=>add(s.dataset.q));
+document.getElementById("clear").onclick=()=>{have.clear();render()};
+render();
+</script></body></html>
