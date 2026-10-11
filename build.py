@@ -17,5 +17,6 @@ data = json.dumps({"vocab": vocab, "recipes": recipes}, ensure_ascii=False, sepa
 data = data.replace("</", "<\\/")  # never close the <script> tag early
 html = open(os.path.join(ROOT, "src", "app.html")).read().replace("/*DATA*/", data, 1)
 os.makedirs(os.path.join(ROOT, "v2"), exist_ok=True)
-open(os.path.join(ROOT, "v2", "index.html"), "w").write(html)
+for out in ("index.html", os.path.join("v2", "index.html")):  # root is v2; /v2/ kept for old links
+    open(os.path.join(ROOT, out), "w").write(html)
 print(f"built v2/index.html: {len(recipes)} recipes, {len(html)//1024} KB")
