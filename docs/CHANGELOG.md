@@ -2,7 +2,7 @@
 
 Newest first. Every PR that changes behavior or content adds an entry here.
 
-## Unreleased: v3 phase 2, Build a recipe (FUL-339)
+## 2026-10-11: v3 phase 2, Build a recipe (PR #4) (FUL-339)
 
 - **Build → ✨ Build a recipe** is live and is now the default Build mode. She picks:
   1. a protein (18 options)
