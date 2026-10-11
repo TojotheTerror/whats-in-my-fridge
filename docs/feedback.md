@@ -14,7 +14,7 @@ Each round records what the user said, what we kept, and what changed in respons
 
 | Request | Response | Status |
 |---|---|---|
-| More veggies to choose from, e.g. asparagus | Picker grew from 16 to 28 vegetables. Added 8 new ingredients (asparagus, kale, Brussels sprouts, eggplant, snap peas, butternut squash, bok choy, leeks) and 17 recipes that use them. | In PR, awaiting merge |
-| An "add to list" button on the List (cart) tab | "+ Add" box at the top of the List tab for her own items | In PR, awaiting merge |
+| More veggies to choose from, e.g. asparagus | Picker grew from 16 to 28 vegetables. Added 8 new ingredients (asparagus, kale, Brussels sprouts, eggplant, snap peas, butternut squash, bok choy, leeks) and 17 recipes that use them. | Shipped in PR #3 (`b7d71f0`) |
+| An "add to list" button on the List (cart) tab | "+ Add" box at the top of the List tab for her own items | Shipped in PR #3 (`b7d71f0`) |
 
 **Design guardrail from this round:** she likes simple. New features should not add steps or screens to the paths she already uses.

@@ -15,7 +15,7 @@ A small web app that turns what's in your fridge into meal ideas with full recip
 ## What it does (v3)
 
 - **Fridge:** type what you have and get recipes you can make now, plus ones that need only 1–2 more things.
-- **Build:** pick a protein, then up to 3 veggies, then see matching recipes. A recipe builder that writes a new recipe from your picks is planned (phase 2).
+- **Build:** pick a protein, up to 3 veggies, a cooking style and a flavor, and **✨ Build a recipe** writes a full recipe from those picks. Or switch to **🔎 Matching recipes** to see the curated recipes that use your protein and veggies.
 - **Recipes:** search and filter all recipes; ♥ to save favorites.
 - **List:** one shopping list. Add your own items, or add missing ingredients from any recipe. Check items off, copy the list, or clear what's checked.
 - **Recipe view:** servings 1/2/4/6 with scaled amounts, have/missing marks, and cook mode (one step at a time, keeps the screen on where supported).
@@ -28,7 +28,10 @@ src/vocab.json            allowed ingredient names + aliases ("cilantro" -> fres
 src/recipes/*.json        the recipes, one file per batch
 src/app.html              v2 page template
 src/app3.html             v3 page template
+src/builder.js            build-a-meal recipe composer (browser + Node)
 tests/validate_recipes.py recipe checker (must pass before a build)
+tests/validate_builder.py composes every builder combination and checks each one
+tests/dump_builder.js     Node helper used by validate_builder.py
 build.py                  runs the checker, then inlines vocab + recipes into the templates
 404.html                  redirects mistyped paths (e.g. /V3) to the right page
 docs/                     changelog and user feedback log
@@ -40,13 +43,28 @@ docs/                     changelog and user feedback log
 python3 build.py
 ```
 
-The build stops if any recipe fails the checker. The checker requires:
+The build stops if any curated recipe or any builder combination fails its checks. The builder check needs `node` on the PATH; Node 18 or newer works. The checker requires:
 
 - amounts, real steps and a time for every recipe
 - every listed ingredient to actually appear in the steps
 - a correct vegetarian flag
 - USDA safe temperatures: 165°F for chicken and turkey, 160°F for ground beef and sausage, 145°F for pork chops
 - a doneness cue for fish, shrimp, steak, bacon and eggs
+
+### How the recipe builder works
+
+`src/builder.js` holds four tables. Every built recipe is assembled from them:
+
+- **Proteins:** amount, how it's cut, how long it takes in a pan, oven or pot, and its doneness cue (with USDA temperature), plus the cooking styles it suits.
+- **Veggies:** amount, how it's cut, and a cooking class: hard, medium, quick or raw. The class sets cooking order and time. Raw veggies are only used as toppings.
+- **Styles:** stir-fry, skillet, sheet-pan, pasta, tacos, rice bowl, soup and curry. Each style has its own step template.
+- **Flavors:** aromatics, spices, sauce and finish, plus the styles each flavor suits.
+
+To add a protein, veggie, style or flavor:
+
+1. Add it to the table.
+2. Add any new ingredient to `src/vocab.json`.
+3. Run `python3 tests/validate_builder.py --show 10`. Fix any errors, then read the sample recipes it prints.
 
 ### Adding recipes or ingredients
 
