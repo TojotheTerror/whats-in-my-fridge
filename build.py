@@ -6,8 +6,9 @@ Runs the recipe validator first and refuses to build if it fails.
 import glob, json, os, subprocess, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-if subprocess.run([sys.executable, os.path.join(ROOT, "tests", "validate_recipes.py")]).returncode:
-    sys.exit("validator failed; not building")
+for check in ("validate_recipes.py", "validate_builder.py"):
+    if subprocess.run([sys.executable, os.path.join(ROOT, "tests", check)]).returncode:
+        sys.exit(f"{check} failed; not building")
 vocab = json.load(open(os.path.join(ROOT, "src", "vocab.json")))["items"]
 recipes = []
 for f in sorted(glob.glob(os.path.join(ROOT, "src", "recipes", "*.json"))):
@@ -20,6 +21,8 @@ TARGETS = [("app.html", ["index.html", os.path.join("v2", "index.html")]),
            ("app3.html", [os.path.join("v3", "index.html")])]
 for src, outs in TARGETS:
     html = open(os.path.join(ROOT, "src", src)).read().replace("/*DATA*/", data, 1)
+    if "/*BUILDER*/" in html:
+        html = html.replace("/*BUILDER*/", open(os.path.join(ROOT, "src", "builder.js")).read().replace("</", "<\\/"), 1)
     for out in outs:
         os.makedirs(os.path.dirname(os.path.join(ROOT, out)), exist_ok=True)
         open(os.path.join(ROOT, out), "w").write(html)

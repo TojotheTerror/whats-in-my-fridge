@@ -2,7 +2,26 @@
 
 Newest first. Every PR that changes behavior or content adds an entry here.
 
-## Unreleased: v3 feedback round 1 (FUL-339)
+## 2026-10-11: v3 phase 2, Build a recipe (PR #4) (FUL-339)
+
+- **Build → ✨ Build a recipe** is live and is now the default Build mode. She picks:
+  1. a protein (18 options)
+  2. up to 3 veggies (28 options)
+  3. a cooking style (stir-fry, skillet, sheet-pan, pasta, tacos, rice bowl, soup or curry)
+  4. a flavor (garlic & herb, Italian, Tex-Mex, soy & ginger, curry or lemon pepper)
+
+  The page writes a full recipe from those picks: ingredients with amounts, steps in cooking order, total time, servings scaling, the shopping list and cook mode.
+- **Combinations that don't work are greyed out, with the reason shown.** For example, salmon can't be made as soup, avocado is served raw so it can't be cooked in a sheet-pan dish, and the curry style always uses the curry flavor.
+- **Built recipes behave like the curated ones.** They can be saved with ♥ and show up under Saved. Each has its own link, so a shared or bookmarked recipe opens the same way. "↺ Change my picks" goes back to the builder.
+- Each built recipe also lists up to two **tested recipes like this** from the curated set.
+- **Every combination is checked before a build.** `tests/validate_builder.py` composes all 162,375 combinations it covers and runs each one through:
+  - the same recipe checker as the curated recipes: amounts, every ingredient used in the steps, vegetarian flag, USDA temperatures, doneness cues
+  - builder-specific checks: harder vegetables go in before quicker ones, raw vegetables appear only at serving, and each recipe has a stable link and a sensible time
+
+  The combinations covered are every protein × style × flavor with no veggies, each single veggie, every pair, and 150 fixed triples. `build.py` runs this check and refuses to build if it fails.
+- Recipe logic lives in `src/builder.js`, which works in the browser and in Node.
+
+## 2026-10-11: v3 feedback round 1 (PR #3, `b7d71f0`) (FUL-339)
 
 Responds to the first round of user feedback (see `feedback.md`).
 
