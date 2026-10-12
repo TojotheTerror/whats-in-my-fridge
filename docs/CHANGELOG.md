@@ -6,6 +6,7 @@ Newest first. Every PR that changes behavior or content adds an entry here.
 
 These are small fixes from the phone and Telegram audit. There are no new screens, no extra taps and no new features, and the bold dark design is unchanged.
 
+- Toasts no longer wrap short messages ("Fridge cleared · Undo" stays on one line).
 - **Cook mode:**
   - "✕ Exit" stays on one line with a full-size tap target. A long recipe name now shrinks to two lines on the right.
   - On step 1, "← Back" is dimmed so it looks disabled.
