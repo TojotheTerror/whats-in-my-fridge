@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Build v2/index.html: inline src/vocab.json + src/recipes/*.json into src/app.html.
+"""Build index.html, v2/index.html and v3/index.html (+ v3/sw.js): inline src/vocab.json +
+src/recipes/*.json into the page templates.
 
 Runs the recipe validator first and refuses to build if it fails.
 """
-import glob, json, os, subprocess, sys
+import glob, hashlib, json, os, subprocess, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 for check in ("validate_recipes.py", "validate_builder.py"):
@@ -27,3 +28,10 @@ for src, outs in TARGETS:
         os.makedirs(os.path.dirname(os.path.join(ROOT, out)), exist_ok=True)
         open(os.path.join(ROOT, out), "w").write(html)
     print(f"built {', '.join(outs)}: {len(recipes)} recipes, {len(html)//1024} KB")
+    if src == "app3.html":
+        # v3/sw.js: offline copy of v3 only. Its cache name is a hash of the page + worker, so each deploy
+        # that changes either one replaces the old cache (same input -> same output, so rebuilds are reproducible).
+        sw = open(os.path.join(ROOT, "src", "sw3.js")).read()
+        version = hashlib.sha256((html + sw).encode()).hexdigest()[:12]
+        open(os.path.join(ROOT, "v3", "sw.js"), "w").write(sw.replace("/*VERSION*/", version, 1))
+        print(f"built v3/sw.js: cache fridge-v3-{version}")
