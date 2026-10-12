@@ -250,8 +250,9 @@ function canon(word) {
   return w;
 }
 
-// ---- state (device only) ----
-const fresh = () => ({ fridge: [], staples: DEFAULT_STAPLES.slice(), quick: false, veg: false, meal: "", favs: [], list: [], theme: "", tab: "fridge", rf: "All" });
+// ---- state (this device; inside Telegram also mirrored to its cloud, see "Telegram cloud backup") ----
+// updatedAt: when the saved data (everything except the open tab) last changed; used to sync with Telegram's cloud.
+const fresh = () => ({ fridge: [], staples: DEFAULT_STAPLES.slice(), quick: false, veg: false, meal: "", favs: [], list: [], theme: "", tab: "fridge", rf: "All", updatedAt: 0 });
 let st = fresh();
 const ls = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); return true; } catch (e) { return false; } }, del(k) { try { localStorage.removeItem(k); } catch (e) {} } };
 try {
@@ -259,17 +260,29 @@ try {
   if (v3) Object.assign(st, JSON.parse(v3));
   else if (v2) { const o = JSON.parse(v2); st.fridge = o.fridge || []; st.staples = o.staples || st.staples; } // carry v2 list over once
 } catch (e) {}
-{ // a damaged save must never blank the app
+function clean(s) { // a damaged save (local or cloud) must never blank the app
   const F0 = fresh(), str = a => a.filter(x => typeof x === "string");
-  for (const k of ["fridge", "staples", "favs", "list"]) if (!Array.isArray(st[k])) st[k] = F0[k];
-  st.fridge = str(st.fridge); st.staples = str(st.staples); st.favs = str(st.favs);
-  st.list = st.list.filter(x => x && typeof x.item === "string").map(x => ({ ...x, amt: typeof x.amt === "string" ? x.amt : "", from: Array.isArray(x.from) ? x.from : [], done: !!x.done }));
-  if (!["", "dark", "light"].includes(st.theme)) st.theme = "";
-  if (!["fridge", "build", "recipes", "list"].includes(st.tab)) st.tab = "fridge";
-  if (typeof st.rf !== "string") st.rf = "All";
+  for (const k of ["fridge", "staples", "favs", "list"]) if (!Array.isArray(s[k])) s[k] = F0[k];
+  s.fridge = str(s.fridge); s.staples = str(s.staples); s.favs = str(s.favs);
+  s.list = s.list.filter(x => x && typeof x.item === "string").map(x => ({ ...x, amt: typeof x.amt === "string" ? x.amt : "", from: Array.isArray(x.from) ? x.from : [], done: !!x.done }));
+  if (!["", "dark", "light"].includes(s.theme)) s.theme = "";
+  if (!["fridge", "build", "recipes", "list"].includes(s.tab)) s.tab = "fridge";
+  if (typeof s.rf !== "string") s.rf = "All";
+  s.quick = !!s.quick; s.veg = !!s.veg; if (typeof s.meal !== "string") s.meal = "";
+  if (!(s.updatedAt >= 0)) s.updatedAt = 0;
+  return s;
 }
-let saveWarned = false;
-const save = () => { if (!ls.set(KEY, JSON.stringify(st)) && !saveWarned) { saveWarned = true; toast("Couldn't save on this phone"); } };
+clean(st);
+// What gets mirrored to Telegram's cloud: all saved data except the open tab.
+const pack = s => ({ fridge: s.fridge, staples: s.staples, favs: s.favs, list: s.list, prefs: { quick: s.quick, veg: s.veg, meal: s.meal, theme: s.theme, rf: s.rf } });
+const hasData = s => !!(s.fridge.length || s.favs.length || s.list.length || [...s.staples].sort().join() !== [...DEFAULT_STAPLES].sort().join());
+const startHad = hasData(st);
+let saveWarned = false, sig = JSON.stringify(pack(st));
+const save = () => {
+  const s = JSON.stringify(pack(st));
+  if (s !== sig) { sig = s; st.updatedAt = Math.max(Date.now(), st.updatedAt + 1); cloudSoon(); }
+  if (!ls.set(KEY, JSON.stringify(st)) && !saveWarned) { saveWarned = true; toast("Couldn't save on this phone"); }
+};
 
 const $ = id => document.getElementById(id);
 const PROPER = [[/\bitalian\b/g, "Italian"], [/\bbrussels\b/g, "Brussels"], [/\bSloppy joes\b/g, "Sloppy Joes"]];
@@ -302,11 +315,87 @@ function initTg() {
   try { if (w.disableVerticalSwipes && tgAtLeast("7.7")) w.disableVerticalSwipes(); } catch (e) {}
   try { if (tgAtLeast("6.1")) w.BackButton.onClick(tgBack); } catch (e) {}
   try { w.onEvent("themeChanged", applyTheme); } catch (e) {}
-  applyTheme(); syncBack();
+  applyTheme(); syncBack(); cloudStart();
 }
 function haptic() { try { const w = tg(); if (w && w.HapticFeedback && tgAtLeast("6.1")) w.HapticFeedback.impactOccurred("light"); else if (navigator.vibrate) navigator.vibrate(8); } catch (e) {} }
 // The URL hash holds a recipe id for links, but inside Telegram it starts out holding Telegram's launch params.
 const hashId = () => { const h = location.hash.slice(1); return !h || /(^|&)tgWebApp/.test(h) ? "" : h; };
+
+// ---- Telegram cloud backup (only inside Telegram, Bot API 6.9+) ----
+// Mirrors the saved data into Telegram CloudStorage so a Telegram cache clear or a new phone doesn't lose it.
+// Values are at most 4096 chars, so each field is JSON (pure ASCII), split into chunks: fridge_0, list_0, list_1, ...
+// The "manifest" key (written last) holds the format version, updatedAt, and each field's chunk count and length.
+// The app always renders from local data first; the cloud is merged when it answers. Errors and timeouts are ignored.
+const CF = ["fridge", "staples", "favs", "list", "prefs"], CHUNK = 4000, CWAIT = 3000;
+const cloud = () => { const w = tg(); return w && tgAtLeast("6.9") && w.CloudStorage ? w.CloudStorage : null; };
+const ccall = (m, ...a) => new Promise((ok, no) => {
+  const c = cloud(); if (!c) return no(new Error("no cloud"));
+  const t = setTimeout(() => no(new Error("timeout")), CWAIT);
+  try { c[m](...a, (e, v) => { clearTimeout(t); e ? no(e) : ok(v); }); } catch (e) { clearTimeout(t); no(e); }
+});
+const ascii = j => j.replace(/[\u007f-\uffff]/g, c => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"));
+function encode(s) {
+  const p = pack(s), kv = {}, n = {}, len = {};
+  for (const f of CF) { const j = ascii(JSON.stringify(p[f])); len[f] = j.length; n[f] = Math.max(1, Math.ceil(j.length / CHUNK)); for (let i = 0; i < n[f]; i++) kv[f + "_" + i] = j.slice(i * CHUNK, (i + 1) * CHUNK); }
+  return { kv, man: JSON.stringify({ v: 1, updatedAt: s.updatedAt, n, len }) };
+}
+async function cloudRead() { // -> { s: state or null, raw: what's stored now, bad: copy is half-written or damaged }
+  const ms = await ccall("getItem", "manifest"); let m = null; try { m = ms ? JSON.parse(ms) : null; } catch (e) {}
+  if (!m || m.v !== 1 || !m.n || !m.len) return { s: null, raw: {}, bad: !!ms };
+  const keys = []; for (const f of CF) for (let i = 0; i < (m.n[f] | 0); i++) keys.push(f + "_" + i);
+  const vals = await ccall("getItems", keys) || {}, raw = { manifest: ms }, p = {};
+  for (const k of keys) raw[k] = vals[k];
+  try {
+    for (const f of CF) {
+      let j = ""; for (let i = 0; i < (m.n[f] | 0); i++) j += vals[f + "_" + i] || "";
+      if (j.length !== m.len[f]) throw new Error("cloud copy incomplete"); // e.g. another phone is mid-write
+      p[f] = JSON.parse(j);
+    }
+  } catch (e) { return { s: null, raw, bad: true }; }
+  return { s: clean({ ...p.prefs, fridge: p.fridge, staples: p.staples, favs: p.favs, list: p.list, updatedAt: +m.updatedAt || 0 }), raw };
+}
+let cloudSent = null, cloudBusy = null, cloudT = 0, cloudQ = Promise.resolve();
+async function cloudPush() {
+  if (!cloudSent) return;
+  const { kv, man } = encode(st), ch = Object.keys(kv).filter(k => cloudSent[k] !== kv[k]);
+  await Promise.all(ch.map(k => ccall("setItem", k, kv[k]).then(() => { cloudSent[k] = kv[k]; })));
+  if (cloudSent.manifest !== man) { await ccall("setItem", "manifest", man); cloudSent.manifest = man; }
+  for (const k of Object.keys(cloudSent)) if (k !== "manifest" && !(k in kv)) { await ccall("removeItem", k); delete cloudSent[k]; } // chunks a shorter field no longer uses
+}
+function cloudFlush() {
+  clearTimeout(cloudT); cloudT = 0;
+  if (!cloud()) return;
+  if (!cloudSent) return cloudStart(); // the first read hasn't succeeded yet: read (and merge) before any write
+  cloudQ = cloudQ.then(cloudPush).catch(() => {});
+}
+function cloudSoon() { if (cloud()) { clearTimeout(cloudT); cloudT = setTimeout(cloudFlush, 1000); } }
+function cloudAdopt(c) { // replace local data with the cloud copy, keep the open tab, re-render
+  const add = startHad ? null : st; // started empty (e.g. after a cache clear): keep anything added before the cloud answered
+  st = clean(JSON.parse(JSON.stringify({ ...c, tab: st.tab })));
+  sig = JSON.stringify(pack(st));
+  if (add) {
+    for (const x of add.fridge) if (!st.fridge.includes(x)) st.fridge.push(x);
+    for (const x of add.favs) if (!st.favs.includes(x)) st.favs.push(x);
+    for (const x of add.list) if (!st.list.some(y => y.item === x.item)) st.list.push(x);
+  }
+  save(); // bumps updatedAt (and uploads) only if something was added
+  applyTheme(); renderStaples(); renderAll();
+  if (cur) { const y = $("sheet").scrollTop; drawRecipe(); $("sheet").scrollTop = y; }
+}
+function cloudStart() {
+  if (cloudSent || cloudBusy || !cloud()) return;
+  let late = false;
+  const wait = setTimeout(() => { late = true; cloudBusy = null; }, CWAIT); // give up; try again on the next save or return to the app
+  cloudBusy = cloudRead().then(({ s: c, raw, bad }) => {
+    clearTimeout(wait); if (late) return; cloudBusy = null;
+    if (bad && !hasData(st)) return; // a half-written copy and nothing here to repair it with: never upload an empty state over it
+    cloudSent = raw;
+    if (c && (hasData(c) || !hasData(st)) && (c.updatedAt > st.updatedAt || (hasData(c) && !startHad))) cloudAdopt(c);
+    else if (c && !hasData(c) && hasData(st) && c.updatedAt >= st.updatedAt) { st.updatedAt = c.updatedAt + 1; save(); } // never let an empty cloud replace data here
+    cloudFlush(); // upload whatever is newer here
+  }).catch(() => { clearTimeout(wait); if (!late) cloudBusy = null; });
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") { if (cloudT) cloudFlush(); } else if (!cloudSent) cloudStart(); });
 
 // ---- theme ----
 function applyTheme() {
@@ -622,6 +711,8 @@ applyTheme(); renderStaples(); renderAll(); save();
 const startId = hashId(); if (startId && getRecipe(startId)) openRecipe(startId, false);
 document.documentElement.classList.add("ready");
 window.__tgInit = initTg; if (window.__tgLoaded) initTg();
+// Offline: sw.js keeps a copy of this page (scope: this folder only). If anything fails, the app works as before.
+try { if ("serviceWorker" in navigator && window.isSecureContext) addEventListener("load", () => navigator.serviceWorker.register("sw.js").then(r => r.update()).catch(() => {})); } catch (e) {}
 
 window.__fridge = { add: addFridge, results: () => fridgeResults().map(s => ({ id: s.r.id, miss: s.miss })), state: () => JSON.parse(JSON.stringify(st)),
   reset: () => { ls.del(KEY); st = fresh(); b = freshB(); applyTheme(); renderStaples(); renderAll(); },

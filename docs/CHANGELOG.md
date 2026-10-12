@@ -2,6 +2,20 @@
 
 Newest first. Every PR that changes behavior or content adds an entry here.
 
+## 2026-10-11: v3 reliability, PR B (offline + Telegram cloud backup) (FUL-339)
+
+There are no new screens or taps. Both changes are invisible to her.
+
+- **Works offline.** The new `v3/sw.js` service worker, scoped to `/v3/` only, keeps a copy of the page. After the first visit, v3 opens with no signal and shows the saved list. The page is served from the cache right away and refreshed in the background, so a new deploy appears the next time she opens the app. `build.py` names the cache with a hash of the build and deletes old caches. Nothing with a query string (where Telegram can put launch data) is stored.
+- **Telegram cloud backup.** Inside Telegram, the fridge, staples, favorites, list and settings are mirrored to Telegram CloudStorage for the bot.
+  - It writes about 1 s after a change, and right away when she leaves the app.
+  - Long fields are split into chunks of 4096 characters or less, with a manifest.
+  - On start, the app shows local data at once. It then uses the cloud copy if the phone has no data or the cloud copy is newer.
+  - An empty cloud copy never replaces data on the phone. Cloud errors and timeouts (3 s) never block or break the app.
+  - This protects her data against a Telegram cache clear, and the same data appears on any phone where she opens the app from Telegram.
+  - Chrome can't see this backup (it has no Telegram identity). Plain Chrome makes no CloudStorage calls and sends no telegram.org requests.
+- Saving now records `updatedAt` whenever saved data changes. Switching tabs doesn't count as a change.
+
 ## 2026-10-11: v3 polish, PR A (phone and Telegram audit fixes) (FUL-339)
 
 These are small fixes from the phone and Telegram audit. There are no new screens, no extra taps and no new features, and the bold dark design is unchanged.
@@ -44,7 +58,7 @@ These are small fixes from the phone and Telegram audit. There are no new screen
   - "← Back" on a recipe opened from a shared link now returns to the app instead of leaving it.
   - A damaged save no longer blanks the app.
   - If the phone can't save, she sees "Couldn't save on this phone" once.
-- Not in this PR (planned for PR B): working offline (service worker) and syncing saved data between Telegram and Chrome.
+- Not in this PR (planned for PR B): working offline (service worker) and backing up saved data to Telegram's cloud.
 
 ## 2026-10-11: v3 phase 2, Build a recipe (PR #4) (FUL-339)
 
