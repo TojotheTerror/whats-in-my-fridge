@@ -21,6 +21,18 @@ A small web app that turns what's in your fridge into meal ideas with full recip
 - **Recipe view:** servings 1/2/4/6 with scaled amounts, have/missing marks, and cook mode (one step at a time, keeps the screen on where supported).
 - Dark mode by default, light mode if the phone is set to light, and a manual toggle.
 
+### Inside Telegram
+
+v3 also runs as a Telegram Mini App (opened from the bot's menu button). The page only loads Telegram's script (`telegram-web-app.js`) when Telegram's launch parameters (`tgWebAppData`, `tgWebAppPlatform` or `tgWebAppVersion`) are in the URL. In a normal browser, no request goes to telegram.org. Inside Telegram:
+
+- The app opens full height and the swipe-down-to-close gesture is turned off.
+- Telegram's header and background colors match the page.
+- Light/dark follows Telegram's own theme unless she has picked one with the 🌗 button.
+- Telegram's back button closes cook mode first, then the open recipe. It's hidden when nothing is open.
+- Taps use Telegram's haptic feedback.
+
+Telegram's launch parameters are stored in the URL hash, which the app also uses for recipe links (`#recipe-id`). The app never treats those parameters as a recipe id. It also saves a copy of them at startup, so opening a recipe (which changes the hash) doesn't break the Telegram connection. Saved data lives in Telegram's own browser storage, which is separate from Chrome's.
+
 ## How it's built
 
 ```

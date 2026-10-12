@@ -3,10 +3,48 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#17151f">
 <title>What's in my fridge?</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+<script>
+// Runs before the first paint. 1) Restore a manual theme so it never flashes.
+// 2) Only when launched inside Telegram: capture its launch params from the URL before the
+//    app touches location.hash (Telegram's script also reads them from this sessionStorage key),
+//    then load telegram-web-app.js. Plain browsers never request telegram.org.
+(function () {
+  var d = document.documentElement, s = {}, P = {}, tg = false, scheme = "";
+  try { s = JSON.parse(localStorage.getItem("fridge.v3")) || {}; } catch (e) {}
+  [location.hash, location.search].forEach(function (q) {
+    q.slice(1).split("&").forEach(function (kv) {
+      var i = kv.indexOf("="); if (i < 1) return;
+      try { var k = decodeURIComponent(kv.slice(0, i)); if (/^tgWebApp/.test(k) && !(k in P)) P[k] = decodeURIComponent(kv.slice(i + 1).replace(/\+/g, "%20")); } catch (e) {}
+    });
+  });
+  var has = function (o) { return !!o && (o.tgWebAppData != null || o.tgWebAppPlatform != null || o.tgWebAppVersion != null); };
+  tg = has(P);
+  try {
+    var old = JSON.parse(sessionStorage.getItem("__telegram__initParams")) || {};
+    if (tg) { for (var k in old) if (!(k in P)) P[k] = old[k]; sessionStorage.setItem("__telegram__initParams", JSON.stringify(P)); }
+    else if (has(old)) { P = old; tg = true; }
+  } catch (e) {}
+  if (tg) {
+    window.__tgLaunch = P;
+    try { // same rule Telegram uses for colorScheme: brightness of bg_color
+      var m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(JSON.parse(P.tgWebAppThemeParams || "{}").bg_color || "");
+      if (m) { var r = parseInt(m[1], 16), g = parseInt(m[2], 16), b = parseInt(m[3], 16); scheme = Math.sqrt(0.299 * r * r + 0.587 * g * g + 0.114 * b * b) < 120 ? "dark" : "light"; }
+    } catch (e) {}
+    window.__tgScheme = scheme;
+    var sc = document.createElement("script"); sc.src = "https://telegram.org/js/telegram-web-app.js"; sc.async = true;
+    sc.onload = function () { window.__tgLoaded = true; if (window.__tgInit) window.__tgInit(); };
+    document.head.appendChild(sc);
+  }
+  var th = s.theme === "dark" || s.theme === "light" ? s.theme : scheme;
+  if (th) d.setAttribute("data-theme", th);
+  setTimeout(function () { d.classList.add("ready"); }, 3000); // safety net; the app adds it as soon as it has rendered
+})();
+</script>
 <style>
-:root{--bg:#17151f;--card:#262333;--card2:#3a3648;--fg:#f6f2ff;--muted:#a59fbf;--dim:#7d7896;--nav:#211e2c;--accent:#ffb347;--accent2:#ff7a59;--ok:#5ee08f;--warn:#ff9b7a;--heart:#ff6b8b;--line:#2e2a3c;--shadow:0 10px 30px rgba(0,0,0,.5);--onc:#17151f}
-html[data-theme=light]{--bg:#fff8f0;--card:#fff;--card2:#f1e8dd;--fg:#1d1a26;--muted:#5c5573;--dim:#8f88a6;--nav:#fff;--accent:#f08c00;--accent2:#e8590c;--ok:#2b9348;--warn:#c2410c;--heart:#e0245e;--line:#eadfd2;--shadow:0 8px 24px rgba(60,40,20,.15)}
-@media (prefers-color-scheme:light){html:not([data-theme]){--bg:#fff8f0;--card:#fff;--card2:#f1e8dd;--fg:#1d1a26;--muted:#5c5573;--dim:#8f88a6;--nav:#fff;--accent:#f08c00;--accent2:#e8590c;--ok:#2b9348;--warn:#c2410c;--heart:#e0245e;--line:#eadfd2;--shadow:0 8px 24px rgba(60,40,20,.15)}}
+:root{--bg:#17151f;--card:#262333;--card2:#3a3648;--fg:#f6f2ff;--muted:#a59fbf;--dim:#948eae;--accent-text:#ffb347;--nav:#211e2c;--accent:#ffb347;--accent2:#ff7a59;--ok:#5ee08f;--warn:#ff9b7a;--heart:#ff6b8b;--line:#2e2a3c;--shadow:0 10px 30px rgba(0,0,0,.5);--onc:#17151f;color-scheme:dark}
+html[data-theme=light]{--bg:#fff8f0;--card:#fff;--card2:#f1e8dd;--fg:#1d1a26;--muted:#5c5573;--dim:#6f6889;--accent-text:#a85f00;--nav:#fff;--accent:#f08c00;--accent2:#e8590c;--ok:#2b9348;--warn:#c2410c;--heart:#e0245e;--line:#eadfd2;--shadow:0 8px 24px rgba(60,40,20,.15);color-scheme:light}
+@media (prefers-color-scheme:light){html:not([data-theme]){--bg:#fff8f0;--card:#fff;--card2:#f1e8dd;--fg:#1d1a26;--muted:#5c5573;--dim:#6f6889;--accent-text:#a85f00;--nav:#fff;--accent:#f08c00;--accent2:#e8590c;--ok:#2b9348;--warn:#c2410c;--heart:#e0245e;--line:#eadfd2;--shadow:0 8px 24px rgba(60,40,20,.15);color-scheme:light}}
 *{box-sizing:border-box;margin:0;padding:0}
 button{font:inherit;cursor:pointer;color:inherit;background:none;border:0}
 input{font:inherit;color:inherit}
@@ -27,6 +65,7 @@ main{padding:6px 18px calc(130px + env(safe-area-inset-bottom))}
 .chip{background:var(--card);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600}
 .chip.unknown{outline:1px dashed var(--dim);color:var(--muted)}
 .chip b{margin-left:6px;color:var(--dim)}
+.chip.clear{margin-left:auto;background:none;color:var(--muted);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .row{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px -18px;padding:0 18px}
 .row::-webkit-scrollbar{display:none}
 .f{flex:none;background:var(--card);border-radius:12px;padding:9px 14px;font-size:14px;font-weight:600;color:var(--muted)}
@@ -42,36 +81,36 @@ main{padding:6px 18px calc(130px + env(safe-area-inset-bottom))}
 .miss{font-size:13px;color:var(--warn);font-weight:600}
 .bar{height:5px;border-radius:3px;background:var(--card2);overflow:hidden;margin-top:6px}
 .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),#b5f55e)}
-.heart{font-size:22px;color:var(--heart);padding:6px;flex:none}
+.heart{font-size:22px;color:var(--heart);flex:none;min-width:44px;min-height:44px;display:grid;place-items:center}
 .c-poultry{background:#ffb347;color:#17151f}.c-seafood{background:#4cc9f0;color:#17151f}.c-beef{background:#ff5d5d;color:#17151f}.c-pork{background:#ff8fc7;color:#17151f}.c-veg{background:#5ee08f;color:#17151f}
 .empty{color:var(--muted);padding:18px 4px;font-size:15px}
-details.staples{background:var(--card);border-radius:16px;padding:12px 14px;margin:10px 0}
-details.staples summary{cursor:pointer;font-weight:600;font-size:14px;list-style:none}details.staples summary::-webkit-details-marker{display:none}details.staples summary::after{content:' ▾';color:var(--accent)}details.staples[open] summary::after{content:' ▴'}
-.stgrid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.stgrid label{font-size:13px;background:var(--card2);border-radius:10px;padding:6px 10px;cursor:pointer;display:flex;gap:6px;align-items:center}
+details.staples{background:var(--card);border-radius:16px;padding:0 14px;margin:10px 0}
+details.staples summary{cursor:pointer;font-weight:600;font-size:14px;list-style:none;padding:12px 0;min-height:44px}details.staples summary::-webkit-details-marker{display:none}details.staples summary::after{content:' ▾';color:var(--accent-text)}details.staples[open] summary::after{content:' ▴'}
+.stgrid{display:flex;flex-wrap:wrap;gap:6px;padding-bottom:12px}
+.stgrid label{font-size:13px;background:var(--card2);border-radius:10px;padding:9px 12px;cursor:pointer;display:flex;gap:6px;align-items:center}
 .stgrid input{accent-color:var(--ok)}
 /* build */
 .mode{display:flex;gap:8px;margin:6px 0 14px}
 .mo{flex:1;background:var(--card);border-radius:14px;padding:12px 8px;font-weight:700;font-size:14px;color:var(--muted)}
 .mo.on{background:var(--card2);color:var(--fg);outline:2px solid var(--accent)}
-.mo small{display:block;font-weight:600;font-size:11px;color:var(--dim)}
+.mo small{display:block;font-weight:600;font-size:12px;color:var(--dim)}
 .steps{display:flex;gap:6px;margin-bottom:12px}
-.st{flex:1;text-align:center;font-size:12px;padding:7px 0;background:var(--card);border-radius:10px;color:var(--muted);font-weight:700}
+.st{flex:1;text-align:center;font-size:12px;padding:7px 0;min-height:40px;background:var(--card);border-radius:10px;color:var(--muted);font-weight:700}
 .st.on{background:var(--accent);color:var(--onc)}.st.done{color:var(--fg)}
 .ask{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:4px 0 14px;line-height:1.15}
 .cats{display:flex;flex-direction:column;gap:10px}
-.cat{border-radius:22px;padding:16px 18px;text-align:left;display:flex;align-items:center;gap:14px;opacity:.6;transition:transform .15s,opacity .15s}
-.cat.on{opacity:1;transform:scale(1.02);box-shadow:var(--shadow)}
+.cat{border-radius:22px;padding:16px 18px;text-align:left;display:flex;align-items:center;gap:14px;filter:saturate(.45);transition:transform .15s,filter .15s}
+.cat.on{filter:none;transform:scale(1.02);box-shadow:var(--shadow)}
 .ce{font-size:36px}.cat b{font-size:21px;font-weight:800;display:block}.cat small{font-size:13px;font-weight:600;opacity:.75}
 .opts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
 .opt{background:var(--card);border-radius:12px;padding:10px 14px;font-weight:600}
 .opt.on{background:var(--fg);color:var(--bg)}
 .cta{display:block;width:100%;margin-top:16px;padding:15px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#17151f;border-radius:18px;font-weight:800;font-size:17px}
-.cta.ghost{background:var(--card);color:var(--accent)}
+.cta.ghost{background:var(--card);color:var(--accent-text)}
 .cta:disabled{opacity:.4}
 .pick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .pk{background:var(--card);border-radius:18px;padding:14px 12px;text-align:left;display:flex;flex-direction:column;gap:2px;min-height:92px}
-.pk .pe{font-size:30px}.pk b{font-size:16px;font-weight:800}.pk small{font-size:11px;color:var(--dim);line-height:1.25}
+.pk .pe{font-size:30px}.pk b{font-size:16px;font-weight:800}.pk small{font-size:12px;color:var(--dim);line-height:1.25}
 .pk.on{background:var(--card2);outline:2px solid var(--accent)}.pk.off{background:transparent;outline:1px dashed var(--dim)}.pk.off .pe{filter:grayscale(1);opacity:.5}.pk.off b{color:var(--muted)}.pk.off small{color:var(--muted)}
 .built{background:color-mix(in srgb,var(--accent) 16%,var(--card));border-radius:14px;padding:10px 12px;font-size:13px;font-weight:600;margin-bottom:10px}
 .note{background:var(--card);border-radius:16px;padding:14px;color:var(--muted);font-size:14px;margin:10px 0}
@@ -91,14 +130,14 @@ details.staples summary{cursor:pointer;font-weight:600;font-size:14px;list-style
 /* tabs */
 .tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:calc(100% - 24px);max-width:416px;display:flex;background:var(--nav);border-radius:24px;box-shadow:var(--shadow);z-index:5}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;padding:10px 0 12px;color:var(--dim);font-weight:700;position:relative}
-.tab span{font-size:22px}.tab.on{color:var(--accent)}
+.tab span{font-size:22px}.tab.on{color:var(--accent-text)}
 .badge{position:absolute;top:6px;left:calc(50% + 8px);background:var(--heart);color:#fff;border-radius:999px;font-size:10px;min-width:16px;padding:0 4px;line-height:16px}
 /* recipe sheet */
 .sheet{position:fixed;inset:0;overflow:auto;background:var(--bg);transform:translateY(100%);transition:transform .25s ease;z-index:10}
 .sheet.open{transform:none}
 .sh{max-width:440px;margin:0 auto;padding:16px 18px 60px}
 .shbar{display:flex;justify-content:space-between;align-items:center}
-.back{color:var(--accent);font-weight:800;padding:6px 0;font-size:16px}
+.back{color:var(--accent-text);font-weight:800;padding:6px 0;font-size:16px;min-height:44px}
 .hero{height:130px;display:grid;place-items:center;font-size:64px;margin:12px 0;border-radius:26px}
 .sh h2{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
 .serv{display:flex;gap:8px;align-items:center;margin:14px 0;font-weight:600}
@@ -120,14 +159,23 @@ h4{font-size:20px;font-weight:800;margin:20px 0 6px}
 .cook.open{display:flex}
 .cook .cb{max-width:440px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column}
 .cook .prog{display:flex;gap:4px;margin:14px 0}.cook .prog i{flex:1;height:6px;border-radius:3px;background:var(--card2)}.cook .prog i.on{background:var(--accent)}
-.cook .stepn{color:var(--accent);font-weight:800;font-size:15px}
+.cook .shbar{gap:12px}.cook .back{flex:none;white-space:nowrap;padding:0 4px}
+.cook .shbar b{flex:1;min-width:0;text-align:right;font-size:14px;color:var(--muted);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cook .stepn{color:var(--accent-text);font-weight:800;font-size:15px}
 .cook .stept{font-size:27px;font-weight:700;line-height:1.35;flex:1;margin-top:10px;overflow:auto}
 .cook .nav{display:flex;gap:10px}.cook .nav button{flex:1;padding:18px;border-radius:18px;font-size:18px;font-weight:800;background:var(--card)}
+.cook .nav button:disabled{opacity:.35}
 .cook .nav .nx{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#17151f}
 .wake{font-size:12px;color:var(--dim);margin-top:8px;text-align:center}
-.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;font-weight:700;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30}
-.toast.show{opacity:1}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;font-weight:700;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}.toast.act{pointer-events:auto;cursor:pointer}.toast u{margin-left:12px}
 .foot{font-size:12px;color:var(--dim);margin:28px 0 0}
+main>.foot{display:none}.screen[data-s=fridge].on:has(.rc)~.foot{display:block}
+/* keyboard open on a phone: give the screen back to what she's typing */
+@media (pointer:coarse){body:has(input:not([type=checkbox]):focus) .tabs{display:none}}
+/* hide the static shell until the script has restored her tab (no flash of the wrong screen) */
+html:not(.ready) main,html:not(.ready) .tabs,html:not(.ready) .tag{visibility:hidden}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style></head><body>
 <div class="app">
  <header class="top"><span class="logo">🔥</span><h1>What can I make?<span class="tag" id="tagline">Cook with what you've got</span></h1><button class="theme" id="theme" aria-label="Switch light or dark">🌗</button></header>
@@ -157,7 +205,7 @@ h4{font-size:20px;font-weight:800;margin:20px 0 6px}
 </div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="sh" id="sh"></div></div>
 <div class="cook" id="cook" role="dialog" aria-modal="true"><div class="cb" id="cb"></div></div>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status"></div>
 <script id="data" type="application/json">/*DATA*/</script>
 <script>/*BUILDER*/</script>
 <script>
@@ -205,37 +253,73 @@ function canon(word) {
 // ---- state (device only) ----
 const fresh = () => ({ fridge: [], staples: DEFAULT_STAPLES.slice(), quick: false, veg: false, meal: "", favs: [], list: [], theme: "", tab: "fridge", rf: "All" });
 let st = fresh();
-const ls = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }, del(k) { try { localStorage.removeItem(k); } catch (e) {} } };
+const ls = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); return true; } catch (e) { return false; } }, del(k) { try { localStorage.removeItem(k); } catch (e) {} } };
 try {
   const v3 = ls.get(KEY), v2 = ls.get("fridge.v2");
   if (v3) Object.assign(st, JSON.parse(v3));
   else if (v2) { const o = JSON.parse(v2); st.fridge = o.fridge || []; st.staples = o.staples || st.staples; } // carry v2 list over once
 } catch (e) {}
-const save = () => ls.set(KEY, JSON.stringify(st));
+{ // a damaged save must never blank the app
+  const F0 = fresh(), str = a => a.filter(x => typeof x === "string");
+  for (const k of ["fridge", "staples", "favs", "list"]) if (!Array.isArray(st[k])) st[k] = F0[k];
+  st.fridge = str(st.fridge); st.staples = str(st.staples); st.favs = str(st.favs);
+  st.list = st.list.filter(x => x && typeof x.item === "string").map(x => ({ ...x, amt: typeof x.amt === "string" ? x.amt : "", from: Array.isArray(x.from) ? x.from : [], done: !!x.done }));
+  if (!["", "dark", "light"].includes(st.theme)) st.theme = "";
+  if (!["fridge", "build", "recipes", "list"].includes(st.tab)) st.tab = "fridge";
+  if (typeof st.rf !== "string") st.rf = "All";
+}
+let saveWarned = false;
+const save = () => { if (!ls.set(KEY, JSON.stringify(st)) && !saveWarned) { saveWarned = true; toast("Couldn't save on this phone"); } };
 
 const $ = id => document.getElementById(id);
+const PROPER = [[/\bitalian\b/g, "Italian"], [/\bbrussels\b/g, "Brussels"], [/\bSloppy joes\b/g, "Sloppy Joes"]];
+const pretty = t => PROPER.reduce((a, [re, to]) => a.replace(re, to), t); // display only; data keeps its names
+const nb = t => t.replace(/ /g, "\u00a0"); // keep short labels like "American comfort" on one line
 function el(tag, props = {}, ...kids) {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(props)) {
     if (v == null || v === false) continue;
-    if (k === "class") n.className = v; else if (k === "text") n.textContent = v;
+    if (k === "class") n.className = v; else if (k === "text") n.textContent = pretty(String(v));
     else if (k.startsWith("on")) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v);
   }
-  for (const c of kids.flat()) if (c != null && c !== false) n.append(c);
+  for (const c of kids.flat()) if (c != null && c !== false) n.append(typeof c === "string" ? pretty(c) : c);
   return n;
 }
-function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 1600); }
-function haptic() { try { navigator.vibrate && navigator.vibrate(8); } catch (e) {} }
+function toast(m, undo) {
+  const t = $("toast"); t.replaceChildren(m); t.onclick = null; t.classList.toggle("act", !!undo);
+  if (undo) { t.append(el("u", { text: "Undo" })); t.onclick = () => { t.onclick = null; t.classList.remove("show", "act"); undo(); }; }
+  t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show", "act"), undo ? 4000 : 1600);
+}
+// ---- Telegram Mini App (only when launched from Telegram; see the <head> script) ----
+const tg = () => (window.__tgLaunch && window.Telegram && window.Telegram.WebApp) || null;
+const tgAtLeast = v => { const w = tg(); try { return !!w && (!w.isVersionAtLeast || w.isVersionAtLeast(v)); } catch (e) { return false; } };
+const cookOpen = () => $("cook").classList.contains("open");
+function syncBack() { const w = tg(); if (!w || !w.BackButton || !tgAtLeast("6.1")) return; try { if (cur || cookOpen()) w.BackButton.show(); else w.BackButton.hide(); } catch (e) {} }
+function tgBack() { if (cookOpen()) closeCook(); else if (cur) closeRecipe(); }
+function initTg() {
+  const w = tg(); if (!w || initTg.done) return; initTg.done = true;
+  try { w.ready(); w.expand(); } catch (e) {}
+  try { if (w.disableVerticalSwipes && tgAtLeast("7.7")) w.disableVerticalSwipes(); } catch (e) {}
+  try { if (tgAtLeast("6.1")) w.BackButton.onClick(tgBack); } catch (e) {}
+  try { w.onEvent("themeChanged", applyTheme); } catch (e) {}
+  applyTheme(); syncBack();
+}
+function haptic() { try { const w = tg(); if (w && w.HapticFeedback && tgAtLeast("6.1")) w.HapticFeedback.impactOccurred("light"); else if (navigator.vibrate) navigator.vibrate(8); } catch (e) {} }
+// The URL hash holds a recipe id for links, but inside Telegram it starts out holding Telegram's launch params.
+const hashId = () => { const h = location.hash.slice(1); return !h || /(^|&)tgWebApp/.test(h) ? "" : h; };
 
 // ---- theme ----
 function applyTheme() {
   const h = document.documentElement;
-  if (st.theme) h.setAttribute("data-theme", st.theme); else h.removeAttribute("data-theme");
-  const dark = st.theme ? st.theme === "dark" : !matchMedia("(prefers-color-scheme: light)").matches;
-  document.querySelector('meta[name=theme-color]').setAttribute("content", dark ? "#17151f" : "#fff8f0");
+  const w = tg(), auto = w && ["dark", "light"].includes(w.colorScheme) ? w.colorScheme : (window.__tgScheme || ""); // in Telegram, follow Telegram
+  const mode = st.theme || auto;
+  if (mode) h.setAttribute("data-theme", mode); else h.removeAttribute("data-theme");
+  const dark = mode ? mode === "dark" : !matchMedia("(prefers-color-scheme: light)").matches, c = dark ? "#17151f" : "#fff8f0";
+  document.querySelector('meta[name=theme-color]').setAttribute("content", c);
+  if (w) try { if (tgAtLeast("6.1")) { w.setHeaderColor(c); w.setBackgroundColor(c); } if (w.setBottomBarColor && tgAtLeast("7.10")) w.setBottomBarColor(c); } catch (e) {}
   $("theme").textContent = st.theme === "dark" ? "🌙" : st.theme === "light" ? "☀️" : "🌗";
 }
-$("theme").onclick = () => { st.theme = st.theme === "" ? "dark" : st.theme === "dark" ? "light" : ""; save(); applyTheme(); toast(st.theme ? (st.theme === "dark" ? "Dark mode" : "Light mode") : "Matches your phone"); };
+$("theme").onclick = () => { st.theme = st.theme === "" ? "dark" : st.theme === "dark" ? "light" : ""; save(); applyTheme(); toast(st.theme ? (st.theme === "dark" ? "Dark mode" : "Light mode") : tg() ? "Matches Telegram" : "Matches your phone"); };
 
 // ---- matching ----
 const PROTEIN = new Set(["meat", "fish", "protein"]);
@@ -264,7 +348,7 @@ function card(s, opts = {}) {
     el("div", { class: "ic c-" + r._cat, text: r._e }),
     el("div", { class: "rb" },
       el("h3", { text: r.name }),
-      el("div", { class: "meta", text: `${r.minutes} min · serves ${r.serves} · ${r.cuisine}` }),
+      el("div", { class: "meta", text: `${r.minutes} min · serves ${r.serves} · ${nb(r.cuisine)}` }),
       opts.extra || null,
       s.miss ? (s.miss.length ? el("div", { class: "miss", text: "Missing: " + s.miss.join(", ") }) : null) : null,
       s.frac != null ? el("div", { class: "bar" }, el("i", { style: `width:${Math.round(s.frac * 100)}%` })) : null),
@@ -276,7 +360,7 @@ let fshown = 20;
 function renderFridge() {
   const chips = $("chips"); chips.replaceChildren();
   for (const x of st.fridge) chips.append(el("button", { class: "chip" + (VOCAB[x] ? "" : " unknown"), title: "Remove", onclick: () => { st.fridge = st.fridge.filter(y => y !== x); save(); renderAll(); } }, x, el("b", { text: "×" })));
-  if (st.fridge.length) chips.append(el("button", { class: "chip", style: "color:var(--muted)", onclick: () => { st.fridge = []; save(); renderAll(); } }, "Clear all"));
+  if (st.fridge.length) chips.append(el("button", { class: "chip clear", onclick: () => { const prev = st.fridge.slice(); st.fridge = []; save(); renderAll(); toast("Fridge cleared", () => { st.fridge = prev; save(); renderAll(); }); } }, "Clear all"));
   $("stCount").textContent = st.staples.length;
   const f = $("ffilters"); f.replaceChildren();
   const tog = (label, on, fn) => el("button", { class: "f" + (on ? " on" : ""), "aria-pressed": String(on), onclick: () => { fn(); save(); renderFridge(); } }, label);
@@ -374,11 +458,13 @@ function buildMatches() {
 }
 
 // ---- RECIPES tab ----
-let rshown = 30;
+let rshown = 30, rtag = "";
 function renderRecipes() {
   const f = $("rfilters"); f.replaceChildren();
   for (const k of ["All", "♥ Saved", "Quick", "Veggie", ...MEALS.map(m => m[0].toUpperCase() + m.slice(1)), ...Object.keys(CUISINE_GROUPS), ...Object.values(CATS).filter(c => c.label !== "Vegetarian").map(c => c.label)])
     f.append(el("button", { class: "f" + (st.rf === k ? " on" : ""), onclick: () => { st.rf = k; rshown = 30; save(); renderRecipes(); } }, k));
+  const on = f.querySelector(".on"); // a filter restored from last time must be visible, not scrolled off-screen
+  if (on) { const a = f.getBoundingClientRect(), c = on.getBoundingClientRect(); if (c.width && (c.left < a.left || c.right > a.right)) f.scrollLeft += c.left - a.left - (a.width - c.width) / 2; }
   const q = $("q").value.trim().toLowerCase(), k = st.rf;
   let list = RECIPES.filter(r => {
     if (q && !(r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q) || r.ingredients.some(i => i.item.includes(q)))) return false;
@@ -388,9 +474,15 @@ function renderRecipes() {
     const c = Object.entries(CATS).find(([, v]) => v.label === k); return c ? r._cat === c[0] : true;
   });
   if (k === "♥ Saved") list = [...list, ...st.favs.filter(id => !BYID[id]).map(getRecipe).filter(Boolean).filter(r => !q || r.name.toLowerCase().includes(q))];
+  rtag = k === "All" && !q ? `${RECIPES.length} recipes` : `${list.length} of ${RECIPES.length} recipes`;
+  if (st.tab === "recipes") $("tagline").textContent = rtag;
   const out = $("rout"); out.replaceChildren();
-  if (!list.length) { out.append(el("p", { class: "empty", style: "grid-column:span 2", text: k === "♥ Saved" ? "Nothing saved yet. Tap ♡ on any recipe." : "No recipes match." })); return; }
-  for (const r of list.slice(0, rshown)) out.append(el("button", { class: `tile c-${r._cat}`, "data-id": r.id, onclick: () => openRecipe(r.id) }, isFav(r.id) ? el("span", { class: "th", text: "♥" }) : null, el("span", { class: "te", text: r._e }), el("b", { text: r.name }), el("small", { text: `${r.minutes} min · ${r.cuisine}` })));
+  if (!list.length) {
+    out.append(q ? el("button", { class: "empty", style: "grid-column:span 2;text-align:left", onclick: () => { $("q").value = ""; rshown = 30; renderRecipes(); } }, `No recipes match “${$("q").value.trim()}”. `, el("u", { text: "Clear search" }))
+      : el("p", { class: "empty", style: "grid-column:span 2", text: k === "♥ Saved" ? "Nothing saved yet. Tap ♡ on any recipe." : "No recipes match." }));
+    return;
+  }
+  for (const r of list.slice(0, rshown)) out.append(el("button", { class: `tile c-${r._cat}`, "data-id": r.id, onclick: () => openRecipe(r.id) }, isFav(r.id) ? el("span", { class: "th", text: "♥" }) : null, el("span", { class: "te", text: r._e }), el("b", { text: r.name }), el("small", { text: `${r.minutes} min · ${nb(r.cuisine)}` })));
   if (list.length > rshown) out.append(el("button", { class: "cta ghost", style: "grid-column:span 2", onclick: () => { rshown += 30; renderRecipes(); } }, `Show more (${list.length - rshown})`));
 }
 $("q").addEventListener("input", () => { rshown = 30; renderRecipes(); });
@@ -403,7 +495,8 @@ function addToList(items, from) {
 }
 function renderList() {
   const out = $("lout"); out.replaceChildren();
-  out.append(el("h2", { class: "sec" }, "Shopping list", el("span", { class: "n", text: st.list.filter(x => !x.done).length })));
+  const cnt = el("span", { class: "n", text: st.list.filter(x => !x.done).length });
+  out.append(el("h2", { class: "sec" }, "Shopping list", cnt));
   const li = el("input", { id: "listIn", placeholder: "Add an item, e.g. milk", autocomplete: "off", enterkeyhint: "done" });
   const addOwn = () => { const items = li.value.split(/[,\n;]+/).map(x => x.trim()).filter(Boolean).map(x => ({ item: x, amt: "" })); if (!items.length) { li.focus(); return; } addToList(items, "you"); setTimeout(() => { const n = $("listIn"); if (n) n.focus(); }, 0); };
   li.addEventListener("keydown", e => { if (e.key === "Enter") addOwn(); });
@@ -412,11 +505,12 @@ function renderList() {
   const box = el("div", { class: "shop" });
   for (const x of [...st.list].sort((a, c) => a.done - c.done)) {
     const cb = el("input", { type: "checkbox" }); cb.checked = x.done;
-    cb.addEventListener("change", () => { x.done = cb.checked; save(); renderAll(); });
-    box.append(el("label", { class: x.done ? "done" : "" }, cb, el("span", { class: "it" }, x.item + (x.amt ? ` — ${x.amt}` : ""), el("small", { text: x.from.map(f => f === "you" ? "added by you" : "for " + f).join(" · ") }))));
+    const lab = el("label", { class: x.done ? "done" : "" });
+    cb.addEventListener("change", () => { x.done = cb.checked; save(); lab.classList.toggle("done", x.done); cnt.textContent = st.list.filter(y => !y.done).length; renderTabs(); });
+    box.append(lab); lab.append(cb, el("span", { class: "it" }, x.item + (x.amt ? ` — ${x.amt}` : ""), el("small", { text: x.from.map(f => f === "you" ? "added by you" : "for " + f).join(" · ") })));
   }
   out.append(box, el("div", { class: "btns" },
-    el("button", { class: "cta ghost", onclick: () => copy("Shopping list:\n" + st.list.filter(x => !x.done).map(x => "- " + x.item + (x.amt ? ` (${x.amt})` : "")).join("\n")) }, "Copy list"),
+    el("button", { class: "cta ghost", onclick: () => copy("Shopping list:\n" + st.list.filter(x => !x.done).map(x => "- " + pretty(x.item) + (x.amt ? ` (${x.amt})` : "")).join("\n")) }, "Copy list"),
     el("button", { class: "cta ghost", onclick: () => { const n = st.list.filter(x => x.done).length; st.list = st.list.filter(x => !x.done); save(); renderAll(); toast(n ? `Cleared ${n}` : "Nothing checked"); } }, "Clear checked")));
 }
 async function copy(text) {
@@ -437,14 +531,19 @@ const PLURAL = { cup: "cups", clove: "cloves", can: "cans", slice: "slices", pie
 function amount(ing, f) { if (ing.qty == null) return ""; const q = ing.qty * f, u = ing.unit || ""; return (fmtQty(q) + " " + (q > 1 && PLURAL[u] ? PLURAL[u] : u)).trim(); }
 
 // ---- recipe sheet ----
-let cur = null, servings = null;
+let cur = null, servings = null, pushed = false;
 function openRecipe(id, push = true) {
   const r = getRecipe(id); if (!r) return;
   cur = r; servings = r.serves;
   if (push) history.pushState({ r: id }, "", "#" + id);
-  drawRecipe(); $("sheet").classList.add("open"); $("sheet").scrollTop = 0; document.body.style.overflow = "hidden";
+  pushed = push || !!(history.state && history.state.r === id); // false for a shared link opened directly
+  drawRecipe(); $("sheet").classList.add("open"); $("sheet").scrollTop = 0; document.body.style.overflow = "hidden"; syncBack();
 }
-function closeRecipe(pop = true) { $("sheet").classList.remove("open"); document.body.style.overflow = ""; cur = null; if (pop && location.hash) history.back(); }
+function closeRecipe(pop = true) {
+  $("sheet").classList.remove("open"); document.body.style.overflow = ""; cur = null;
+  if (pop && hashId()) { if (pushed) history.back(); else history.replaceState(null, "", location.pathname + location.search); } // Back stays in the app
+  pushed = false; syncBack();
+}
 function drawRecipe() {
   const r = cur, have = owned(), f = servings / r.serves, s = score(r, have), sh = $("sh"); sh.replaceChildren();
   sh.append(el("div", { class: "shbar" }, el("button", { class: "back", onclick: () => closeRecipe() }, "← Back"),
@@ -473,6 +572,7 @@ function drawRecipe() {
   sh.append(el("h4", { text: "Steps" }));
   const ol = el("ol", { class: "sp" }); for (const step of r.steps) ol.append(el("li", { text: step })); sh.append(ol);
   sh.append(el("button", { class: "cta", onclick: () => openCook(0) }, "👩‍🍳 Start cook mode"));
+  sh.append(el("p", { class: "foot", text: document.querySelector("main > .foot").textContent }));
   if (r.built) {
     sh.append(el("button", { class: "cta ghost", onclick: () => { const sl = r.sel; Object.assign(b, { mode: "build", step: 3, item: sl.protein, cat: Object.keys(CATS).find(k => CATS[k].items.includes(sl.protein)) || b.cat, veg: [...sl.veggies], style: sl.style, flavor: sl.flavor }); st.tab = "build"; save(); closeRecipe(); renderAll(); } }, "↺ Change my picks"));
     const sim = similarTested(r);
@@ -483,8 +583,8 @@ function drawRecipe() {
 // ---- cook mode ----
 let cookIdx = 0, wake = null;
 async function keepAwake() { try { if ("wakeLock" in navigator) { wake = await navigator.wakeLock.request("screen"); } } catch (e) { wake = null; } drawCook(); }
-function openCook(i) { cookIdx = i; $("cook").classList.add("open"); keepAwake(); drawCook(); }
-function closeCook() { $("cook").classList.remove("open"); try { wake && wake.release(); } catch (e) {} wake = null; }
+function openCook(i) { cookIdx = i; $("cook").classList.add("open"); keepAwake(); drawCook(); syncBack(); }
+function closeCook() { $("cook").classList.remove("open"); try { wake && wake.release(); } catch (e) {} wake = null; syncBack(); }
 function drawCook() {
   if (!cur || !$("cook").classList.contains("open")) return;
   const r = cur, n = r.steps.length, cb = $("cb"); cb.replaceChildren();
@@ -499,7 +599,7 @@ function drawCook() {
 }
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && $("cook").classList.contains("open") && !wake) keepAwake(); });
 
-window.addEventListener("popstate", () => { const id = location.hash.slice(1); if (id && getRecipe(id)) openRecipe(id, false); else { if ($("cook").classList.contains("open")) closeCook(); if (cur) closeRecipe(false); } });
+window.addEventListener("popstate", () => { const id = hashId(); if (id && getRecipe(id)) openRecipe(id, false); else { if ($("cook").classList.contains("open")) closeCook(); if (cur) closeRecipe(false); } });
 document.addEventListener("keydown", e => { if (e.key === "Escape") { if ($("cook").classList.contains("open")) closeCook(); else if (cur) closeRecipe(); } });
 
 // ---- tabs ----
@@ -509,7 +609,7 @@ function renderTabs() {
   const open = st.list.filter(x => !x.done).length;
   for (const [k, e, l] of TABS) t.append(el("button", { class: "tab" + (st.tab === k ? " on" : ""), "data-t": k, onclick: () => { st.tab = k; save(); renderAll(); scrollTo(0, 0); } }, el("span", { text: e }), l, k === "list" && open ? el("i", { class: "badge", text: open }) : null));
   document.querySelectorAll(".screen").forEach(s => s.classList.toggle("on", s.dataset.s === st.tab));
-  $("tagline").textContent = { fridge: "Cook with what you've got", build: "Build your meal", recipes: `${RECIPES.length} recipes`, list: "Your shopping list" }[st.tab];
+  $("tagline").textContent = { fridge: "Cook with what you've got", build: "Build your meal", recipes: rtag || `${RECIPES.length} recipes`, list: "Your shopping list" }[st.tab];
 }
 function renderAll() { renderTabs(); renderFridge(); renderBuild(); renderRecipes(); renderList(); }
 
@@ -519,7 +619,9 @@ $("add").onclick = () => { addFridge(inp.value); inp.value = ""; inp.focus(); };
 matchMedia("(prefers-color-scheme: light)").addEventListener("change", applyTheme);
 
 applyTheme(); renderStaples(); renderAll(); save();
-const startId = location.hash.slice(1); if (getRecipe(startId)) openRecipe(startId, false);
+const startId = hashId(); if (startId && getRecipe(startId)) openRecipe(startId, false);
+document.documentElement.classList.add("ready");
+window.__tgInit = initTg; if (window.__tgLoaded) initTg();
 
 window.__fridge = { add: addFridge, results: () => fridgeResults().map(s => ({ id: s.r.id, miss: s.miss })), state: () => JSON.parse(JSON.stringify(st)),
   reset: () => { ls.del(KEY); st = fresh(); b = freshB(); applyTheme(); renderStaples(); renderAll(); },
